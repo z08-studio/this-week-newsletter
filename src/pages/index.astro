@@ -1,0 +1,89 @@
+---
+import NewsletterCard from '../components/NewsletterCard.astro';
+import { newsletters } from '../data/newsletters';
+import { site } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const owned = newsletters.filter((newsletter) => newsletter.owned);
+const collected = newsletters.filter((newsletter) => !newsletter.owned);
+---
+
+<BaseLayout>
+  <main id="main">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">A directory by z08 Studio</p>
+      <h1 id="page-title">找到值得每周打开的周刊。</h1>
+      <p>从 AI、知识管理到开发与科技，发现你感兴趣的内容，前往原站阅读与订阅。</p>
+    </section>
+
+    <div id="directory" class="directory">
+      <div class="search-field">
+        <label for="newsletter-search">搜索周刊</label>
+        <input id="newsletter-search" type="search" placeholder="搜索名称、主题或语言" autocomplete="off" />
+        <p id="search-count" class="search-count" role="status">共收录 {newsletters.length} 个周刊</p>
+      </div>
+
+      <section class="newsletter-section" data-newsletter-section aria-labelledby="owned-heading">
+        <div class="section-heading">
+          <h2 id="owned-heading">我们维护的周刊</h2>
+          <p>z08 Studio 持续关注的两个方向。</p>
+        </div>
+        <ul class="newsletter-grid">
+          {owned.map((newsletter) => <NewsletterCard newsletter={newsletter} />)}
+        </ul>
+      </section>
+
+      <section class="newsletter-section" data-newsletter-section aria-labelledby="collected-heading">
+        <div class="section-heading">
+          <h2 id="collected-heading">发现更多周刊</h2>
+          <p>收集值得阅读的声音，列表持续扩充。</p>
+        </div>
+        <ul class="newsletter-grid">
+          {collected.map((newsletter) => <NewsletterCard newsletter={newsletter} />)}
+        </ul>
+      </section>
+
+      <p id="empty-state" class="empty-state" hidden>没有找到匹配的周刊，试试其他关键词。</p>
+    </div>
+
+    <section id="recommend" class="recommend" aria-labelledby="recommend-heading">
+      <h2 id="recommend-heading">你也有值得推荐的周刊？</h2>
+      <p>我们会持续收录更多优质周刊，每一条推荐都由我们手动审核。</p>
+      {site.submissionFormUrl ? (
+        <a class="button" href={site.submissionFormUrl} target="_blank" rel="noopener noreferrer">提交推荐 ↗</a>
+      ) : (
+        <p class="form-notice">推荐入口即将开放。</p>
+      )}
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const search = document.querySelector<HTMLInputElement>('#newsletter-search');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-newsletter]'));
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-newsletter-section]'));
+  const count = document.querySelector<HTMLElement>('#search-count');
+  const emptyState = document.querySelector<HTMLElement>('#empty-state');
+
+  function filterNewsletters() {
+    const query = search?.value.trim().toLowerCase() ?? '';
+    let visibleCount = 0;
+
+    for (const card of cards) {
+      const matches = (card.dataset.search ?? '').includes(query);
+      card.hidden = !matches;
+      if (matches) visibleCount += 1;
+    }
+
+    for (const section of sections) {
+      section.hidden = !section.querySelector('[data-newsletter]:not([hidden])');
+    }
+
+    if (count) count.textContent = query ? `找到 ${visibleCount} 个周刊` : `共收录 ${cards.length} 个周刊`;
+    if (emptyState) emptyState.hidden = visibleCount > 0;
+  }
+
+  search?.addEventListener('input', filterNewsletters);
+  window.addEventListener('pageshow', filterNewsletters);
+  filterNewsletters();
+</script>

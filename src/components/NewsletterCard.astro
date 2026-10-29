@@ -1,0 +1,25 @@
+---
+import type { Newsletter } from '../data/newsletters';
+
+interface Props {
+  newsletter: Newsletter;
+}
+
+const { newsletter } = Astro.props;
+const searchText = [newsletter.name, newsletter.description, newsletter.language, ...newsletter.topics].join(' ').toLowerCase();
+---
+
+<li class="newsletter-card" data-newsletter data-search={searchText}>
+  <div class="card-meta">
+    <span>{newsletter.language}</span>
+    <span>{newsletter.topics.join(' / ')}</span>
+  </div>
+  <h3>
+    <a href={newsletter.url} target="_blank" rel="noopener noreferrer">
+      {newsletter.name}<span aria-hidden="true"> ↗</span>
+      <span class="sr-only">（在新标签页打开）</span>
+    </a>
+  </h3>
+  <p>{newsletter.description}</p>
+  <span class="card-domain">{new URL(newsletter.url).hostname}</span>
+</li>

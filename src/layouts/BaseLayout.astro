@@ -1,0 +1,47 @@
+---
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = `${site.name} · 发现值得每周阅读的周刊`, description = site.description } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳转到内容</a>
+    <div class="container">
+      <header class="site-header">
+        <a class="wordmark" href="/">{site.name}</a>
+        <nav aria-label="主导航">
+          <a href="/#directory">发现周刊</a>
+          <a href="/#recommend">推荐周刊</a>
+        </nav>
+      </header>
+      <slot />
+      <footer class="site-footer">
+        <span>© {new Date().getUTCFullYear()} z08 Studio</span>
+        <span>每周，发现值得阅读的内容。</span>
+      </footer>
+    </div>
+  </body>
+</html>
