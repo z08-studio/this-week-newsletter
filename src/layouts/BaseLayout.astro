@@ -1,23 +1,19 @@
 ---
 import { site } from '../data/site';
+import SubmissionLink from '../components/SubmissionLink.astro';
 import '../styles/global.css';
-
-interface Props {
-  title?: string;
-  description?: string;
-}
-
-const { title = `${site.name} · 发现值得每周阅读的周刊`, description = site.description } = Astro.props;
+interface Props { title?: string; description?: string }
+const { title = `${site.name} — Find your next weekly read`, description = site.description } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
-
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#faf8f3" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
@@ -28,20 +24,37 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
   </head>
   <body>
-    <a class="skip-link" href="#main">跳转到内容</a>
-    <div class="container">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site-shell">
       <header class="site-header">
-        <a class="wordmark" href="/">{site.name}</a>
-        <nav aria-label="主导航">
-          <a href="/#directory">发现周刊</a>
-          <a href="/#recommend">推荐周刊</a>
-        </nav>
+        <a class="wordmark" href="/" aria-label="This Week In Newsletters home">
+          <img src="/brand-mark.svg" width="48" height="48" alt="" />
+          <span class="wordmark-copy">This Week In<strong>Newsletters</strong></span>
+        </a>
+        <p class="site-tagline">{site.tagline}</p>
+        <SubmissionLink />
       </header>
       <slot />
       <footer class="site-footer">
-        <span>© {new Date().getUTCFullYear()} z08 Studio</span>
-        <span>每周，发现值得阅读的内容。</span>
+        <p>Handpicked by <a href="https://github.com/z08-studio" target="_blank" rel="noopener noreferrer">z08 Studio</a><span class="footer-dot" aria-hidden="true">·</span><span>A growing collection. A weekly habit.</span></p>
+        <SubmissionLink subtle />
       </footer>
     </div>
+    {!site.submissionFormUrl && (
+      <dialog id="submission-dialog" class="submission-dialog" aria-labelledby="submission-title">
+        <div class="submission-dialog-content">
+          <form method="dialog"><button class="dialog-close" aria-label="Close submission information">×</button></form>
+          <img src="/brand-mark.svg" width="48" height="48" alt="" />
+          <h2 id="submission-title">A good read deserves company.</h2>
+          <p>Our suggestion form is opening soon. We’re making a little room for more great newsletters.</p>
+          <form method="dialog"><button class="submit-button">Back to the calendar <span aria-hidden="true">↗</span></button></form>
+        </div>
+      </dialog>
+    )}
   </body>
 </html>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('#submission-dialog');
+  document.querySelectorAll<HTMLButtonElement>('[data-open-submit]').forEach((button) => button.addEventListener('click', () => dialog?.showModal()));
+  dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+</script>

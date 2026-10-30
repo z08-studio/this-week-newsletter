@@ -1,25 +1,25 @@
 ---
 import type { Newsletter } from '../data/newsletters';
-
-interface Props {
-  newsletter: Newsletter;
-}
-
+interface Props { newsletter: Newsletter }
 const { newsletter } = Astro.props;
 const searchText = [newsletter.name, newsletter.description, newsletter.language, ...newsletter.topics].join(' ').toLowerCase();
 ---
 
-<li class="newsletter-card" data-newsletter data-search={searchText}>
-  <div class="card-meta">
-    <span>{newsletter.language}</span>
-    <span>{newsletter.topics.join(' / ')}</span>
-  </div>
-  <h3>
-    <a href={newsletter.url} target="_blank" rel="noopener noreferrer">
-      {newsletter.name}<span aria-hidden="true"> ↗</span>
-      <span class="sr-only">（在新标签页打开）</span>
-    </a>
-  </h3>
-  <p>{newsletter.description}</p>
-  <span class="card-domain">{new URL(newsletter.url).hostname}</span>
+<li class:list={['newsletter-card', { 'newsletter-card--studio': newsletter.owned }]} data-newsletter data-search={searchText}>
+  <a class="card-link" href={newsletter.url} target="_blank" rel="noopener noreferrer" aria-label={`${newsletter.name} — opens in a new tab`}>
+    <div class="card-top">
+      {newsletter.icon ? (
+        <img class="newsletter-icon" src={newsletter.icon} width="38" height="38" alt="" loading="eager" decoding="async" />
+      ) : (
+        <span class:list={['newsletter-icon', 'newsletter-monogram', `accent-${newsletter.accent}`]} aria-hidden="true">{newsletter.monogram}</span>
+      )}
+      <svg class="card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg>
+    </div>
+    <h3 lang={newsletter.language === '中文' ? 'zh-CN' : 'en'}>{newsletter.name}</h3>
+    <p>{newsletter.description}</p>
+    <div class="card-meta">
+      <span class:list={['card-origin', { 'card-origin--studio': newsletter.owned }]}>{newsletter.owned ? 'By us' : 'Collected'}</span>
+      <span>{newsletter.language}</span>
+    </div>
+  </a>
 </li>

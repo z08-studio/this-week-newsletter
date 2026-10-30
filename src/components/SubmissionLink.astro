@@ -1,0 +1,15 @@
+---
+import { site } from '../data/site';
+interface Props { subtle?: boolean }
+const { subtle = false } = Astro.props;
+const className = subtle ? 'footer-submit' : 'submit-button';
+---
+{site.submissionFormUrl ? (
+  <a class={className} href={site.submissionFormUrl} target="_blank" rel="noopener noreferrer">
+    {subtle ? 'Suggest a newsletter' : 'Add to this site'}<span aria-hidden="true">↗</span>
+  </a>
+) : (
+  <button class={className} type="button" data-open-submit>
+    {subtle ? 'Suggest a newsletter' : 'Add to this site'}<span aria-hidden="true">↗</span>
+  </button>
+)}

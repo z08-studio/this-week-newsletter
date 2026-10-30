@@ -1,6 +1,6 @@
 export const site = {
-  name: 'This Week Newsletter',
-  description: '发现值得每周阅读的周刊，探索 AI、Obsidian、科技与开发领域的精选内容。',
-  // Set this to the public Google Form URL when submissions are ready.
-  submissionFormUrl: null as string | null,
+  name: 'This Week In Newsletters',
+  tagline: 'Make good weekly reading easier to find.',
+  description: 'Find your next weekly read. A handpicked calendar of newsletters on AI, technology, knowledge, and the things worth keeping up with.',
+  submissionFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScNKI_gcJOtPcRBZZ4xB-IUREZraY1j6dz1tQyKn3MOBTl4Ag/viewform' as string | null,
 };
