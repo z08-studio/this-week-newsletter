@@ -1,18 +1,19 @@
 # Shared Substack header
 
-The shared header represents This Week In Newsletters and its four publications: Obsidian, AI, HN and Crypto. It is used by the account profile and all four newsletter website headers.
+The active header contains four equally sized publication groups: Obsidian, AI, HN and Crypto. The separate family-title block is omitted so the publication logos and names have more room.
 
-- `series-header-before-crypto.png`: the previous three-publication image, retained for rollback.
-- `series-header-master.png`: native imagegen output created on 2026-10-30, using the previous header and the approved Crypto C as references.
-- `series-header.png`: the final header cropped in Substack's image editor, downloaded after saving and reused across the five destinations.
+## Files
 
-The website editor is the authority for each saved placement. Check the profile and all four public sites after replacing the header; all four publication names and marks must remain visible.
+- `series-header.png`: final 2041 × 400 upload, cropped in Substack's image editor and downloaded after saving.
+- `series-header-master.png`: native imagegen output for the four-publication design, created on 2026-10-30.
+- `series-header-with-family-title.png`: previous five-group layout, retained for rollback.
+- `series-header-before-crypto.png`: earlier three-publication layout.
 
-## Uploads and dimensions
+Upload the final image rather than the padded native master. The account editor enforces a maximum aspect ratio of 21:4; the final dimensions leave margin for integer rounding.
 
-Upload `series-header.png` (2032 × 400), not the padded imagegen master. The account editor enforces a maximum aspect ratio of 21:4; the final image leaves enough margin to avoid a one-pixel rounding failure. Cropping was performed in Substack's image editor.
+## Saved placements
 
-The same final image is used in these locations:
+The same final image is used in these five locations:
 
 - [Account profile branding](https://substack.com/profile/edit): Header image.
 - [Obsidian website editor](https://thisweekinobsidian.substack.com/publish/website-editor/home): Header → Wordmark.
@@ -20,24 +21,22 @@ The same final image is used in these locations:
 - [HN website editor](https://thisweekinhn.substack.com/publish/website-editor/home): Header → Wordmark.
 - [Crypto website editor](https://thatweekincrypto.substack.com/publish/website-editor/home): Header → Wordmark.
 
-Keep the individual publication logos separate from the shared wordmark. Website headers use the existing size setting of 67 for consistent presentation. Save each website editor and verify the live header after navigation.
+The four website headers use Size **84**, increased from 67 alongside the simpler layout. Individual publication logos remain separate from the shared wordmark. Save each website editor, reopen its public page and confirm all four names and marks remain visible.
 
 ## Generation prompt
 
-Generated with the built-in imagegen tool. The exact prompt follows.
+Generated with the built-in imagegen tool using the previous shared header as the edit target. The exact prompt follows.
 
 ```text
-Use case: compositing / logo-brand.
-Asset type: the final ultra-wide shared Substack header banner for the account "This Week In Newsletters" and its four newsletter websites.
-Primary request: edit the existing three-newsletter banner to include This Week in Crypto. Produce a clean finished flat banner, NOT a screenshot or mockup. Preserve its established visual identity.
-Input image 1 is the existing 2100 x 400 shared header: use it as the design and identity reference. Input image 2 is the exact approved emerald folded C logo to insert for Crypto.
-Canvas: ultra-wide 5.25:1 horizontal aspect ratio, ideally 2100 x 400 pixels. Rebalance the existing layout to fit FIVE horizontal groups in ONE row: the family title, then Obsidian, AI, HN, Crypto. Do not omit or crop any group. Keep all meaningful artwork inside the canvas with comfortable outer margins.
-Group 1: the exact dark-evergreen family name on two lines, "This Week In" then "Newsletters", with the existing small burgundy underline.
-Group 2: preserve the purple faceted round TWO logo and label on two lines, "This Week" then "in Obsidian".
-Group 3: preserve the cobalt blue folded A logo and label on two lines, "This Week" then "in AI".
-Group 4: preserve the orange folded H logo and label on two lines, "This Week" then "in HN".
-Group 5: use the exact emerald folded C silhouette, shading and proportions from input image 2, with label on two lines, "This Week" then "in Crypto".
-Style: match input image 1 closely: warm ivory background, soft restrained translucent pastel organic shapes behind each newsletter group, fine pale sage vertical separators, bold clean dark-evergreen humanist sans-serif lettering, balanced spacing, consistent logo scale. Add a subtle light mint shape behind Crypto. Keep all logos sharp and recognizable at small header size.
-Invariants: retain all three original publication identities; do not replace the TWO emblem, do not distort or add letters inside A, H or C. Spell every word exactly. The new banner must visibly include all FOUR publication names and all FOUR marks, alongside the family title.
-Avoid: new slogans, weekday labels, currency symbols, coins, price charts, borders, UI controls, watermarks, extra lettering, extra panels, repeated logos, unrelated decoration. One finished ultra-wide banner.
+Use case: compositing / precise-object-edit / logo-brand.
+Edit target: the supplied shared newsletter header. The user wants the left family-title block removed so each of the four newsletter identities can be larger.
+Primary request: remove the entire leftmost "This Week In Newsletters" title group, its burgundy underline, and the separator immediately after it. Redistribute the remaining FOUR newsletter groups across the full banner in one equal-width row. Enlarge each logo and its publication label by approximately 25 percent compared with the supplied reference. Preserve the four existing approved identities and the refined banner style.
+Final composition: exactly four equally sized horizontal groups, in this order from left to right:
+1. Purple faceted round TWO emblem + the exact label "This Week" on the first line and "in Obsidian" on the second.
+2. Cobalt folded A emblem + "This Week" / "in AI".
+3. Orange folded H emblem + "This Week" / "in HN".
+4. Emerald folded C emblem + "This Week" / "in Crypto".
+Keep the logo to the left of its two-line label in each group. Use consistent logo height, bold clean dark-evergreen sans-serif type, balanced spacing, and ONLY three fine pale-sage separators between the four groups. Keep the warm ivory backdrop and subtle pastel purple, blue, peach and mint shapes from the reference. Match the logo silhouettes, folds, colors and TWO lettering exactly.
+Asset: one finished flat ultra-wide Substack header, intended final size about 2032 x 400 pixels. All four groups must be completely inside the frame and legible, with modest outer margins. Keep the enlarged useful artwork within a single central horizontal band so the image can be cropped to a header without losing any logo or label.
+Invariants: all FOUR publication logos and names remain; no family title block anywhere. Keep the same four publication names and order. No slogan, underline, weekdays, chart, coin, currency symbol, extra panel, duplicate logo, UI controls, watermark or mockup. Correct spelling is essential. Make the four newsletter identities the entire focus of the banner.
 ```
