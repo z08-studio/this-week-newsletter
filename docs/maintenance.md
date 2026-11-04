@@ -29,6 +29,10 @@ Review responses in Google Forms, verify the publication and schedule, then add 
 - `public/newsletters/` contains optimized copies of the studio publications' existing avatars. Preserve each publication's own identity.
 - Colors and responsive layouts live in `src/styles/global.css`; presentation components are in `src/components/`.
 
+## Design review
+
+Five interactive alternatives are available at `/designs/`. See [design directions](design-directions.md) for their routes, shared content and styling boundaries. The preview interaction code shared by the homepage and concepts lives in `src/scripts/newsletterPreview.ts`.
+
 ## Validation and delivery
 
 Run `npm run check` and `npm run build` after editing. Preview hover, keyboard activation, Escape dismissal, touch toggles, independent weekday scrolling, fixed headings, seven-column ordering, mobile overflow and public form links in a browser. Browser screenshots and temporary verification records belong in ignored `output/`.

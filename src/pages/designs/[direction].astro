@@ -1,0 +1,14 @@
+---
+import { designDirections, type DesignDirection } from '../../data/designDirections';
+import DesignLayout from '../../layouts/DesignLayout.astro';
+import DesignCalendar from '../../components/DesignCalendar.astro';
+export function getStaticPaths() {
+  return designDirections.map((direction) => ({ params: { direction: direction.id }, props: { direction } }));
+}
+interface Props { direction: DesignDirection }
+const { direction } = Astro.props;
+---
+
+<DesignLayout direction={direction}>
+  <DesignCalendar direction={direction} />
+</DesignLayout>
