@@ -1,10 +1,13 @@
 # Shared Substack header
 
-The active header contains five publication groups in weekday order: AI, Obsidian, Skills, Crypto and HN. The separate family-title block is omitted so the publication logos and names have more room.
+The active header contains five publication groups in weekday order: AI, Obsidian, Skills, Crypto and HN. Each publication name has a colored weekday label underneath: MONDAY, TUESDAY, WEDNESDAY, THURSDAY and FRIDAY. The separate family-title block is omitted so the publication logos and names have more room.
 
 ## Files
 
-- `series-header.png`: final 2172 × 423 five-publication upload, cropped in Substack's image editor and downloaded after saving on 2026-11-04.
+- `series-header.png`: final 2172 × 417 five-publication upload with weekday labels, cropped in Substack's image editor and downloaded after saving on 2026-11-04.
+- `series-header-weekdays-master.png`: native imagegen output for the weekday-label edit.
+- `series-header-before-weekdays.png`: previous five-publication upload without weekday labels, retained for rollback.
+- `generation-prompts-weekdays-2026-11-04.json`: exact built-in imagegen prompt and input reference for the weekday-label edit.
 - `series-header-five-master.png`: native imagegen output for the five-publication design.
 - `skills-logo.png`: 1254 × 1254 raspberry folded S publication logo.
 - `generation-prompts-2026-11-04.json`: exact built-in imagegen prompts and input references for the Skills logo and five-publication header.
