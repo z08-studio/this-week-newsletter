@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-04",
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "output": "skills-logo.png",
+      "transparent_background": false,
+      "prompt": "Use case: logo-brand. Asset type: square publication avatar for the newsletter This Week in Skills. Create one polished, minimal, distinctive folded-ribbon capital S emblem. The existing newsletter family uses dimensional origami ribbon letters: cobalt A, orange H, emerald C, and a purple faceted circular mark. This new S should belong to that family while having its own saturated raspberry-pink color, with light rose on the lit folds and deep burgundy in the inner fold shadows. A single continuous broad ribbon forms a clear, bold, rounded geometric S, upright and immediately readable even at 32 pixels. Tasteful restrained 3D folded-paper depth, crisp smooth silhouette, studio-like soft lighting, no ornamental symbols. Center one large S with generous equal safe margins on a plain warm ivory square background, approximately #fffdf8. Output a finished 1024 by 1024 avatar. Text: only the capital letter S expressed by the emblem itself. No publication name, no tagline, no border, no extra letters, no tools, no sparkles, no UI, no watermark."
+    },
+    {
+      "output": "series-header-five-master.png",
+      "final_crop": "series-header.png",
+      "reference_paths_at_generation": ["series-header.png", "skills-logo.png"],
+      "edit_target_snapshot": "series-header-before-skills.png",
+      "transparent_background": false,
+      "prompt": "Use case: compositing / precise-object-edit / logo-brand. Image 1 is the existing approved shared newsletter header, the edit target. Image 2 is the new approved raspberry folded S emblem, a supporting identity to add. Update the existing shared header to include ALL FIVE newsletter identities in one balanced equal-width horizontal row. Preserve the visual style, exact existing logo silhouettes, folded-ribbon depth, bold dark evergreen typography, fine pale sage separators, warm ivory backdrop and subtle pastel color shapes. Reflow into exactly FIVE groups in weekday order left to right: cobalt folded A with exact label 'This Week' / 'in AI'; purple faceted round TWO emblem with 'This Week' / 'in Obsidian'; raspberry folded S from Image 2 with 'This Week' / 'in Skills'; emerald folded C with 'This Week' / 'in Crypto'; orange folded H with 'This Week' / 'in HN'. Each logo sits left of its two-line label. Exactly four thin pale sage separators. All five marks and labels equally prominent, fully visible, clearly spelled and uncropped. No separate family title or slogan, no weekday text, no extra logos. Asset type: finished ultra-wide Substack shared wordmark/header. Intended final crop is 5.1:1, about 2550 by 500. Put ALL logos and lettering entirely within a single centered horizontal band occupying the middle 55 percent of a 3:1 output canvas so we can crop the blank upper/lower backdrop to a 5.1:1 header. The central artwork should be large, continuous, horizontally well-spaced, and comfortable at a final 1100 by 216 display. Avoid small type, mockups, rounded cards around each group, watermark, duplicate labels, spelling errors or UI controls."
+    }
+  ]
+}
