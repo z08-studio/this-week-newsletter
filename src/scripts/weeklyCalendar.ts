@@ -7,8 +7,20 @@ if (calendar) {
   const newsletterPanels = [...calendar.querySelectorAll<HTMLElement>('[data-newsletter-panel]')];
   const cards = [...calendar.querySelectorAll<HTMLButtonElement>('.calendar-card')];
   const status = calendar.querySelector<HTMLElement>('[data-day-status]');
+  const reader = calendar.querySelector<HTMLElement>('.day-details');
+  const reviewBar = document.querySelector<HTMLElement>('.review-bar');
   const today = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(new Date()).toLowerCase();
   type Options = { remember?: boolean; announce?: boolean; reveal?: boolean; focus?: boolean };
+
+  // A reader that is taller than the viewport must remain in normal page flow.
+  // ResizeObserver also handles font loading, text zoom, and later content edits.
+  function updateStickyReader() {
+    const reviewOffset = reviewBar && getComputedStyle(reviewBar).position === 'sticky' ? reviewBar.offsetHeight : 0;
+    const top = reviewOffset + 24;
+    calendar!.style.setProperty('--calendar-sticky-top', `${reviewOffset}px`);
+    calendar!.style.setProperty('--reading-sticky-top', `${top}px`);
+    if (reader) reader.dataset.sticky = String(window.innerWidth > 1270 && reader.offsetHeight + top + 24 <= window.innerHeight);
+  }
 
   function show(day: string, newsletterId: string | null = null, options: Options = {}) {
     const detail = newsletterPanels.find((panel) => panel.dataset.newsletterPanel === newsletterId);
@@ -21,6 +33,7 @@ if (calendar) {
     for (const card of cards) card.setAttribute('aria-pressed', String(card.dataset.openNewsletter === detail?.dataset.newsletterPanel));
     for (const panel of dayPanels) panel.hidden = !!detail || panel !== dayPanel;
     for (const panel of newsletterPanels) panel.hidden = panel !== detail;
+    updateStickyReader();
 
     if (options.announce && status) {
       status.textContent = detail ? `${detail.querySelector('h2')?.textContent} details displayed.` : `${dayPanel.querySelector('h2')?.textContent} newsletters displayed.`;
@@ -35,7 +48,9 @@ if (calendar) {
 
     const target = detail ?? dayPanel;
     if (options.focus) target.querySelector<HTMLElement>('h2')?.focus({ preventScroll: true });
-    if (options.reveal) {
+    // Desktop selections preserve the reader's place in the calendar. Stacked
+    // layouts reveal the panel below the picker when it is outside the viewport.
+    if (options.reveal && window.innerWidth <= 1270) {
       const box = target.getBoundingClientRect();
       if (box.top < 0 || box.top > window.innerHeight * .7) {
         target.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
@@ -76,5 +91,8 @@ if (calendar) {
     show(day && dayPanels.some((panel) => panel.dataset.dayPanel === day) ? day : today, params.get('newsletter'));
   }
   window.addEventListener('popstate', restoreFromUrl);
+  window.addEventListener('resize', updateStickyReader);
+  if (reader) new ResizeObserver(updateStickyReader).observe(reader);
+  if (reviewBar) new ResizeObserver(updateStickyReader).observe(reviewBar);
   restoreFromUrl();
 }

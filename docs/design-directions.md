@@ -1,8 +1,8 @@
 # Newsletter directory design directions
 
-The homepage implements the selected Product Design reference: the third illustrated concept's weekly calendar and side panel, combined with the first concept's pale mint rounded title slips. The redundant Open full day link was removed after discussion. Following the editor’s browser annotations, the reading panel defaults to the day list and switches to a publication detail view on click. Both the calendar and reading panel grow naturally with the document; there is no internal scrolling.
+The homepage implements the third illustrated concept's weekly calendar and side panel, combined with the first concept's pale mint rounded title slips. The editor then selected the first [scroll-reading concept](design/scroll-reading-reference.png): compact profiles, sticky weekday headings, and a reading panel that stays in view when it fits the desktop viewport. The panel defaults to a day list and switches to publication details on click. There is only normal document scrolling, with no internal list scrollbars.
 
-The source is [selected-reference.png](design/selected-reference.png). The latest implementation adds the real expanded collection, so more titles and a third Wednesday publication appear compared with the original eight-title mock. The illustrations and editorial visual language are preserved. The page is wider, card labels wrap less, and the footer contains only the studio signature and two studio links. See `design-qa.md` for the comparison and interaction checks.
+The original composition is retained at [selected-reference.png](design/selected-reference.png). The scroll-reading reference includes the real 33-publication collection. Its Chinese annotations and scrolled-state inset explain the interaction; they are presentation notes rather than website content. Existing illustrations, local fonts, publication data, reading links, the wide page, and the two-link studio footer are preserved. See `design-qa.md` for the normalized source comparison and interaction checks.
 
 The earlier five-direction gallery remains available at `/designs/`:
 
