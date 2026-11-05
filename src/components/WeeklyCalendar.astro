@@ -1,111 +1,45 @@
 ---
 import { calendarOrder, newsletters, weekdays } from '../data/newsletters';
-import { newsletterArchives } from '../data/newsletterArchives';
-import ArrowIcon from './ArrowIcon.astro';
+import NewsletterReader from './NewsletterReader.astro';
 import ReadingHero from './ReadingHero.astro';
 
-const initialDay = 3;
-const days = calendarOrder.map((index) => ({
-  index,
-  name: weekdays[index],
-  slug: weekdays[index].toLowerCase(),
-  entries: newsletters.filter((entry) => entry.publicationDay === index),
+const days = calendarOrder.map(index => ({
+  name: weekdays[index], slug: weekdays[index].toLowerCase(),
+  entries: newsletters.filter(entry => entry.publicationDay === index),
 }));
-const formatDate = (date: string) => new Intl.DateTimeFormat('en-US', {
-  month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC',
-}).format(new Date(`${date}T12:00:00Z`));
-const issueLabel = (title: string, publication: string) => title.toLowerCase().startsWith(publication.toLowerCase())
-  ? title.slice(publication.length).replace(/^[\s:–—-]+/, '') || title
-  : title;
 ---
 
 <main id="main">
   <ReadingHero />
-  <section class="directory" aria-label="Newsletters by publication day" data-newsletter-calendar style={`--max-day-entries: ${Math.max(...days.map((day) => day.entries.length))}`}>
-    <div class="calendar-viewport">
-      <div class="calendar-grid" aria-label="Weekly calendar">
-        {days.map((day) => (
-          <section class="calendar-day" aria-labelledby={`heading-${day.slug}`}>
-            <h2 id={`heading-${day.slug}`} class="day-heading">
-              <button type="button" data-select-day={day.slug} aria-pressed={day.index === initialDay ? 'true' : 'false'} aria-controls={`reading-${day.slug}`} aria-label={`${day.name} newsletters`}>
-                <abbr title={day.name}>{day.name.slice(0, 3)}</abbr>
-              </button>
-            </h2>
-            <ul class="calendar-titles" aria-label={`${day.name} newsletters`}>
-              {day.entries.map((entry) => (
-                <li>
-                  <button class="calendar-card" type="button" data-open-newsletter={entry.id} data-newsletter-day={day.slug} aria-controls={`newsletter-${entry.id}`} aria-pressed="false" lang={entry.language === '中文' ? 'zh-CN' : 'en'}>{entry.name}</button>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
-    </div>
-    <aside class="day-details" aria-label="Newsletter reading panel">
-      <p class="sr-only" role="status" aria-live="polite" data-day-status></p>
-      {days.map((day) => (
-        <section class="day-detail" id={`reading-${day.slug}`} data-day-panel={day.slug} hidden={day.index !== initialDay} aria-labelledby={`reading-title-${day.slug}`}>
-          <h2 id={`reading-title-${day.slug}`} tabindex="-1">{day.name}</h2>
-          <div class="reading-list">
-            {day.entries.length ? (
-              <ul>
-                {day.entries.map((entry, index) => (
-                  <li class="reading-item">
-                    <button class="reading-entry" type="button" data-open-newsletter={entry.id} aria-label={`View details for ${entry.name}`} aria-controls={`newsletter-${entry.id}`}>
-                      <img class="reading-motif" src={`/illustrations/${index % 2 === 0 ? 'open-book' : 'book-stack'}.webp`} width="44" height="48" alt="" aria-hidden="true" loading="lazy" />
-                      <span class="reading-name" lang={entry.language === '中文' ? 'zh-CN' : 'en'}>{entry.name}</span>
-                      <ArrowIcon />
-                    </button>
+  <section class="directory" aria-label="Newsletters by publication day" data-newsletter-calendar>
+    <div class="calendar-grid" aria-label="Weekly calendar">
+      {days.map(day => (
+        <section class="calendar-day" aria-labelledby={`heading-${day.slug}`}>
+          <h2 id={`heading-${day.slug}`} class="day-heading">
+            <button type="button" data-select-day={day.slug} aria-pressed="false" aria-controls={`reading-${day.slug}`} aria-label={`${day.name} newsletters`}>
+              <span>{day.name}</span>
+            </button>
+          </h2>
+          <div class="day-track">
+            <div class="rail-viewport">
+              <ul class="calendar-titles" id={`rail-${day.slug}`} aria-label={`${day.name} newsletters`} data-newsletter-rail>
+                {day.entries.map(entry => (
+                  <li>
+                    <button class="calendar-card" type="button" data-open-newsletter={entry.id} data-newsletter-day={day.slug} aria-controls={`newsletter-${entry.id}`} aria-pressed="false" lang={entry.language === '中文' ? 'zh-CN' : 'en'}>{entry.name}</button>
                   </li>
                 ))}
+                {!day.entries.length && <li class="calendar-empty">A little room for a good read.</li>}
               </ul>
-            ) : (
-              <div class="empty-day">
-                <img src="/illustrations/open-book.webp" alt="" width="88" height="88" />
-                <p>A little room for a good read.</p>
-                <p>Have a newsletter for {day.name}? Suggest it using the link above.</p>
-              </div>
-            )}
+            </div>
+            <nav class="rail-controls" aria-label={`${day.name} newsletter navigation`} hidden>
+              <button type="button" data-scroll-rail="previous" aria-controls={`rail-${day.slug}`} aria-label={`Previous ${day.name} newsletters`} disabled><span class="rail-arrow" aria-hidden="true"></span></button>
+              <button type="button" data-scroll-rail="next" aria-controls={`rail-${day.slug}`} aria-label={`More ${day.name} newsletters`}><span class="rail-arrow rail-arrow-next" aria-hidden="true"></span></button>
+            </nav>
           </div>
         </section>
       ))}
-      {newsletters.map((entry) => {
-        const day = weekdays[entry.publicationDay];
-        const archive = newsletterArchives[entry.id];
-        const issues = archive?.issues.slice(0, 3) ?? [];
-        const topics = entry.topics.filter((topic) => !/\p{Script=Han}/u.test(topic)).slice(0, 2);
-        return (
-          <section class="newsletter-detail" id={`newsletter-${entry.id}`} data-newsletter-panel={entry.id} data-publication-day={day.toLowerCase()} hidden aria-labelledby={`newsletter-title-${entry.id}`}>
-            <button class="back-to-day" type="button" data-back-to-day={day.toLowerCase()}><span class="back-arrow" aria-hidden="true"></span>Back to {day}</button>
-            <div class="detail-heading">
-              <img class="detail-motif" src="/illustrations/open-book.webp" width="44" height="44" alt="" aria-hidden="true" loading="lazy" />
-              <h2 id={`newsletter-title-${entry.id}`} tabindex="-1" lang={entry.language === '中文' ? 'zh-CN' : 'en'}>{entry.name}</h2>
-            </div>
-            <p class="detail-description">{entry.description}</p>
-            <dl class="detail-facts">
-              <div><dt class="sr-only">Usual day</dt><dd>{day}</dd></div>
-              <div><dt class="sr-only">Language</dt><dd>{entry.language === '中文' ? 'Chinese' : 'English'}</dd></div>
-              <div class="detail-topics"><dt class="sr-only">Topics</dt><dd>{topics.join(' / ')}</dd></div>
-            </dl>
-            <a class="publication-link" href={entry.url} target="_blank" rel="noopener noreferrer" data-newsletter-id={entry.id} data-newsletter-link="publication">Visit publication<ArrowIcon /></a>
-            {issues.length > 0 && (
-              <section class="recent-issues" aria-labelledby={`issues-title-${entry.id}`}>
-                <h3 id={`issues-title-${entry.id}`}>Past issues</h3>
-                <ol>
-                  {issues.map((issue) => (
-                    <li><a href={issue.url} target="_blank" rel="noopener noreferrer" title={issue.title} aria-label={`${issue.title}${issue.publishedAt ? `, ${formatDate(issue.publishedAt)}` : ''}`} data-newsletter-id={entry.id} data-newsletter-link="issue">
-                      <span>{issueLabel(issue.title, entry.name)}{issue.publishedAt ? ' ' : ''}{issue.publishedAt && <time datetime={issue.publishedAt}>{formatDate(issue.publishedAt)}</time>}</span><ArrowIcon />
-                    </a></li>
-                  ))}
-                </ol>
-              </section>
-            )}
-            {archive?.archiveUrl && <a class="archive-link" href={archive.archiveUrl} target="_blank" rel="noopener noreferrer" data-newsletter-id={entry.id} data-newsletter-link="archive">{archive.archiveLabel ?? 'Browse the archive'}<ArrowIcon /></a>}
-          </section>
-        );
-      })}
-    </aside>
+    </div>
+    <NewsletterReader />
   </section>
 </main>
 
@@ -116,6 +50,6 @@ const issueLabel = (title: string, publication: string) => title.toLowerCase().s
 <noscript>
   <style is:inline>[data-newsletter-calendar] { display: none; }</style>
   <section class="no-script-directory" aria-label="All newsletters">
-    {days.map((day) => <section><h2>{day.name}</h2><ul>{day.entries.map((entry) => <li><a href={entry.url} target="_blank" rel="noopener noreferrer">{entry.name}</a></li>)}</ul></section>)}
+    {days.map(day => <section><h2>{day.name}</h2><ul>{day.entries.map(entry => <li><a href={entry.url} target="_blank" rel="noopener noreferrer">{entry.name}</a></li>)}</ul></section>)}
   </section>
 </noscript>

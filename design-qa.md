@@ -1,5 +1,7 @@
 # Light slips design QA
 
+This records the previously approved layout. The subsequent horizontal-row candidate has its own [local review and verification](docs/horizontal-rails-review.md) and is awaiting the editor's approval before deployment.
+
 **Findings**
 
 No actionable P0/P1/P2 findings remain. The implementation follows the selected first calendar concept and its accepted color refinement: lighter mint slips, wider day gutters, a compact raspberry weekday tab, forest-green accents, and one jade publication selection. The approved masthead and footer composition remain in place.

@@ -1,6 +1,9 @@
+import { initHorizontalRails } from './horizontalRails';
+
 const calendar = document.querySelector<HTMLElement>('[data-newsletter-calendar]');
 
 if (calendar) {
+  initHorizontalRails(calendar);
   const buttons = [...calendar.querySelectorAll<HTMLButtonElement>('[data-select-day]')];
   const dayPanels = [...calendar.querySelectorAll<HTMLElement>('[data-day-panel]')];
   const newsletterPanels = [...calendar.querySelectorAll<HTMLElement>('[data-newsletter-panel]')];
@@ -13,8 +16,8 @@ if (calendar) {
   // A reader that is taller than the viewport must remain in normal page flow.
   // ResizeObserver also handles font loading, text zoom, and later content edits.
   function updateStickyReader() {
-    // Keep a 24px allowance above and below a sticky reader.
-    if (reader) reader.dataset.sticky = String(window.innerWidth > 1270 && reader.offsetHeight + 48 <= window.innerHeight);
+    // Keep a 20px allowance above and below a sticky reader.
+    if (reader) reader.dataset.sticky = String(window.innerWidth > 1000 && reader.offsetHeight + 40 <= window.innerHeight);
   }
 
   function show(day: string, newsletterId: string | null = null, options: Options = {}) {
@@ -47,7 +50,7 @@ if (calendar) {
     if (options.focus) target.querySelector<HTMLElement>('h2')?.focus({ preventScroll: true });
     // Desktop selections preserve the reader's place in the calendar. Stacked
     // layouts reveal the panel below the picker when it is outside the viewport.
-    if (options.reveal && window.innerWidth <= 1270) {
+    if (options.reveal && window.innerWidth <= 1000) {
       const box = target.getBoundingClientRect();
       if (box.top < 0 || box.top > window.innerHeight * .7) {
         target.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
@@ -59,8 +62,8 @@ if (calendar) {
     button.addEventListener('click', () => show(button.dataset.selectDay!, null, { announce: true, remember: true }));
     button.addEventListener('keydown', (event) => {
       let next = index;
-      if (event.key === 'ArrowRight') next = (index + 1) % buttons.length;
-      else if (event.key === 'ArrowLeft') next = (index + buttons.length - 1) % buttons.length;
+      if (event.key === 'ArrowDown') next = (index + 1) % buttons.length;
+      else if (event.key === 'ArrowUp') next = (index + buttons.length - 1) % buttons.length;
       else if (event.key === 'Home') next = 0;
       else if (event.key === 'End') next = buttons.length - 1;
       else return;
