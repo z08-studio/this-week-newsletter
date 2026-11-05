@@ -2,8 +2,9 @@
 
 ## Typefaces
 
-- `public/fonts/newsreader-latin.woff2` is the official [Newsreader](https://fonts.google.com/specimen/Newsreader) variable font from the Google Fonts repository, used for editorial headings and titles. The complete SIL Open Font License is bundled as `public/fonts/Newsreader-OFL.txt`.
-- `public/fonts/manrope-latin.woff2` is the Latin variable [Manrope](https://fonts.google.com/specimen/Manrope) font, used for short descriptions and utility controls. Its complete SIL Open Font License is bundled as `public/fonts/Manrope-OFL.txt`. System fonts handle Chinese text.
+- `public/fonts/dm-sans-latin.woff2` is the official variable [DM Sans](https://fonts.google.com/specimen/DM+Sans) Latin font, served locally at weights 400–800 for the current design. It was obtained from the Google Fonts CSS endpoint; its source family is maintained in [google/fonts](https://github.com/google/fonts/tree/main/ofl/dmsans). The complete SIL Open Font License is bundled as `public/fonts/DMSans-OFL.txt`. The layout preloads this local file and makes no runtime Google Fonts request. Chinese text uses system sans fallbacks.
+- `public/fonts/newsreader-latin.woff2` is the official [Newsreader](https://fonts.google.com/specimen/Newsreader) variable font from the Google Fonts repository, retained from the earlier editorial design. The complete SIL Open Font License is bundled as `public/fonts/Newsreader-OFL.txt`.
+- `public/fonts/manrope-latin.woff2` is the Latin variable [Manrope](https://fonts.google.com/specimen/Manrope) font, retained from the earlier design. Its complete SIL Open Font License is bundled as `public/fonts/Manrope-OFL.txt`. System fonts handle Chinese text.
 
 Fonts are served locally, without runtime requests to Google Fonts.
 
@@ -26,4 +27,4 @@ WebP files are resized and compressed copies of the generated originals. No UI t
 
 `public/z08-mark.svg` is the existing studio wordmark from [z08 Studio](https://z08studio.com), retained from the earlier study. The current reference uses a serif z08 Studio text signature. `public/brand-mark.svg` and `public/favicon.svg` retain the portfolio's existing W identity. Avatars under `public/newsletters/` belong to their respective publications and remain available to earlier studies.
 
-The original approved UI reference is retained at `docs/design/selected-reference.png`. The selected first scroll-behavior concept, generated with the built-in ImageGen tool from the actual website and annotated screenshot, is retained at `docs/design/scroll-reading-reference.png`. Its explanatory captions are not website content. This refinement reuses all existing illustrations and Phosphor icons. Newsletter titles and external websites retain their original ownership; editorial book illustrations do not impersonate publication logos.
+The current approved UI reference is `docs/design/daily-desk-reference.png`, the second displayed typography and footer concept, generated with the built-in ImageGen tool from screenshots of the actual site. Historical references remain at `docs/design/selected-reference.png` and `docs/design/scroll-reading-reference.png`. This refinement reuses all original illustrations and Phosphor icons. Newsletter titles and external websites retain their original ownership; editorial book illustrations do not impersonate publication logos.

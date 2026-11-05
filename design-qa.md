@@ -1,66 +1,65 @@
-# Scroll-reading implementation QA
+# Daily desk design QA
 
 **Findings**
 
-No actionable P0, P1, or P2 findings remain in the reviewed homepage states. The implementation follows the first displayed scroll-reading concept selected by the editor: compact publication profiles, weekday headings that stay visible, one document scroll, and a reader that stops before the footer.
+No actionable P0/P1/P2 findings remain. The implementation follows the second displayed footer/typography concept selected by the editor: DM Sans, a stronger masthead, whole-row publication controls, and a footer at the bottom of short pages without covering long content.
 
-**Visual truth and normalization**
+**Source, viewport, and comparisons**
 
-- Selected source: `docs/design/scroll-reading-reference.png`, the exact first displayed ImageGen result, 1448 x 1086 pixels. The Chinese callouts and lower inset are presentation notes, not website content.
-- Main source UI frame: x199, y111, 1046 x 661 pixels. The board does not specify a literal CSS viewport or device density. The frame was proportionally normalized to 1486 x 939 pixels; it was not stretched to match the implementation height.
-- Implementation: `output/scroll-reading/desktop-final.png`, 1486 x 1001 pixels, captured in the in-app browser at a 1501 x 900 CSS viewport and devicePixelRatio 1. The browser capture excludes the reserved 15px document gutter. Full-page capture includes content below the viewport.
-- Matching state: Monday selected, R Weekly open, document scroll at zero. All actual publication names, descriptions, issue titles, dates, and destinations are retained. Illustrative issue-title abbreviations in the generated mock are not substituted for reviewed source data.
-- Full-view comparison, opened together in one image: `output/scroll-reading/comparison-final.png`. Both views have equal normalized widths. The mock's surrounding frame and external annotation marks are not implemented.
-- Focused reader comparison: `output/scroll-reading/reader-comparison-final.png`. Source region x987, y298, 230 x 396 pixels, proportionally resized to 345px wide; actual reader region x1117, y286, 345 x 512 pixels. This makes type hierarchy, metadata, actions, issue rows, and icons readable at inspection size.
-- Durable actual previews: `docs/design/publication-detail.webp`, `docs/design/desktop.webp`, `docs/design/mobile.webp`, and `docs/design/scrolled.webp`.
+- Exact selected source: `docs/design/daily-desk-reference.png`, 1214 x 1295 pixels, the second displayed image from the latest typography exploration.
+- Matching state: Thursday day overview, white theme, all 33 publications, no selected publication.
+- Final browser capture: `output/daily-desk/desktop-final.png`, 1501 x 1596 pixels at a 1501 x 1596 CSS viewport and devicePixelRatio 1, captured in the in-app browser.
+- Source normalization: proportional containment in a 1501 x 1596 white frame, with approximately 2px horizontal padding. No stretching or device chrome. The generated source is a visual concept, not a literal CSS specification.
+- Full-view evidence, opened together: `output/daily-desk/comparison-final.png`.
+- Focused reader evidence: `output/daily-desk/reader-comparison.png`, equal 380 x 550 regions at x1090, y575 in the normalized source and implementation. Type, rows, motifs, arrows, and separators are readable at this size.
+- Responsive evidence: `mobile-day.png`, `mobile-detail.png`, `mobile-320.png`, `mobile-comparison.png`, and `tablet-final.png` under `output/daily-desk/`.
+- Other evidence: `desktop-detail-final.png`, `scroll-desktop.png`, `short-screen.png`, and `wide.png` in the same folder.
+- Durable previews: `docs/design/desktop.webp`, `publication-detail.webp`, `mobile.webp`, and `scrolled.webp`.
 
 **Required fidelity surfaces**
 
-- Fonts and typography: existing locally served Newsreader and Manrope remain in use, with system Chinese fallbacks. The large single-line desktop headline, smaller inline book motif, red profile title, compact metadata, and restrained issue typography match the selected hierarchy. Calendar names wrap naturally without truncation. At 3004px, all 33 names occupy a single line. Actual reviewed issue labels can wrap where the generated mock used shorter illustrative wording; complete titles remain accessible and available on hover.
-- Spacing and layout: the wide seven-column calendar and constrained reading column remain. The hero is shorter, title slips have a 60px minimum target, and the reader no longer contains a large standalone illustration or a tall definition list. The current 33 profiles and seven day lists remain within the calendar height at the two tested desktop widths, keeping the footer stable within subpixel font rounding. No artificial equal-height reading surface or inner scrollbar was added.
-- Colors and tokens: white, ink, teal, pale mint, and red tokens are preserved. Selected weekdays use solid red, selected cards retain mint and a thin teal outline, and external actions retain red/teal. No gradients, new surfaces, or extra shadows were introduced.
-- Image quality and assets: all four existing reading illustrations, actual Phosphor arrows, and the local fonts are reused. Raster imagery keeps its aspect ratio. The hero is positioned clear of the suggestion action, and the header has its own stacking order so the decorative image cannot intercept clicks. No CSS artwork, placeholder imagery, or screenshot-as-interface substitute was used.
-- Copy and content: all 33 publications and 85 reviewed issue URLs remain unchanged. The reader still defaults to the selected day's list, shows real details on selection, and exposes a return control. Repeated publication-name prefixes are omitted only from visible issue labels. Footer remains studio, Website, and GitHub; removed slogan and X stay absent.
+- Typography: the stylesheet and preload use the official local variable DM Sans WOFF2, weights 400–800. The asset responds successfully as `font/woff2`; browser-computed styles specify DM Sans. Display, weekday, label, profile, and footer type now share this sans family, with system Chinese fallbacks. The desktop headline is two lines. Actual glyphs and reviewed names take precedence over generated text approximations.
+- Layout rhythm: header, hero, separator, calendar, lower breathing space, and footer follow the selected composition. A 100svh minimum-height body and flex-column shell place the footer at the bottom of short pages. Bounded masthead gaps shrink on shorter screens. Long content grows the document normally; cards and calendar rules are not stretched to fill spare height.
+- Colors: existing white, ink, teal, mint, and red tokens remain. Selection stays red/white; title slips remain mint. No new section panels, gradients, badges, metrics, search, or filters were introduced.
+- Assets: original reading illustrations and actual Phosphor arrows are reused at their natural aspect ratios. The original hero asset is flatter than its generated reinterpretation; retaining it preserves the established identity. Decorative imagery cannot intercept the suggestion link. No placeholder, CSS art, or screenshot-as-interface substitute was introduced.
+- Content: all 33 publication records and 85 reviewed issue URLs are unchanged. Each overview row is one accessible button with the original name, motif, and arrow. Repeated visible View details captions are removed; their accessible action labels remain. Compact profiles and up to three real past issues remain available. Footer still contains only studio, Website, and GitHub.
 
-**Interaction and viewport evidence**
+**Completed checks**
 
-- Desktop 1501 x 900: every publication and every weekday was selected through real controls. `heights-refined.json` records the 40 states. Profiles and lists stay below the calendar's measured height; the footer remains at approximately y895.3, with less than 1px font-rounding difference after reload.
-- Wide desktop 3004 x 1596: the same 40 states were checked. `heights-wide.json` records the result. Calendar height is 573px, and footer y971.9375 is unchanged across all selections. No calendar name wraps. Evidence: `wide-day.png` and `wide-detail.png`.
-- Desktop 1501 x 700: an ordinary mouse-wheel scroll pins weekday headings at y0 and the reader at y24. Calendar lists, day lists, and the reader have no scrollable inner container. Evidence: `scrolled-700.png`.
-- Footer boundary at 1501 x 600: the reader moves up with its containing section rather than covering the footer. Its bottom is y466.8 and the footer starts at y494.8. Evidence: `footer-stop.png`.
-- Direct pointer selection after scrolling: R Weekly to Console preserves document scrollY exactly at 400.5. The new profile does not move the footer. Semantic locator actions may themselves scroll a control into view, so pointer behavior was checked with ordinary mouse input rather than inferred from those locator scrolls.
-- Short desktop 1501 x 480: the 574px Rami profile becomes static and all three issue links remain in normal document flow. Evidence: `short-screen.png`.
-- Mobile 390 x 844 and 320 x 844: document widths are 375px and 305px respectively, with the reserved gutter. No horizontal overflow or nested scroller was found. Friday shows all seven entries. Software Lead Weekly opens with three issue links, and returning restores Friday. Keyboard activation focuses the resulting publication heading. Final mobile evidence: `mobile-final.png`; narrow-width evidence: `mobile-320.png`.
-- Tablet 768 x 1024: the seven weekday buttons replace hidden card lists, Friday remains complete, and the reader is static. Evidence: `tablet-768.png`.
-- Browser Back/Forward restores Console and the Thursday list. Reload restores the R Weekly deep link. Keyboard return focuses the weekday heading. Existing external URLs and form destination remain unchanged.
-- Both the center and lower edge of the suggestion button resolve to the actual button after the stacking fix.
-- Browser application errors/warnings: none in the reviewed log. `npm run check` reports 27 files with zero errors, warnings, or hints. `npm run build` successfully builds all eight static pages. `git diff --check` passes.
+- All 33 profiles and seven day overviews were selected. `heights-desktop.json` records 40 completed states: calendar height 752px, maximum reader height 706px, and absolute footer bottom exactly 1596px in every state.
+- Whole-row Console activation opens the correct profile and three original issue URLs. Keyboard activation focuses the resulting heading; return focuses the weekday heading. Browser Back/Forward restores the profile and overview. Data Elixir was also checked independently.
+- At 390 x 844 and 320 x 844, Friday retains seven entries, Software Lead Weekly opens with three issue links, and return restores Friday. Document widths are 375px and 305px with the stable gutter; no horizontal overflow or nested list scrolling was found. The focused heading outline in the mobile evidence is intentional keyboard feedback.
+- At 768 x 1024, the seven weekday buttons replace the hidden calendar-card lists. Home selects Monday. The final tablet capture was taken after the color transition settled; selected Thursday, its label, and its content agree.
+- At 1501 x 760, normal scrolling pins weekday headings at y0 and contains the reader before the footer: reader bottom y586.98, footer top y626.98. The roughly 1392px document scrolls naturally.
+- At 1501 x 480, the 597px Rami profile becomes static, keeping its content reachable through the document.
+- At 3004 x 1596, no horizontal overflow or wrapped calendar name was found. The approximately 1614px composition ends with the footer at the document bottom.
+- The suggestion action's lower edge resolves to the actual link; its existing form URL is preserved. Application console errors/warnings: none in the reviewed log.
+- Astro check: 27 files, zero errors/warnings/hints. Build: eight static pages, successful. Diff whitespace check: passed.
 
-All working evidence above is under ignored `output/scroll-reading/` unless otherwise specified.
+The initial preview tab stopped responding during an early batch. The completed checks above ran in a fresh tab in the same in-app browser. No separate Playwright CLI browser was needed.
 
 **Comparison history**
 
-1. Initial comparison: `comparison-initial.png`, with the actual render in `detail-initial.png`. P2: excess masthead height and an undersized headline shifted the calendar down relative to the source. P2: tall slips and overview rows could let Friday move the footer. Result was blocked, recorded in `qa-initial.md`.
-2. First refinement: overlapping hero placement, appropriate headline scale, tighter slips, inline profile metadata, and shorter issue labels corrected the main density drift. Re-capture: `detail-refined.png`; full and focused comparisons: `comparison-refined.png` and `reader-comparison.png`.
-3. Targeted follow-up: P2: the wide Friday overview still measured 604px against a 573px calendar. Reducing desktop row padding brings all day lists within the calendar. P1: the decorative image could intercept the lower edge of the suggestion button despite its visible appearance. A header stacking context and noninteractive decoration resolve the hit area. P2: the lamp crowded the action visually; the illustration now sits lower without changing the calendar's position. The final full-view capture and pointer hit checks verify these fixes. Wrapped mobile topic metadata also starts cleanly without an orphan divider.
-4. Final review: `comparison-final.png`, focused reader comparison, the final phone image, and the 40-state measurements show no actionable P0/P1/P2 issue. No further visual fixes were made after this final comparison.
+1. `comparison-initial.png` versus `desktop-initial.png`: P2 display and utility text were visibly undersized. Footer placement and grid alignment already matched. Initial result was blocked, recorded in `qa-initial.md`.
+2. Increased the actual DM Sans display, wordmark, suggestion action, labels, and footer sizes. Re-captured `desktop-refined.png`; reviewed `comparison-refined.png` and the focused reader comparison.
+3. Reviewed the final full-view comparison, completed desktop states, mobile detail comparison, and stable tablet capture. The hierarchy and footer composition now match the intended direction, with no remaining P0/P1/P2 finding. No additional visual changes followed this final comparison.
 
-**Open questions and limits**
+**Open questions and intentional differences**
 
-- The selected visual is a concept board, not a pixel-specified Figma frame. Actual source text and accessible target sizes take precedence over generated text approximations.
-- Future longer descriptions or a larger day list may naturally increase page height. The reader falls back to document flow when too tall; publication additions should rerun the height and responsive checks.
-- Production deployment and unrelated historical design studies were outside this change. The existing review route shares the updated calendar; its review-bar offset is supported but was not separately exercised in this pass.
+- The generated source outlines Console while showing a day overview. The implementation keeps those states consistent: no publication outline in a day overview, and an outline only for an open publication profile.
+- Native DM Sans, the original artwork, full reviewed text, natural wrapping, and accessible controls take precedence over inconsistent generated glyphs or illustration proportions.
+- The selected image is desktop-only. Phone/tablet behavior was verified using the established responsive flow, not compared to an unavailable mobile mock.
 
 **Implementation checklist**
 
-- [x] Preserve weekday discovery, publication details, issue links, studio footer, and source assets.
-- [x] Compact the reader and calendar without hiding content.
-- [x] Verify sticky headings, reader containment, short-screen fallback, and pointer position stability.
-- [x] Verify all current desktop selection heights, mobile/tablet navigation, history, focus, and form hit areas.
-- [x] Complete the normalized full-view and focused comparisons, type check, and production build.
+- [x] Resolve the exact second displayed target and retain its source.
+- [x] Bundle the real font/license, update preload/credits, and reuse original imagery.
+- [x] Implement the footer shell and spacing without overlays or internal scrolling.
+- [x] Verify day/profile selection, links, history, keyboard focus, and responsive flow.
+- [x] Inspect full and focused comparisons, check the completed height states, and build.
 
 **Follow-up polish**
 
-The generated mock uses approximate glyph shapes and shorter illustrative issue labels; native fonts and reviewed titles produce minor residual wrapping differences. No additional polish is required before preview handoff.
+Minor glyph and original-art proportions differ from the generated bitmap as expected P3 differences. No additional polish is required for handoff. Recheck heights and responsive behavior when adding longer content.
 
 final result: passed

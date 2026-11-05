@@ -52,11 +52,11 @@ const issueLabel = (title: string, publication: string) => title.toLowerCase().s
               <ul>
                 {day.entries.map((entry, index) => (
                   <li class="reading-item">
-                    <img class="reading-motif" src={`/illustrations/${index % 2 === 0 ? 'open-book' : 'book-stack'}.webp`} width="88" height="88" alt="" aria-hidden="true" loading="lazy" />
-                    <div class="reading-copy">
-                      <h3 lang={entry.language === '中文' ? 'zh-CN' : 'en'}><button type="button" data-open-newsletter={entry.id} aria-controls={`newsletter-${entry.id}`}>{entry.name}</button></h3>
-                      <button class="reading-link" type="button" data-open-newsletter={entry.id} aria-label={`View details for ${entry.name}`} aria-controls={`newsletter-${entry.id}`}>View details<ArrowIcon /></button>
-                    </div>
+                    <button class="reading-entry" type="button" data-open-newsletter={entry.id} aria-label={`View details for ${entry.name}`} aria-controls={`newsletter-${entry.id}`}>
+                      <img class="reading-motif" src={`/illustrations/${index % 2 === 0 ? 'open-book' : 'book-stack'}.webp`} width="44" height="48" alt="" aria-hidden="true" loading="lazy" />
+                      <span class="reading-name" lang={entry.language === '中文' ? 'zh-CN' : 'en'}>{entry.name}</span>
+                      <ArrowIcon />
+                    </button>
                   </li>
                 ))}
               </ul>
