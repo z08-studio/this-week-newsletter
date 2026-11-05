@@ -71,7 +71,7 @@ export const newsletters: Newsletter[] = [
     description: 'A weekly look at the world of crypto.',
     url: 'https://thatweekincrypto.substack.com/', language: 'English', topics: ['Crypto', 'Web3', '加密'], owned: true,
     publicationDay: 4, monogram: 'C', accent: 'blue',
-    scheduleSource: 'https://thatweekincrypto.substack.com/', scheduleNote: 'Thursday schedule supplied by the editor.',
+    scheduleSource: 'https://thatweekincrypto.substack.com/p/this-week-in-crypto-01', scheduleNote: 'Thursday schedule confirmed in the first published issue on 2026-11-05.',
   },
   {
     id: 'this-week-in-hn', name: 'This Week in HN',
