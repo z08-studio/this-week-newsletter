@@ -6,7 +6,7 @@ Browse 33 newsletters from Monday through Sunday. Select a weekday for its readi
 
 [Suggest a newsletter](https://docs.google.com/forms/d/e/1FAIpQLScNKI_gcJOtPcRBZZ4xB-IUREZraY1j6dz1tQyKn3MOBTl4Ag/viewform). Every submission is reviewed manually before inclusion.
 
-The selected design combines an illustrated masthead, DM Sans typography, a weekly calendar with a compact reading panel, and the z08 Studio footer. Short pages place the footer near the viewport bottom; longer pages scroll naturally. See [the design reference](docs/design/daily-desk-reference.png), [schedule research](docs/newsletter-sources.md), and [maintenance instructions](docs/maintenance.md). The repository is private; the website is intended for public readers.
+The selected design combines an illustrated masthead, DM Sans typography, light mint newsletter slips, a compact reading panel, and the z08 Studio footer. Softer raspberry and forest-green accents distinguish the active day and publication. Short pages place the footer near the viewport bottom; longer pages scroll naturally. See [the calendar reference](docs/design/light-slips-reference.png), [schedule research](docs/newsletter-sources.md), and [maintenance instructions](docs/maintenance.md). The repository is private; the website is intended for public readers.
 
 ## Generator code
 

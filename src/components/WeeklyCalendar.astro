@@ -21,7 +21,7 @@ const issueLabel = (title: string, publication: string) => title.toLowerCase().s
 
 <main id="main">
   <ReadingHero />
-  <section class="directory" aria-label="Newsletters by publication day" data-newsletter-calendar>
+  <section class="directory" aria-label="Newsletters by publication day" data-newsletter-calendar style={`--max-day-entries: ${Math.max(...days.map((day) => day.entries.length))}`}>
     <div class="calendar-viewport">
       <div class="calendar-grid" aria-label="Weekly calendar">
         {days.map((day) => (
