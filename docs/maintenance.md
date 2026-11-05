@@ -62,3 +62,5 @@ Run `npm run check`, `npm run build`, and `git diff --check`. Check weekday and 
 Commit directly to `main`. Create a PR only when explicitly requested. Keep GitHub source, comments, documentation, and commit metadata in English; retain original Chinese newsletter names and reader data.
 
 The domain is managed in Cloudflare and hosted on the existing Vultr server behind its Caddy gateway. See [deployment and rollback](../deploy/README.md). Use ignored `.env` and `.deploy.env` files for operator settings. Only the static build and public container configuration are uploaded; source code, credentials, and operator files stay outside the public artifact.
+
+See the dated [production launch verification](launch-verification.md) for the initial public response checks, Analytics verification, and Search Console setup.
