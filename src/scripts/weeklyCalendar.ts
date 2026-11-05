@@ -38,6 +38,9 @@ if (calendar) {
       if (detail) url.searchParams.set('newsletter', detail.dataset.newsletterPanel!);
       else url.searchParams.delete('newsletter');
       if (url.href !== window.location.href) window.history.pushState(null, '', url);
+      window.dispatchEvent(new CustomEvent('newsletter:select', { detail: {
+        day: selectedDay, newsletterId: detail?.dataset.newsletterPanel ?? null,
+      } }));
     }
 
     const target = detail ?? dayPanel;

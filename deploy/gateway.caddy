@@ -1,0 +1,8 @@
+# Add these site blocks to the server's existing HTTPS gateway configuration.
+thisweeknewsletter.com {
+	reverse_proxy this-week-newsletter:8080
+}
+
+www.thisweeknewsletter.com {
+	redir https://thisweeknewsletter.com{uri} permanent
+}

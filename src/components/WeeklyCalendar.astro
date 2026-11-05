@@ -88,20 +88,20 @@ const issueLabel = (title: string, publication: string) => title.toLowerCase().s
               <div><dt class="sr-only">Language</dt><dd>{entry.language === '中文' ? 'Chinese' : 'English'}</dd></div>
               <div class="detail-topics"><dt class="sr-only">Topics</dt><dd>{topics.join(' / ')}</dd></div>
             </dl>
-            <a class="publication-link" href={entry.url} target="_blank" rel="noopener noreferrer">Visit publication<ArrowIcon /></a>
+            <a class="publication-link" href={entry.url} target="_blank" rel="noopener noreferrer" data-newsletter-id={entry.id} data-newsletter-link="publication">Visit publication<ArrowIcon /></a>
             {issues.length > 0 && (
               <section class="recent-issues" aria-labelledby={`issues-title-${entry.id}`}>
                 <h3 id={`issues-title-${entry.id}`}>Past issues</h3>
                 <ol>
                   {issues.map((issue) => (
-                    <li><a href={issue.url} target="_blank" rel="noopener noreferrer" title={issue.title} aria-label={`${issue.title}${issue.publishedAt ? `, ${formatDate(issue.publishedAt)}` : ''}`}>
+                    <li><a href={issue.url} target="_blank" rel="noopener noreferrer" title={issue.title} aria-label={`${issue.title}${issue.publishedAt ? `, ${formatDate(issue.publishedAt)}` : ''}`} data-newsletter-id={entry.id} data-newsletter-link="issue">
                       <span>{issueLabel(issue.title, entry.name)}{issue.publishedAt ? ' ' : ''}{issue.publishedAt && <time datetime={issue.publishedAt}>{formatDate(issue.publishedAt)}</time>}</span><ArrowIcon />
                     </a></li>
                   ))}
                 </ol>
               </section>
             )}
-            {archive?.archiveUrl && <a class="archive-link" href={archive.archiveUrl} target="_blank" rel="noopener noreferrer">{archive.archiveLabel ?? 'Browse the archive'}<ArrowIcon /></a>}
+            {archive?.archiveUrl && <a class="archive-link" href={archive.archiveUrl} target="_blank" rel="noopener noreferrer" data-newsletter-id={entry.id} data-newsletter-link="archive">{archive.archiveLabel ?? 'Browse the archive'}<ArrowIcon /></a>}
           </section>
         );
       })}

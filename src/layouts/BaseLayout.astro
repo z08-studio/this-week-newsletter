@@ -3,19 +3,13 @@ import { site } from '../data/site';
 import SubmissionLink from '../components/SubmissionLink.astro';
 import BrandMark from '../components/BrandMark.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import { newsletters } from '../data/newsletters';
+import Analytics from '../components/Analytics.astro';
+import { directorySchema } from '../data/seo';
 import '../styles/global.css';
-interface Props { title?: string; description?: string }
-const { title = `${site.name} — Find your next weekly read`, description = site.description } = Astro.props;
+interface Props { title?: string; description?: string; noindex?: boolean }
+const { title = `Weekly Newsletter Calendar | ${site.name}`, description = site.description, noindex = false } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
-const directorySchema = {
-  '@context': 'https://schema.org', '@type': 'ItemList', name: site.name,
-  numberOfItems: newsletters.length,
-  itemListElement: newsletters.map((entry, index) => ({
-    '@type': 'ListItem', position: index + 1,
-    item: { '@type': 'CreativeWork', name: entry.name, description: entry.description, url: entry.url },
-  })),
-};
+const shareImage = new URL('/illustrations/reading-shelf.webp', Astro.site);
 ---
 <!doctype html>
 <html lang="en">
@@ -23,16 +17,29 @@ const directorySchema = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="canonical" href={canonicalUrl} />
+    {!noindex && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="Newsletter directory reference" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={shareImage} />
+    <meta property="og:image:width" content="1740" />
+    <meta property="og:image:height" content="580" />
+    <meta property="og:image:alt" content="An illustrated reading desk with books, a reader, and a lamp in red and green." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={shareImage} />
+    <meta name="twitter:image:alt" content="Find a good read, one day at a time." />
     <title>{title}</title>
     {Astro.url.pathname === '/' && <script type="application/ld+json" set:html={JSON.stringify(directorySchema)} />}
   </head>
@@ -49,6 +56,7 @@ const directorySchema = {
       <slot />
       <SiteFooter />
     </div>
+    <Analytics />
     {!site.submissionFormUrl && (
       <dialog id="submission-dialog" class="submission-dialog" aria-labelledby="submission-title">
         <div class="submission-dialog-content">
