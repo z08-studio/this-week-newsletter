@@ -57,11 +57,11 @@ h1, h2, h3, p { margin: 0; }
 .reading-illustration { display: block; width: 100%; max-width: 1100px; justify-self: end; height: auto; pointer-events: none; mix-blend-mode: multiply; }
 
 /* Reserve room for the longest day overview without stretching the visible slips. */
-.directory { --calendar-sticky-top: 0px; --reading-sticky-top: 24px; display: grid; flex-shrink: 0; grid-template-columns: minmax(0, 1fr) clamp(320px, 22vw, 432px); align-items: start; gap: 24px; min-height: calc(208px + var(--max-day-entries, 7) * 80px); padding-block: 32px 40px; border-top: 2px solid var(--teal); }
+.directory { display: grid; flex-shrink: 0; grid-template-columns: minmax(0, 1fr) clamp(320px, 22vw, 432px); align-items: start; gap: 24px; min-height: calc(208px + var(--max-day-entries, 7) * 80px); padding-block: 32px 40px; border-top: 2px solid var(--teal); }
 .calendar-viewport { min-width: 0; }
 .calendar-grid { --day-gap: clamp(14px, 1.4vw, 28px); display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--day-gap); }
 .calendar-day { display: flex; flex-direction: column; min-width: 0; }
-.day-heading { position: sticky; top: var(--calendar-sticky-top); z-index: 2; flex: 0 0 auto; background: var(--paper); }
+.day-heading { position: sticky; top: 0; z-index: 2; flex: 0 0 auto; background: var(--paper); }
 /* The rule spans the gutters; transparent columns share the same sticky boundary. */
 .day-heading::after { content: ''; position: absolute; inset: auto calc(-1 * var(--day-gap)) 0 0; border-bottom: 1px solid var(--rule); pointer-events: none; }
 .calendar-day:last-child .day-heading::after { right: 0; }
@@ -80,7 +80,7 @@ h1, h2, h3, p { margin: 0; }
 .calendar-card:focus-visible { border-color: transparent; outline: 2px solid var(--teal); outline-offset: 3px; }
 
 .day-details { min-width: 0; align-self: start; border-left: 1px solid var(--teal); padding-left: 32px; }
-.day-details[data-sticky='true'] { position: sticky; top: var(--reading-sticky-top); }
+.day-details[data-sticky='true'] { position: sticky; top: 24px; }
 .day-detail > h2 { padding-block: 0 18px; color: var(--red); font-size: clamp(32px, 2.9vw, 46px); font-weight: 700; line-height: 1.1; letter-spacing: -.04em; }
 .reading-list > ul { list-style: none; padding: 0; margin: 0; }
 .reading-item { border-bottom: 1px solid var(--rule); }

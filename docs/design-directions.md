@@ -1,21 +1,20 @@
-# Newsletter directory design directions
+# Maintained newsletter directory design
 
-The homepage combines the [Daily desk composition](design/daily-desk-reference.png) with the selected [Light slips refinement](design/light-slips-reference.png). The latter is the refined version of the first displayed calendar option: softer raspberry red, botanical mint, forest green, lighter title slips, wider gutters, and a compact active-weekday tab. Tall column dividers and the full-column selection wash are removed. A single jade slip marks the selected publication; keyboard focus has its own visible outline.
+The homepage combines the [Daily desk composition](design/daily-desk-reference.png) with the approved [Light slips calendar](design/light-slips-reference.png): DM Sans, a white surface, raspberry red, botanical mint, forest-green accents, and original reading illustrations.
 
-The illustrated masthead, DM Sans typography, near-bottom footer on short pages, and existing reading interactions remain. Weekday overviews use one selectable row per publication, with a book motif, name, and arrow instead of repeated View details captions. The reader typography scales with desktop width. A content-derived desktop minimum reserves space for the longest day and current profiles, keeping the footer stable during selection without stretching the visible slips.
+The calendar contains seven equal weekday tracks, lightweight rounded title slips, wider gutters, and a compact active-day tab. One jade slip identifies an open publication; keyboard focus has an independent visible outline. The reading pane defaults to a day list and switches to a compact publication profile with up to three reviewed issue links. Both areas use normal document scrolling, with sticky behavior only when the available viewport permits it. The footer sits near the bottom of short pages and follows longer content naturally.
 
-The original composition is retained at [selected-reference.png](design/selected-reference.png), and the earlier [scroll-reading concept](design/scroll-reading-reference.png) records the accepted compact-profile behavior. The current design uses the same 33 publications, 85 reviewed issue links, original illustration assets, wide calendar, and two-link studio footer. Selecting a publication opens its compact profile in the right pane. Sticky headings and a viewport-aware reader retain one document scroll. See `design-qa.md` for comparison evidence and verification status.
+## Source map
 
-The earlier five-direction gallery remains available at `/designs/`:
+| File | Responsibility |
+| --- | --- |
+| `src/layouts/BaseLayout.astro` | Shared document, metadata, header, and footer |
+| `src/components/WeeklyCalendar.astro` | Calendar, day lists, and publication profiles |
+| `src/components/ReadingHero.astro` | Approved masthead and illustration |
+| `src/components/SiteFooter.astro` | Studio signature and links |
+| `src/scripts/weeklyCalendar.ts` | Selection, keyboard navigation, history, and sticky-reader sizing |
+| `src/styles/global.css` | Design tokens, states, and responsive layout |
 
-| Direction | Preview | Status |
-| --- | --- | --- |
-| 01 Illustrated calendar | `/designs/soft/` | Current selected implementation; the original route is retained |
-| 02 Wine glass | `/designs/glass/` | Earlier study |
-| 03 Weekly agenda | `/designs/agenda/` | Earlier study |
-| 04 Bubble garden | `/designs/bubbles/` | Earlier study |
-| 05 Mint canvas | `/designs/canvas/` | Earlier study |
+The early five-direction gallery, alternate layouts, and popover implementation were retired after design approval. Legacy addresses at `/designs/` and its five named studies redirect to `/`. Retired implementations and visual references remain recoverable in Git history.
 
-The homepage and selected review route share `BaseLayout.astro`, `WeeklyCalendar.astro`, `ReadingHero.astro`, `SiteFooter.astro`, and `global.css`. Their interaction module is `weeklyCalendar.ts`. The other four studies use `DesignLayout.astro`, `DesignCalendar.astro`, `designs.css`, and the original `newsletterPreview.ts` popovers.
-
-Review pages declare noindex,nofollow and are excluded from the sitemap. Embedded gallery previews use `?embed=1` to hide their review bar. Adding directory entries updates all studies from the same data. Run the type check and build after changes; browser verification should prioritize the selected homepage.
+Publication records and reviewed issue links remain separate from presentation. The approved references, current screenshots, asset originals/prompts, and latest QA evidence are retained. See [design QA](../design-qa.md) and [maintenance](maintenance.md) for verification and update instructions.

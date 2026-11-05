@@ -2,24 +2,19 @@ const calendar = document.querySelector<HTMLElement>('[data-newsletter-calendar]
 
 if (calendar) {
   const buttons = [...calendar.querySelectorAll<HTMLButtonElement>('[data-select-day]')];
-  const columns = [...calendar.querySelectorAll<HTMLElement>('[data-calendar-day]')];
   const dayPanels = [...calendar.querySelectorAll<HTMLElement>('[data-day-panel]')];
   const newsletterPanels = [...calendar.querySelectorAll<HTMLElement>('[data-newsletter-panel]')];
   const cards = [...calendar.querySelectorAll<HTMLButtonElement>('.calendar-card')];
   const status = calendar.querySelector<HTMLElement>('[data-day-status]');
   const reader = calendar.querySelector<HTMLElement>('.day-details');
-  const reviewBar = document.querySelector<HTMLElement>('.review-bar');
   const today = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(new Date()).toLowerCase();
   type Options = { remember?: boolean; announce?: boolean; reveal?: boolean; focus?: boolean };
 
   // A reader that is taller than the viewport must remain in normal page flow.
   // ResizeObserver also handles font loading, text zoom, and later content edits.
   function updateStickyReader() {
-    const reviewOffset = reviewBar && getComputedStyle(reviewBar).position === 'sticky' ? reviewBar.offsetHeight : 0;
-    const top = reviewOffset + 24;
-    calendar!.style.setProperty('--calendar-sticky-top', `${reviewOffset}px`);
-    calendar!.style.setProperty('--reading-sticky-top', `${top}px`);
-    if (reader) reader.dataset.sticky = String(window.innerWidth > 1270 && reader.offsetHeight + top + 24 <= window.innerHeight);
+    // Keep a 24px allowance above and below a sticky reader.
+    if (reader) reader.dataset.sticky = String(window.innerWidth > 1270 && reader.offsetHeight + 48 <= window.innerHeight);
   }
 
   function show(day: string, newsletterId: string | null = null, options: Options = {}) {
@@ -28,7 +23,6 @@ if (calendar) {
     const dayPanel = dayPanels.find((panel) => panel.dataset.dayPanel === selectedDay);
     if (!dayPanel) return;
 
-    for (const column of columns) column.classList.toggle('is-selected', column.dataset.calendarDay === selectedDay);
     for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.selectDay === selectedDay));
     for (const card of cards) card.setAttribute('aria-pressed', String(card.dataset.openNewsletter === detail?.dataset.newsletterPanel));
     for (const panel of dayPanels) panel.hidden = !!detail || panel !== dayPanel;
@@ -93,6 +87,5 @@ if (calendar) {
   window.addEventListener('popstate', restoreFromUrl);
   window.addEventListener('resize', updateStickyReader);
   if (reader) new ResizeObserver(updateStickyReader).observe(reader);
-  if (reviewBar) new ResizeObserver(updateStickyReader).observe(reviewBar);
   restoreFromUrl();
 }

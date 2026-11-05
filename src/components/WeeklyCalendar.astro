@@ -25,7 +25,7 @@ const issueLabel = (title: string, publication: string) => title.toLowerCase().s
     <div class="calendar-viewport">
       <div class="calendar-grid" aria-label="Weekly calendar">
         {days.map((day) => (
-          <section class:list={['calendar-day', { 'is-selected': day.index === initialDay }]} data-calendar-day={day.slug} aria-labelledby={`heading-${day.slug}`}>
+          <section class="calendar-day" aria-labelledby={`heading-${day.slug}`}>
             <h2 id={`heading-${day.slug}`} class="day-heading">
               <button type="button" data-select-day={day.slug} aria-pressed={day.index === initialDay ? 'true' : 'false'} aria-controls={`reading-${day.slug}`} aria-label={`${day.name} newsletters`}>
                 <abbr title={day.name}>{day.name.slice(0, 3)}</abbr>
