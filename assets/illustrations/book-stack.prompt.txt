@@ -1,0 +1,6 @@
+Use case: illustration-story. Asset type: small raster editorial illustration for a newsletter directory.
+Reference image: use only the little stack of three books in the lower-right selected-day panel as the target, approximately at x1060 y700. Recreate that object by itself, not the website or any text.
+Primary request: three horizontally stacked hardcover books, dark teal upper book, seafoam mint middle book, bright vermilion-red bottom book, their pale ivory page edges visible toward the right. Slight organic irregularity and rounded corners like the reference. Flat, crisp vector-like illustration with subtle tonal shapes, no shadows cast on backdrop, no photorealistic texture.
+Composition: one isolated centered book stack, square 512x512 or larger square canvas, art occupies about80% of frame, all book edges fully visible, slight whitespace around object.
+Palette: deep teal #00564d, seafoam #79cbb0, red #ef1928, pale cream only inside paper page edges.
+Background: pure white #ffffff. No text, UI, letters, watermark, logos, extra books or other objects. Preserve the visual personality and simple flat construction from the reference.

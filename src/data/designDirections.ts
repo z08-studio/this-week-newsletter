@@ -1,7 +1,7 @@
 export const designDirections = [
   {
-    id: 'soft', number: '01', name: 'Soft cards',
-    description: 'Light cushions, generous space, and a quiet touch of depth.',
+    id: 'soft', number: '01', name: 'Illustrated calendar',
+    description: 'An illustrated masthead, mint title slips and a complete reading list for each weekday.',
   },
   {
     id: 'glass', number: '02', name: 'Wine glass',

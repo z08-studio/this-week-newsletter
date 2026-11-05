@@ -1,12 +1,13 @@
 ---
 import { site } from '../data/site';
+import ArrowIcon from './ArrowIcon.astro';
 ---
 {site.submissionFormUrl ? (
-  <a class="submit-button" href={site.submissionFormUrl} target="_blank" rel="noopener noreferrer">
-    Add to this site<span aria-hidden="true">↗</span>
+  <a class="submit-button" href={site.submissionFormUrl} target="_blank" rel="noopener noreferrer" aria-label="Suggest a newsletter (opens Google Forms)">
+    <span>Suggest<span class="long-label"> a newsletter</span></span><ArrowIcon />
   </a>
 ) : (
   <button class="submit-button" type="button" data-open-submit>
-    Add to this site<span aria-hidden="true">↗</span>
+    Suggest a newsletter<ArrowIcon />
   </button>
 )}

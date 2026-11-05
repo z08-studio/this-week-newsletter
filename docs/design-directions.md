@@ -1,19 +1,19 @@
 # Newsletter directory design directions
 
-Open `/designs/` in the local preview for the five-direction comparison gallery. Each thumbnail opens a working page. The review bar switches between directions using the same current publications, weekday data, suggestion form and publication previews.
+The homepage implements the selected Product Design reference: the third illustrated concept's weekly calendar and side panel, combined with the first concept's pale mint rounded title slips. The redundant Open full day link was removed after discussion. The reading panel itself contains the complete selected-day collection and scrolls when necessary.
 
-| Direction | Preview | Approach |
+The source is [selected-reference.png](design/selected-reference.png). The latest implementation adds the real expanded collection, so more titles and a third Wednesday publication appear compared with the original eight-title mock. The layout, visual language, and first two Wednesday entries are preserved. See `design-qa.md` for the comparison and interaction checks.
+
+The earlier five-direction gallery remains available at `/designs/`:
+
+| Direction | Preview | Status |
 | --- | --- | --- |
-| 01 Soft cards | `/designs/soft/` | Open weekly columns, small padded cards and restrained depth |
-| 02 Wine glass | `/designs/glass/` | Deep berry, translucent panels and mint lettering |
-| 03 Weekly agenda | `/designs/agenda/` | A vertical agenda with rounded reading ribbons and a side masthead |
-| 04 Bubble garden | `/designs/bubbles/` | Organic circular cards, open columns and a centered masthead |
-| 05 Mint canvas | `/designs/canvas/` | One mint calendar surface, fine dividers and serif masthead typography |
+| 01 Illustrated calendar | `/designs/soft/` | Current selected implementation; the original route is retained |
+| 02 Wine glass | `/designs/glass/` | Earlier study |
+| 03 Weekly agenda | `/designs/agenda/` | Earlier study |
+| 04 Bubble garden | `/designs/bubbles/` | Earlier study |
+| 05 Mint canvas | `/designs/canvas/` | Earlier study |
 
-These are review routes pending editorial selection. They declare `noindex,nofollow` and are excluded from the sitemap. The homepage retains its existing appearance.
+The homepage and selected review route share `BaseLayout.astro`, `WeeklyCalendar.astro`, `ReadingHero.astro`, `SiteFooter.astro`, and `global.css`. Their interaction module is `weeklyCalendar.ts`. The other four studies use `DesignLayout.astro`, `DesignCalendar.astro`, `designs.css`, and the original `newsletterPreview.ts` popovers.
 
-`src/data/designDirections.ts` holds the review names and descriptions. `DesignCalendar.astro` renders the shared content, `DesignLayout.astro` provides review navigation, and `src/styles/designs.css` isolates all concept styling from the homepage. Embedded thumbnails use `?embed=1` to hide the review bar and retain an actual desktop layout at a scaled size.
-
-`src/scripts/newsletterPreview.ts` supplies the existing hover, touch, keyboard and top-layer popover behavior to both the homepage and concepts. Each day's list scrolls independently when its content exceeds the available area. Smaller screens adapt the columns, agenda and bubbles to their available width.
-
-Run `npm run check` and `npm run build` after changes. Review all five desktop layouts, narrow screens, reading links and preview dismissal. Save comparison screenshots in ignored `output/design-studies/`.
+Review pages declare noindex,nofollow and are excluded from the sitemap. Embedded gallery previews use `?embed=1` to hide their review bar. Adding directory entries updates all studies from the same data. Run the type check and build after changes; browser verification should prioritize the selected homepage.

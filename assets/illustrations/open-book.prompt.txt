@@ -1,0 +1,9 @@
+Use case: illustration-story.
+Asset type: single small editorial open-book illustration for a website newsletter list.
+Input image: visual style and exact subject reference only. Recreate ONLY the small open book illustration beside This Week in Skills in the right-hand panel of the provided reference. Do not recreate any UI.
+Primary request: A friendly open book viewed straight on, pale mint pages with a few short curved dark mint lines indicating writing (not legible text), dark teal cover and spine, a vivid red ribbon bookmark hanging from the bottom on the right half, three short red attention rays above.
+Style/medium: refined flat vector-like editorial illustration with crisp edges and restrained simple geometric forms, matching the reference.
+Composition: one centered isolated open book, square canvas approximately 1024x1024, illustration occupying about 80% of the frame; generous clean breathing room. Book symmetric except ribbon.
+Color palette: pale mint, seafoam #79cbb0, rich dark teal #00564d, bright vermilion red #ef1928.
+Background: pure white #ffffff. No cast shadows, no gradients, no texture.
+Constraints: no UI, no text, no words, no logo, no frame, no watermarks, no extra objects. Preserve the recognizable open-book and red bookmark motif from the reference.

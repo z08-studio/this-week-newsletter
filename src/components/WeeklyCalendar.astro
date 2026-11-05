@@ -1,0 +1,85 @@
+---
+import { calendarOrder, newsletters, weekdays } from '../data/newsletters';
+import ArrowIcon from './ArrowIcon.astro';
+import ReadingHero from './ReadingHero.astro';
+
+// The client restores a linked weekday or selects the reader's current day.
+const initialDay = 3;
+const days = calendarOrder.map((index) => ({
+  index,
+  name: weekdays[index],
+  slug: weekdays[index].toLowerCase(),
+  entries: newsletters.filter((entry) => entry.publicationDay === index),
+}));
+---
+
+<main id="main">
+  <ReadingHero />
+  <section class="directory" aria-label="Newsletters by publication day" data-newsletter-calendar>
+    <div class="calendar-viewport">
+      <div class="calendar-grid" aria-label="Weekly calendar">
+        {days.map((day) => (
+          <section class:list={['calendar-day', { 'is-selected': day.index === initialDay }]} data-calendar-day={day.slug} aria-labelledby={`heading-${day.slug}`}>
+            <h2 id={`heading-${day.slug}`} class="day-heading">
+              <button type="button" data-select-day={day.slug} aria-pressed={day.index === initialDay ? 'true' : 'false'} aria-controls={`reading-${day.slug}`} aria-label={`${day.name} newsletters`}>
+                <abbr title={day.name}>{day.name.slice(0, 3)}</abbr>
+              </button>
+            </h2>
+            <ul class="calendar-titles" tabindex={day.entries.length ? 0 : undefined} aria-label={`${day.name} newsletter links`}>
+              {day.entries.map((entry) => (
+                <li>
+                  <a class="calendar-card" data-newsletter-id={entry.id} data-newsletter-day={day.slug} href={entry.url} target="_blank" rel="noopener noreferrer" lang={entry.language === '中文' ? 'zh-CN' : 'en'}>{entry.name}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </div>
+    <aside class="day-details" aria-label="Selected day newsletters">
+      <p class="sr-only" role="status" aria-live="polite" data-day-status></p>
+      {days.map((day) => (
+        <section class="day-detail" id={`reading-${day.slug}`} data-day-panel={day.slug} hidden={day.index !== initialDay} aria-labelledby={`reading-title-${day.slug}`}>
+          <h2 id={`reading-title-${day.slug}`}>{day.name}</h2>
+          <div class="reading-list" tabindex="0" role="region" aria-label={`All ${day.name} newsletters`}>
+            {day.entries.length ? (
+              <ul>
+                {day.entries.map((entry, index) => (
+                  <li class="reading-item" data-reading-id={entry.id}>
+                    <img class="reading-motif" src={`/illustrations/${index % 2 === 0 ? 'open-book' : 'book-stack'}.webp`} width="88" height="88" alt="" aria-hidden="true" loading="lazy" />
+                    <div class="reading-copy">
+                      <h3 lang={entry.language === '中文' ? 'zh-CN' : 'en'}><a href={entry.url} target="_blank" rel="noopener noreferrer">{entry.name}</a></h3>
+                      <p>{entry.description}</p>
+                      <a class="reading-link" href={entry.url} target="_blank" rel="noopener noreferrer" aria-label={`Read ${entry.name} (opens in a new tab)`}>Read newsletter<ArrowIcon /></a>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div class="empty-day">
+                <img src="/illustrations/open-book.webp" alt="" width="88" height="88" />
+                <p>A little room for a good read.</p>
+                <p>Have a newsletter for {day.name}? Suggest it using the link above.</p>
+              </div>
+            )}
+          </div>
+        </section>
+      ))}
+    </aside>
+  </section>
+</main>
+
+<script>
+  import '../scripts/weeklyCalendar';
+</script>
+
+<noscript>
+  <style>
+    @media (max-width: 680px) {
+      .calendar-grid { grid-template-columns: 1fr !important; height: auto !important; }
+      .calendar-titles { display: flex !important; max-height: none !important; }
+      .day-heading button { pointer-events: none; }
+      .day-details { display: none; }
+    }
+  </style>
+</noscript>

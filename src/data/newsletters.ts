@@ -1,5 +1,8 @@
+import { collectedNewsletters } from './collectedNewsletters';
+
 export type Weekday = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 export const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as const;
+export const calendarOrder: readonly Weekday[] = [1, 2, 3, 4, 5, 6, 0];
 
 export interface Newsletter {
   id: string;
@@ -15,6 +18,8 @@ export interface Newsletter {
   accent: 'purple' | 'green' | 'orange' | 'blue' | 'ink';
   scheduleSource: string;
   scheduleNote?: string;
+  scheduleCheckedAt?: string;
+  scheduleBasis?: 'publisher-stated' | 'recent-archive' | 'editor-confirmed';
 }
 
 // Editorial order: add new entries here after manual review.
@@ -50,7 +55,7 @@ export const newsletters: Newsletter[] = [
   {
     id: 'this-week-in-skills',
     name: 'This Week in Skills',
-    description: 'Useful agent skills and practical workflows, every Wednesday.',
+    description: 'Useful agent skills and practical workflows.',
     url: 'https://thisweekinskills.substack.com/',
     language: 'English',
     topics: ['Agent skills', 'AI', 'Workflows', '智能体技能'],
@@ -107,4 +112,5 @@ export const newsletters: Newsletter[] = [
     publicationDay: 3, monogram: 'R', accent: 'ink', scheduleSource: 'https://this-week-in-rust.org/',
     scheduleNote: 'Wednesday pattern verified against recent issue dates on 2026-10-30.',
   },
+  ...collectedNewsletters,
 ];

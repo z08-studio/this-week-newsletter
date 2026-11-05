@@ -1,0 +1,8 @@
+Use case: illustration-story
+Asset type: wide editorial homepage hero illustration, standalone asset.
+Input image: visual reference only. Recreate ONLY the illustration occupying the upper-right hero of the supplied website mockup, not the website.
+Subject: one friendly red-haired reader resting their cheek on one mint hand, reading a large red open book; to their right a bright red adjustable desk lamp and mint coffee mug; to their left a mint leafy potted plant, dark teal/mint/red stack of books and a simple envelope with red seal. Arrange all subjects on one slim mint shelf.
+Style/medium: clean flat geometric editorial illustration, vector-like crisp contours, subtly organic hand-shaped forms, no outlines around most fills, very restrained tonal shading, friendly sophisticated independent magazine aesthetic. Match the reference's shapes and styling closely.
+Composition: very wide horizontal composition about 1200 x 360, all elements fully visible, art spanning the frame with a little breathing room. Reader centered slightly right. Plant anchors left, lamp anchors right. One continuous horizontal shelf grounds everything. Match the reference hero's composition and relative scale. White backdrop, no shadows outside the objects.
+Color palette: vermilion red #ef1928, seafoam mint #79cbb0, pale mint #d9f4e4, rich dark teal #00564d, very small cream paper details inside books and envelope. White overall backdrop.
+Constraints: Generate only the illustration. Absolutely no text, labels, letters, wordmarks, UI, borders, website, title, calendar or watermark. No 3D, glossy material, painterly texture, photorealism, fake SVG outlines or gradients.

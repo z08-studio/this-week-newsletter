@@ -1,10 +1,24 @@
 ---
 import { site } from '../data/site';
 import SubmissionLink from '../components/SubmissionLink.astro';
+import BrandMark from '../components/BrandMark.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import DesignReviewNav from '../components/DesignReviewNav.astro';
+import type { DesignDirection } from '../data/designDirections';
+import { newsletters } from '../data/newsletters';
 import '../styles/global.css';
-interface Props { title?: string; description?: string }
-const { title = `${site.name} — Find your next weekly read`, description = site.description } = Astro.props;
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+interface Props { title?: string; description?: string; reviewDirection?: DesignDirection }
+const { title = `${site.name} — Find your next weekly read`, description = site.description, reviewDirection } = Astro.props;
+const pageTitle = reviewDirection ? `${reviewDirection.number} ${reviewDirection.name} · ${site.name}` : title;
+const canonicalUrl = new URL(reviewDirection ? '/' : Astro.url.pathname, Astro.site);
+const directorySchema = {
+  '@context': 'https://schema.org', '@type': 'ItemList', name: site.name,
+  numberOfItems: newsletters.length,
+  itemListElement: newsletters.map((entry, index) => ({
+    '@type': 'ListItem', position: index + 1,
+    item: { '@type': 'CreativeWork', name: entry.name, description: entry.description, url: entry.url },
+  })),
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -13,33 +27,39 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#a9253b" />
+    <meta name="theme-color" content="#ffffff" />
+    {reviewDirection && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="preload" href="/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
+    {!reviewDirection && Astro.url.pathname === '/' && <script type="application/ld+json" set:html={JSON.stringify(directorySchema)} />}
+    {reviewDirection && <script is:inline>if (new URLSearchParams(location.search).get('embed') === '1') document.documentElement.dataset.embed = 'true';</script>}
   </head>
-  <body>
+  <body class:list={['illustrated-page', { 'has-design-review': !!reviewDirection }]}>
     <a class="skip-link" href="#main">Skip to content</a>
+    {reviewDirection && <DesignReviewNav direction={reviewDirection} />}
     <div class="site-shell">
       <header class="site-header">
         <a class="wordmark" href="/" aria-label="This Week In Newsletters home">
-          <img src="/brand-mark.svg" width="64" height="64" alt="" />
+          <BrandMark />
           <span class="wordmark-copy"><span>This Week In</span><strong>Newsletters</strong></span>
         </a>
         <SubmissionLink />
       </header>
       <slot />
+      <SiteFooter />
     </div>
     {!site.submissionFormUrl && (
       <dialog id="submission-dialog" class="submission-dialog" aria-labelledby="submission-title">
         <div class="submission-dialog-content">
           <form method="dialog"><button class="dialog-close" aria-label="Close submission information">×</button></form>
-          <img src="/brand-mark.svg" width="48" height="48" alt="" />
+          <BrandMark />
           <h2 id="submission-title">A good read deserves company.</h2>
           <p>Our suggestion form is opening soon. We’re making a little room for more great newsletters.</p>
           <form method="dialog"><button class="submit-button">Back to the calendar <span aria-hidden="true">↗</span></button></form>

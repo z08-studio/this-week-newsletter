@@ -9,15 +9,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px s
 h1, h2, p { margin: 0; }
 .design-skip { position: fixed; left: 16px; top: 10px; z-index: 30; padding: 12px 20px; border-radius: 99px; background: #b5eac1; color: #74273c; transform: translateY(-180%); }
 .design-skip:focus { transform: none; }
-.review-bar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; padding: 12px 30px; color: #bbebc7; background: #581d30; font-size: 14px; }
-.review-bar a { text-decoration: none; white-space: nowrap; }
-.review-back { display: inline-flex; align-items: center; gap: 14px; padding: 10px 0; }
-.review-tabs { display: flex; align-items: center; gap: 6px; overflow-x: auto; }
-.review-tabs a { display: block; padding: 10px 15px; border: 1px solid transparent; border-radius: 999px; }
-.review-tabs a span { margin-right: 7px; opacity: .7; }
-.review-tabs a:hover { border-color: #bbebc744; }
-.review-tabs a[aria-current='page'] { color: #581d30; background: #bbebc7; }
-html[data-embed] .review-bar, html[data-embed] .design-skip { display: none; }
+html[data-embed] .design-skip { display: none; }
 
 .design-page--gallery { color: #b9ebc3; background: #8e263f; }
 .design-gallery { width: min(100% - 80px, 1440px); margin: auto; padding-block: 56px 68px; }
@@ -73,14 +65,7 @@ html[data-embed] .concept { min-height: 100svh; }
 .newsletter-visit { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; padding: 11px 17px; border-radius: 99px; color: var(--mint); background: var(--berry); font-size: 16px; font-weight: 500; text-decoration: none; }
 .newsletter-visit > span { font-size: 24px; }
 
-/* 01: soft, open columns. Depth belongs to the small cards, not seven large slabs. */
-.concept--soft { --berry: #a72b44; --mint: #b5e7bf; --deep: #74263b; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', sans-serif; }
-.concept--soft .concept-day { height: 495px; border: 1px solid #b5e7bf29; border-radius: 25px; background: #b5e7bf05; }
-.concept--soft .concept-day-heading { margin: 9px 9px 0; min-height: 45px; border-radius: 99px; color: var(--deep); background: var(--mint); }
-.concept--soft .day-newsletters { padding-inline: 10px; gap: 17px; }
-.concept--soft .newsletter-name { border-radius: 21px; box-shadow: 0 5px 0 #65152d2b, inset 0 1px 0 #d4f4da80; }
-.concept--soft .newsletter-name:hover, .concept--soft .newsletter-name[aria-expanded='true'] { box-shadow: 0 7px 0 #65152d2b, inset 0 1px 0 #d4f4da80; }
-.concept--soft .concept-mark { border-radius: 20px; }
+/* 01 is the selected homepage, styled in global.css. */
 
 /* 02: translucent wine-colored glass with restrained green light. */
 .concept--glass { --berry: #601c35; --mint: #b2e6c4; --deep: #492338; background: radial-gradient(ellipse at 12% 65%, #a2d6b521, transparent 37%), radial-gradient(ellipse at 85% 15%, #db5c6a2b, transparent 40%), #601c35; }
@@ -167,15 +152,13 @@ html[data-embed] .concept { min-height: 100svh; }
   .concept--canvas .newsletter-title { font-size: 17px; }
 }
 @media (max-width: 900px) {
-  .review-bar { position: static; flex-wrap: wrap; padding-inline: 20px; gap: 6px; }
-  .review-tabs { width: 100%; }
   .concept-shell { width: calc(100% - 48px); padding-top: 30px; }
   .concept-header { gap: 20px; padding-bottom: 30px; }
   .concept-brand strong { font-size: 40px; }
   .concept-brand h1 > span { font-size: 18px; }
   .concept-board { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-  .concept-day, .concept--soft .concept-day, .concept--glass .concept-day { height: 355px; }
-  .concept-day[data-empty='true'], .concept--soft .concept-day[data-empty='true'], .concept--glass .concept-day[data-empty='true'] { height: 74px; }
+  .concept-day, .concept--glass .concept-day { height: 355px; }
+  .concept-day[data-empty='true'], .concept--glass .concept-day[data-empty='true'] { height: 74px; }
   .concept-day[data-empty='true'] .day-newsletters { display: none; }
   .concept-day-heading { font-size: 20px; }
   .newsletter-name { min-height: 100px; padding-inline: 20px; }
@@ -214,7 +197,7 @@ html[data-embed] .concept { min-height: 100svh; }
   .concept-brand h1 > span, .concept--agenda .concept-brand h1 > span { font-size: 17px; }
   .concept-submit { min-height: 46px; font-size: 15px; padding: 11px 19px; }
   .concept-board { grid-template-columns: 1fr; }
-  .concept-day, .concept--soft .concept-day, .concept--glass .concept-day { height: auto; max-height: 390px; }
+  .concept-day, .concept--glass .concept-day { height: auto; max-height: 390px; }
   .day-newsletters { flex: 0 1 auto; max-height: 308px; }
   .newsletter-name { min-height: 82px; padding: 17px 21px; }
   .concept-day-heading { min-height: 60px; font-size: 21px; }

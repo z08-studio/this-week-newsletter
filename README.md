@@ -2,23 +2,8 @@
 
 Make good weekly reading easier to find. A handpicked newsletter calendar by **z08 Studio**, built for [thisweeknewsletter.com](https://thisweeknewsletter.com).
 
-The homepage organizes newsletters from Sunday through Saturday. Browse publication names, hover or select one to see a short introduction, then open a publication to read or subscribe. On touchscreens, tap a name to reveal its details. Studio newsletters sit alongside independently collected favorites.
+Browse 33 newsletters from Monday through Sunday. Select a weekday to see its full reading list, or hover a mint calendar card for an introduction. Reading links open the original publication. Busy days scroll independently; on phones, a compact weekday picker sits above the complete daily list.
 
-[Suggest a newsletter](https://docs.google.com/forms/d/e/1FAIpQLScNKI_gcJOtPcRBZZ4xB-IUREZraY1j6dz1tQyKn3MOBTl4Ag/viewform). Each submission is reviewed manually before it is added.
+[Suggest a newsletter](https://docs.google.com/forms/d/e/1FAIpQLScNKI_gcJOtPcRBZZ4xB-IUREZraY1j6dz1tQyKn3MOBTl4Ag/viewform). Every submission is reviewed manually before inclusion.
 
-## Development
-
-Use Node.js 24 LTS and npm.
-
-```sh
-npm ci
-npm run dev
-npm run check
-npm run build
-```
-
-The development server listens on loopback. The static production build is written to `dist/`. Desktop displays seven independently scrolling columns with fixed weekday headings. Smaller screens arrange the same panels in two columns or a vertical list, with a capped reading area for busy days.
-
-The page uses a red background, soft green panels, rounded typography and gently raised jelly-like publication buttons. Only publication names appear at rest; introductions and reading links appear on demand.
-
-See [maintenance](docs/maintenance.md) for adding publications, publication-day sources, form ownership and the deployment boundary. The repository is private; the website is intended for public readers.
+The selected design combines an illustrated masthead, a weekly calendar with a day-detail panel, and the z08 Studio footer. See [the design reference](docs/design/selected-reference.png), [schedule research](docs/newsletter-sources.md), and [maintenance instructions](docs/maintenance.md). The repository is private; the website is intended for public readers.

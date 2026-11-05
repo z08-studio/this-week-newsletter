@@ -3,7 +3,7 @@ import { designDirections, type DesignDirection } from '../../data/designDirecti
 import DesignLayout from '../../layouts/DesignLayout.astro';
 import DesignCalendar from '../../components/DesignCalendar.astro';
 export function getStaticPaths() {
-  return designDirections.map((direction) => ({ params: { direction: direction.id }, props: { direction } }));
+  return designDirections.filter((direction) => direction.id !== 'soft').map((direction) => ({ params: { direction: direction.id }, props: { direction } }));
 }
 interface Props { direction: DesignDirection }
 const { direction } = Astro.props;

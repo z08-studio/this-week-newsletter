@@ -1,28 +1,8 @@
 ---
-import NewsletterCard from '../components/NewsletterCard.astro';
-import { newsletters, weekdays } from '../data/newsletters';
+import WeeklyCalendar from '../components/WeeklyCalendar.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
-  <main id="main" class="directory" aria-labelledby="directory-heading">
-    <h1 id="directory-heading" class="sr-only">Newsletters by publication day</h1>
-    <div class="weekly-calendar">
-      {weekdays.map((day, dayIndex) => {
-        const entries = newsletters.filter((newsletter) => newsletter.publicationDay === dayIndex);
-        return (
-          <section class="day-column" data-empty={entries.length === 0 ? 'true' : 'false'} aria-labelledby={`day-${dayIndex}`}>
-            <h2 class="day-heading" id={`day-${dayIndex}`}>{day}</h2>
-            <ul class="day-newsletters" aria-label={`${day} newsletters`} tabindex={entries.length > 0 ? 0 : undefined}>
-              {entries.map((newsletter) => <NewsletterCard newsletter={newsletter} />)}
-            </ul>
-          </section>
-        );
-      })}
-    </div>
-  </main>
+  <WeeklyCalendar />
 </BaseLayout>
-
-<script>
-  import '../scripts/newsletterPreview';
-</script>

@@ -1,5 +1,6 @@
 ---
-import { designDirections, type DesignDirection } from '../data/designDirections';
+import type { DesignDirection } from '../data/designDirections';
+import DesignReviewNav from '../components/DesignReviewNav.astro';
 import '../styles/designs.css';
 interface Props { direction?: DesignDirection }
 const { direction } = Astro.props;
@@ -19,12 +20,7 @@ const { direction } = Astro.props;
   </head>
   <body class:list={['design-page', { 'design-page--gallery': !direction }]}>
     <a class="design-skip" href="#main">Skip to content</a>
-    {direction && (
-      <nav class="review-bar" aria-label="Design directions">
-        <a class="review-back" href="/designs/">All designs <span aria-hidden="true">↗</span></a>
-        <div class="review-tabs">{designDirections.map((item) => <a href={`/designs/${item.id}/`} aria-current={item.id === direction.id ? 'page' : undefined}><span>{item.number}</span> {item.name}</a>)}</div>
-      </nav>
-    )}
+    {direction && <DesignReviewNav direction={direction} />}
     <slot />
   </body>
 </html>

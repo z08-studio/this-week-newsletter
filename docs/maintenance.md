@@ -1,42 +1,56 @@
 # Directory maintenance
 
+## Local development
+
+Use Node.js 24 LTS and npm:
+
+```sh
+npm ci
+npm run dev
+npm run check
+npm run build
+```
+
+The existing Astro project builds a static site into `dist/`. The development server listens on loopback at port 4321. Keep this project and its production build; there is no new hosting runtime or backend.
+
 ## Publications and weekdays
 
-Edit `src/data/newsletters.ts` after reviewing each submission. `publicationDay` uses Sunday = 0 through Saturday = 6. The typed weekday tuple controls the display order. Editorial order inside a weekday follows the data array. The directory displays the publication's usual schedule rather than guaranteeing a particular issue's release time.
+`src/data/newsletters.ts` defines the shared record type, the five studio publications, the original collected publications, and the assembled directory. `src/data/collectedNewsletters.ts` contains 25 additional manually researched entries. `publicationDay` uses Sunday = 0 through Saturday = 6; `calendarOrder` explicitly renders Monday first. Editorial order inside each day follows the assembled array, with studio titles first.
 
-Each entry has a stable ID, name, short description, original publication URL, language, topics, studio ownership, weekday, optional identity assets, and a schedule source. Descriptions appear in the on-demand preview. Public reading links open in a new tab with `noopener noreferrer`.
+Required fields include the stable ID, public name, short original description, publication URL, language, topics, ownership, usual weekday, and source URL. New collected records also store `scheduleCheckedAt`, `scheduleBasis`, and a source note. See [schedule research](newsletter-sources.md) for the current evidence and editorial policy. The calendar describes the publisher's usual local weekday, not an issue-level promise or a conversion to the reader's time zone. Do not silently move the free edition to a premium release day.
 
-AI publishes Monday, Obsidian Tuesday, Skills Wednesday, HN Friday, and the editor supplied Thursday for Crypto. AI, Obsidian and HN schedules are recorded in their companion repositories; Skills' Wednesday schedule is stated in its first published issue, verified on 2026-11-04. On 2026-10-30, Tw93's recent issue dates showed Mondays, Rust's recent archive dates showed Wednesdays, and Ruan Yifeng's homepage explicitly stated Friday publication. `scheduleSource` and optional `scheduleNote` preserve these distinctions; recheck them when updating the directory. Empty weekdays remain visible.
+AI publishes Monday, Obsidian Tuesday, Skills Wednesday, Crypto Thursday, and HN Friday. Existing studio schedules remain editorially controlled. The original external publications are Tw93's Monday digest, the Wednesday Rust digest, and Ruan Yifeng's Friday digest. Recheck public schedules before changing them. Never invent a fixed day for a daily, paused, monthly, or irregular publication simply to fill the calendar.
 
-The homepage shows only the masthead, submission link, weekdays and publication names at rest. There is no search, count, legend or footer copy. Desktop preserves all seven weekday panels. Each panel has a fixed heading and its own vertical scroll area; adding entries does not increase the desktop panel height. Tablet uses two columns, and phones stack the panels with capped scroll areas. Empty mobile days collapse to their heading.
+## Reading interactions
 
-Hovering a publication opens its preview. Touch and keyboard users activate the publication button to toggle it. Native automatic popovers keep only one preview open and support Escape and outside-click dismissal. Their top-layer placement prevents clipping by the weekday scroll containers. The preview stays inside the viewport and closes when the page or a weekday list scrolls. Reading links can be hovered and focused without closing the preview.
+`WeeklyCalendar.astro` renders the title-only weekly overview and all seven daily reading panels in HTML. `weeklyCalendar.ts` progressively enhances weekday selection, local-day initialization, `?day=wednesday` links, keyboard navigation, and mouse/focus previews. The URL records explicit day selection. A hover preview does not add browser-history entries.
+
+Click a weekday heading to switch the right panel. Arrow keys move between weekday buttons; Home and End select Monday and Sunday. Hover or focus a publication card to reveal that day and bring its matching introduction into view. The code adjusts the detail container's scroll position instead of scrolling the document. Each title and reading link opens the original publication in a new tab with `noopener noreferrer`. There is no intermediate detail route and no Open full day button.
+
+At desktop widths, weekday headings remain fixed above independently scrolling lists, and the detail heading stays above its own scrollable list. The real Friday collection currently has seven entries, providing an overflow example. Tablet places the detail panel below the full weekly overview. At widths up to 680px, the overview becomes a seven-button weekday picker and the full list appears below. The no-JavaScript mobile fallback exposes all newsletter links as weekday lists. Keep heading selection visible, focus outlines clear, and original publication names untruncated.
 
 ## Suggestion form
 
 Public form: [Add your newsletter](https://docs.google.com/forms/d/e/1FAIpQLScNKI_gcJOtPcRBZZ4xB-IUREZraY1j6dz1tQyKn3MOBTl4Ag/viewform).
 
-Owner/editor account: the Google account requested by the maintainer. The form's [editor URL](https://docs.google.com/forms/d/16Gh3FiYaXB-RyWY1tZ22dJakCk5OpiO0I0WPCU14MiM/edit) requires that account's access. Do not publish edit permissions or expose submitted responses.
+The form's [editor URL](https://docs.google.com/forms/d/16Gh3FiYaXB-RyWY1tZ22dJakCk5OpiO0I0WPCU14MiM/edit) requires access through the maintainer's Google account. Do not expose edit permissions or submitted responses.
 
-The form contains newsletter name, public website/subscription URL, one-sentence description, publication day, languages, topics and an optional contact email. It does not automatically collect Google email addresses or require sign-in through a one-response limit. Response summaries are private. The confirmation message explains manual review. There is no automated import or publication.
+The form includes newsletter name, public URL, one-sentence description, publication day, languages, topics, and optional contact email. It does not automatically collect Google email addresses or require sign-in through a one-response limit. Response summaries remain private. Verify each suggestion and its schedule before adding a record. There is no automatic import or publication.
 
-Review responses in Google Forms, verify the publication and schedule, then add approved records to the directory. The public responder URL is stored in `src/data/site.ts` and used by the header submission link. If the URL is temporarily set to `null`, the link shows an accessible notice dialog instead of a broken URL.
+`src/data/site.ts` holds the public responder URL. If it is temporarily `null`, the header opens an accessible explanation dialog instead of a broken link.
 
-## Identity and assets
+## Design and assets
 
-- Full-page red: `#a9253b`; mint masthead: `#9ce2ae`; dark berry on green surfaces: `#752139`. The masthead colors provide a 4.61:1 contrast ratio. Panel gradients, green highlights and inset shading create the rounded jelly treatment without warm-white surfaces.
-- `public/brand-mark.svg` and `public/favicon.svg` contain the red circle and mint W mark.
-- `public/newsletters/` contains optimized copies of the studio publications' existing avatars. Preserve each publication's own identity.
-- Colors and responsive layouts live in `src/styles/global.css`; presentation components are in `src/components/`.
+The current homepage follows the selected [illustrated reference](design/selected-reference.png): white background, red accents, mint title slips, dark teal rules, editorial serif headings, and a reading illustration. `global.css` owns the tokens and responsive layout. Newsreader and Manrope are served locally with bundled licenses. Source PNGs and their generation prompts live under `assets/illustrations/`; optimized WebP files are served from `public/illustrations/`. See [asset credits](../ASSETS.md).
 
-## Design review
+Studio links live in `src/data/site.ts`. The footer carries the exact slogan, make good weekly reading easier to find. Review routes under `/designs/` remain noindex and are excluded from the sitemap. The historical `/designs/soft/` route now previews the selected illustrated calendar; the other four early studies retain their own styles and preview code. See [design directions](design-directions.md).
 
-Five interactive alternatives are available at `/designs/`. See [design directions](design-directions.md) for their routes, shared content and styling boundaries. The preview interaction code shared by the homepage and concepts lives in `src/scripts/newsletterPreview.ts`.
+The homepage retains its canonical URL, metadata, sitemap, robots policy, and an ItemList schema containing the actual 33 publications. Keep structured data in sync with the source array; never add made-up readership metrics.
 
-## Validation and delivery
+## Verification and delivery
 
-Run `npm run check` and `npm run build` after editing. Preview hover, keyboard activation, Escape dismissal, touch toggles, independent weekday scrolling, fixed headings, seven-column ordering, mobile overflow and public form links in a browser. Browser screenshots and temporary verification records belong in ignored `output/`.
+Run `npm run check`, `npm run build`, and `git diff --check`. Check weekday selection, keyboard navigation, original reading links, the suggestion link, overflow in both list areas, and phone widths in the in-app browser. The Product Design comparison and evidence are recorded in `design-qa.md`; working captures belong in ignored `output/design-qa/`.
 
-Commit directly to `main` by default. Create a PR only when explicitly requested.
+Commit directly to `main`. Create a PR only when explicitly requested. Keep GitHub source, comments, documentation, and commit metadata in English; retain original Chinese newsletter names and reader data.
 
-The domain is managed in Cloudflare and the intended host is the existing Vultr server. This UI change does not configure DNS, TLS or production routing. Serve the generated `dist/` only after the deployment configuration is supplied and deployment is requested. Never commit credentials.
+The domain is managed in Cloudflare and the intended host is the existing Vultr server. This implementation does not change production DNS, TLS, or routing. Deploy the static `dist/` build when production deployment is requested and the target configuration is available. Never commit credentials.

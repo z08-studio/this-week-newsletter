@@ -1,0 +1,7 @@
+Use case: logo-brand.
+Asset type: small raster header brand illustration for This Week In Newsletters.
+Input image: reference only. Recreate ONLY the three upright book motif at the very top-left of the reference webpage, not the webpage.
+Primary request: Three closed upright books standing next to one another. Left book is dark teal (#00564d), slightly leaning left, with a tiny mint page stripe near its rounded top. Middle book is the tallest, seafoam mint (#79cbb0), upright with softly rounded top corners. Right book is a shorter bright vermilion red (#ef1928), slightly leaning right. Match the exact silhouette and relative heights of the three books in the reference. The books overlap slightly at the base.
+Style: Simple flat geometric editorial illustration, crisp edges, restrained natural irregularity. This is a refined friendly reading motif, not glossy 3D.
+Composition: square 1024x1024 image, the complete three-book motif tightly centered, filling 85% of frame, pure white background, ample enough edge margin to retain every book tip.
+Constraints: NO text, NO letter shapes, NO UI, NO page layout, NO border, NO shadow, NO gradients, NO other objects, NO watermark. Only the three red/mint/dark-teal standing books.
