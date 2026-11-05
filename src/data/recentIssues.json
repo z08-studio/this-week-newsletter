@@ -1,0 +1,638 @@
+{
+  "android-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://androidweekly.net/archive",
+    "issues": [
+      {
+        "title": "Issue #751",
+        "url": "https://androidweekly.net/issues/issue-751",
+        "publishedAt": "2026-11-01"
+      },
+      {
+        "title": "Issue #750",
+        "url": "https://androidweekly.net/issues/issue-750",
+        "publishedAt": "2026-10-25"
+      },
+      {
+        "title": "Issue #749",
+        "url": "https://androidweekly.net/issues/issue-749",
+        "publishedAt": "2026-10-18"
+      }
+    ],
+    "archiveUrl": "https://androidweekly.net/archive"
+  },
+  "benedict-evans": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://www.ben-evans.com/newsletter",
+    "issues": [
+      {
+        "title": "Sample issue",
+        "url": "https://mailchi.mp/fdac1ee69bec/benedicts-newsletter-452264"
+      }
+    ],
+    "archiveUrl": "https://www.ben-evans.com/newsletter-archive",
+    "archiveLabel": "Subscriber archive"
+  },
+  "brain-food": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://fs.blog/brain-food/",
+    "issues": [
+      {
+        "title": "Your Best Work",
+        "url": "https://fs.blog/brain-food/november-1-2026/",
+        "publishedAt": "2026-11-01"
+      },
+      {
+        "title": "The Price of Admission",
+        "url": "https://fs.blog/brain-food/october-25-2026/",
+        "publishedAt": "2026-10-25"
+      },
+      {
+        "title": "Defeat is Psychological",
+        "url": "https://fs.blog/brain-food/october-18-2026/",
+        "publishedAt": "2026-10-18"
+      }
+    ],
+    "archiveUrl": "https://fs.blog/brain-food/"
+  },
+  "changelog-news": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://changelog.com/news/feed",
+    "issues": [
+      {
+        "title": "Bitwarden CLI compromised",
+        "url": "https://changelog.com/news/185",
+        "publishedAt": "2026-04-29"
+      },
+      {
+        "title": "Astral has been acquired by OpenAI",
+        "url": "https://changelog.com/news/184",
+        "publishedAt": "2026-03-27"
+      },
+      {
+        "title": "Big change brings big change",
+        "url": "https://changelog.com/news/183",
+        "publishedAt": "2026-03-10"
+      }
+    ],
+    "archiveUrl": "https://changelog.com/news/archive"
+  },
+  "console": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://console.dev/newsletter",
+    "issues": [
+      {
+        "title": "Atuin Threads, Namespace Devbox",
+        "url": "https://console.dev/newsletter/2026-10-29",
+        "publishedAt": "2026-10-29"
+      },
+      {
+        "title": "Pele, KiviDB",
+        "url": "https://console.dev/newsletter/2026-10-22",
+        "publishedAt": "2026-10-22"
+      },
+      {
+        "title": "WorkOS, GoNIX",
+        "url": "https://console.dev/newsletter/2026-10-15",
+        "publishedAt": "2026-10-15"
+      }
+    ],
+    "archiveUrl": "https://console.dev/newsletter"
+  },
+  "data-elixir": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://dataelixir.com/",
+    "issues": [
+      {
+        "title": "Issue #594",
+        "url": "https://dataelixir.com/archive/post-html-222c67fc-d3ec-4bb3-a428-193e519676cb.html",
+        "publishedAt": "2026-10-20"
+      },
+      {
+        "title": "Issue #593",
+        "url": "https://dataelixir.com/archive/post-html-8c8d8879-e6e6-4aa7-aaaa-0f0e2df9aa3b.html",
+        "publishedAt": "2026-10-13"
+      },
+      {
+        "title": "Issue #592",
+        "url": "https://dataelixir.com/archive/post-html-e6691f16-b472-48aa-bb4c-e69e756459b8.html",
+        "publishedAt": "2026-10-06"
+      }
+    ],
+    "archiveUrl": "https://dataelixir.com/"
+  },
+  "dense-discovery": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://www.densediscovery.com/",
+    "issues": [],
+    "archiveUrl": "https://www.densediscovery.com/issues/"
+  },
+  "frontend-focus": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://frontendfoc.us/rss/",
+    "issues": [
+      {
+        "title": "Safari will 'dark mode' your site…",
+        "url": "https://frontendfoc.us/issues/765",
+        "publishedAt": "2026-11-04"
+      },
+      {
+        "title": "The spyware hiding in old script…",
+        "url": "https://frontendfoc.us/issues/764",
+        "publishedAt": "2026-10-28"
+      },
+      {
+        "title": "Ten CSS features worth voting for",
+        "url": "https://frontendfoc.us/issues/763",
+        "publishedAt": "2026-10-21"
+      }
+    ],
+    "archiveUrl": "https://frontendfoc.us/issues"
+  },
+  "go-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://golangweekly.com/rss/",
+    "issues": [
+      {
+        "title": "Wails 3 arrives after nearly four…",
+        "url": "https://golangweekly.com/issues/622",
+        "publishedAt": "2026-10-30"
+      },
+      {
+        "title": "Why Go had to hardcode a…",
+        "url": "https://golangweekly.com/issues/621",
+        "publishedAt": "2026-10-23"
+      },
+      {
+        "title": "Hooking into the Go toolchain",
+        "url": "https://golangweekly.com/issues/620",
+        "publishedAt": "2026-10-09"
+      }
+    ],
+    "archiveUrl": "https://golangweekly.com/issues"
+  },
+  "hacker-newsletter": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://buttondown.com/hacker-newsletter/archive/",
+    "issues": [
+      {
+        "title": "Issue #816",
+        "url": "https://buttondown.com/hacker-newsletter/archive/816/"
+      },
+      {
+        "title": "Issue #815",
+        "url": "https://buttondown.com/hacker-newsletter/archive/815/"
+      },
+      {
+        "title": "Issue #814",
+        "url": "https://buttondown.com/hacker-newsletter/archive/814/"
+      }
+    ],
+    "archiveUrl": "https://buttondown.com/hacker-newsletter/archive/"
+  },
+  "import-ai": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://importai.substack.com/feed",
+    "issues": [
+      {
+        "title": "Import AI 479: Spacewar; low-latency tasks…",
+        "url": "https://importai.substack.com/p/import-ai-479-spacewar-low-latency",
+        "publishedAt": "2026-11-02"
+      },
+      {
+        "title": "Import AI 478: Math for alignment;…",
+        "url": "https://importai.substack.com/p/import-ai-478-math-for-alignment",
+        "publishedAt": "2026-10-26"
+      },
+      {
+        "title": "Import AI 477: In which I…",
+        "url": "https://importai.substack.com/p/import-ai-477-in-which-i-tell-the",
+        "publishedAt": "2026-10-19"
+      }
+    ],
+    "archiveUrl": "https://importai.substack.com/archive"
+  },
+  "ios-dev-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://iosdevweekly.com/issues",
+    "issues": [
+      {
+        "title": "Issue #774",
+        "url": "https://iosdevweekly.com/issues/774",
+        "publishedAt": "2026-10-30"
+      },
+      {
+        "title": "Issue #773",
+        "url": "https://iosdevweekly.com/issues/773",
+        "publishedAt": "2026-10-23"
+      },
+      {
+        "title": "Issue #772",
+        "url": "https://iosdevweekly.com/issues/772",
+        "publishedAt": "2026-10-16"
+      }
+    ],
+    "archiveUrl": "https://iosdevweekly.com/issues"
+  },
+  "javascript-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://javascriptweekly.com/rss/",
+    "issues": [
+      {
+        "title": "What Claude spends building with 12…",
+        "url": "https://javascriptweekly.com/issues/809",
+        "publishedAt": "2026-11-03"
+      },
+      {
+        "title": "Rebuilding the original GTA engine in…",
+        "url": "https://javascriptweekly.com/issues/808",
+        "publishedAt": "2026-10-27"
+      },
+      {
+        "title": "The up to 8x faster Rust…",
+        "url": "https://javascriptweekly.com/issues/807",
+        "publishedAt": "2026-10-20"
+      }
+    ],
+    "archiveUrl": "https://javascriptweekly.com/issues"
+  },
+  "kotlin-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://kotlinweekly.net/",
+    "issues": [
+      {
+        "title": "Issue #535",
+        "url": "https://mailchi.mp/kotlinweekly/kotlin-weekly-535"
+      },
+      {
+        "title": "Issue #534",
+        "url": "https://mailchi.mp/kotlinweekly/kotlin-weekly-534"
+      },
+      {
+        "title": "Issue #533",
+        "url": "https://mailchi.mp/kotlinweekly/kotlin-weekly-533"
+      }
+    ],
+    "archiveUrl": "https://kotlinweekly.net/"
+  },
+  "llvm-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://llvmweekly.org/rss.xml",
+    "issues": [
+      {
+        "title": "LLVM Weekly - #670, November 2nd…",
+        "url": "https://llvmweekly.org/issue/670",
+        "publishedAt": "2026-11-02"
+      },
+      {
+        "title": "LLVM Weekly - #669, October 26th…",
+        "url": "https://llvmweekly.org/issue/669",
+        "publishedAt": "2026-10-26"
+      },
+      {
+        "title": "LLVM Weekly - #668, October 19th…",
+        "url": "https://llvmweekly.org/issue/668",
+        "publishedAt": "2026-10-19"
+      }
+    ]
+  },
+  "node-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://nodeweekly.com/rss/",
+    "issues": [
+      {
+        "title": "Node security releases to fix a…",
+        "url": "https://nodeweekly.com/issues/645",
+        "publishedAt": "2026-10-29"
+      },
+      {
+        "title": "The NodeConf EU 2026 talks are…",
+        "url": "https://nodeweekly.com/issues/644",
+        "publishedAt": "2026-10-15"
+      },
+      {
+        "title": "When worker threads beat processes for…",
+        "url": "https://nodeweekly.com/issues/643",
+        "publishedAt": "2026-10-08"
+      }
+    ],
+    "archiveUrl": "https://nodeweekly.com/issues"
+  },
+  "pycoders-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://pycoders.com/feed/xOKKGViv",
+    "issues": [
+      {
+        "title": "Issue #759: Pillow Flaw, JIT Removed,…",
+        "url": "https://pycoders.com/issues/759",
+        "publishedAt": "2026-11-03"
+      },
+      {
+        "title": "Issue #758: Security, Optimization, itertools, and…",
+        "url": "https://pycoders.com/issues/758",
+        "publishedAt": "2026-10-27"
+      },
+      {
+        "title": "Issue #757: Django Migrations, Functional Programming,…",
+        "url": "https://pycoders.com/issues/757",
+        "publishedAt": "2026-10-20"
+      }
+    ]
+  },
+  "r-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://rweekly.org/atom.xml",
+    "issues": [
+      {
+        "title": "R Weekly 2026-W45 safeconduct and r2parquet,…",
+        "url": "https://rweekly.org/2026-W45.html",
+        "publishedAt": "2026-11-02"
+      },
+      {
+        "title": "R Weekly 2026-W44 15 yrs of…",
+        "url": "https://rweekly.org/2026-W44.html",
+        "publishedAt": "2026-10-26"
+      },
+      {
+        "title": "R Weekly 2026-W43 R Core Contribution,…",
+        "url": "https://rweekly.org/2026-W43.html",
+        "publishedAt": "2026-10-19"
+      }
+    ],
+    "archiveUrl": "https://rweekly.org/archive"
+  },
+  "ramis-data-newsletter": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://ramikrispin.substack.com/feed",
+    "issues": [
+      {
+        "title": "AI-Assisted Python, DuckPad | Issue 112",
+        "url": "https://ramikrispin.substack.com/p/ai-assisted-python-duckpad-issue",
+        "publishedAt": "2026-10-31"
+      },
+      {
+        "title": "Data Engineering for Multimodal AI, Pixeltable…",
+        "url": "https://ramikrispin.substack.com/p/data-engineering-for-multimodal-ai",
+        "publishedAt": "2026-10-24"
+      },
+      {
+        "title": "Glyf, Applied AI Tutorials, Financial AI…",
+        "url": "https://ramikrispin.substack.com/p/glyf-applied-ai-tutorials-financial",
+        "publishedAt": "2026-10-17"
+      }
+    ],
+    "archiveUrl": "https://ramikrispin.substack.com/archive"
+  },
+  "react-status": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://react.statuscode.com/rss/",
+    "issues": [
+      {
+        "title": "TanStack's smaller React for the browser",
+        "url": "https://react.statuscode.com/issues/495",
+        "publishedAt": "2026-10-30"
+      },
+      {
+        "title": "TanStack Start is finally stable",
+        "url": "https://react.statuscode.com/issues/494",
+        "publishedAt": "2026-10-23"
+      },
+      {
+        "title": "Next.js 16.4, and a new way…",
+        "url": "https://react.statuscode.com/issues/493",
+        "publishedAt": "2026-10-09"
+      }
+    ],
+    "archiveUrl": "https://react.statuscode.com/issues"
+  },
+  "ruanyifeng-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://feeds.feedburner.com/ruanyifeng",
+    "issues": [
+      {
+        "title": "Issue #417",
+        "url": "https://www.ruanyifeng.com/blog/2026/10/weekly-issue-417.html",
+        "publishedAt": "2026-10-30"
+      },
+      {
+        "title": "Issue #416",
+        "url": "https://www.ruanyifeng.com/blog/2026/10/weekly-issue-416.html",
+        "publishedAt": "2026-10-23"
+      },
+      {
+        "title": "Issue #415",
+        "url": "https://www.ruanyifeng.com/blog/2026/10/weekly-issue-415.html",
+        "publishedAt": "2026-10-16"
+      }
+    ]
+  },
+  "ruby-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://rubyweekly.com/rss/",
+    "issues": [
+      {
+        "title": "How fast can you actually patch…",
+        "url": "https://rubyweekly.com/issues/824",
+        "publishedAt": "2026-10-29"
+      },
+      {
+        "title": "Ruby regexp security fixes: a newsflash",
+        "url": "https://rubyweekly.com/issues/823",
+        "publishedAt": "2026-10-23"
+      },
+      {
+        "title": "How Rails made its enums 4.5x…",
+        "url": "https://rubyweekly.com/issues/822",
+        "publishedAt": "2026-10-22"
+      }
+    ],
+    "archiveUrl": "https://rubyweekly.com/issues"
+  },
+  "software-lead-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://softwareleadweekly.com/issues/",
+    "issues": [
+      {
+        "title": "Issue #727",
+        "url": "https://softwareleadweekly.com/issues/727"
+      },
+      {
+        "title": "Issue #726",
+        "url": "https://softwareleadweekly.com/issues/726"
+      },
+      {
+        "title": "Issue #725",
+        "url": "https://softwareleadweekly.com/issues/725"
+      }
+    ],
+    "archiveUrl": "https://softwareleadweekly.com/issues/"
+  },
+  "sre-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://sreweekly.com/feed/",
+    "issues": [
+      {
+        "title": "SRE Weekly Issue #541",
+        "url": "https://sreweekly.com/sre-weekly-issue-541/"
+      },
+      {
+        "title": "SRE Weekly Issue #540",
+        "url": "https://sreweekly.com/sre-weekly-issue-540/"
+      },
+      {
+        "title": "SRE Weekly Issue #539",
+        "url": "https://sreweekly.com/sre-weekly-issue-539/"
+      }
+    ]
+  },
+  "this-week-in-ai": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://thatweekinai.substack.com/feed",
+    "issues": [
+      {
+        "title": "This Week in AI #01",
+        "url": "https://thatweekinai.substack.com/p/this-week-in-ai-01",
+        "publishedAt": "2026-11-02"
+      }
+    ],
+    "archiveUrl": "https://thatweekinai.substack.com/archive"
+  },
+  "this-week-in-crypto": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://thatweekincrypto.substack.com/feed",
+    "issues": [],
+    "archiveUrl": "https://thatweekincrypto.substack.com/archive"
+  },
+  "this-week-in-hn": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://thisweekinhn.substack.com/feed",
+    "issues": [
+      {
+        "title": "This Week in HN #01",
+        "url": "https://thisweekinhn.substack.com/p/this-week-in-hn-01",
+        "publishedAt": "2026-10-30"
+      }
+    ],
+    "archiveUrl": "https://thisweekinhn.substack.com/archive"
+  },
+  "this-week-in-obsidian": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://thisweekinobsidian.substack.com/feed",
+    "issues": [
+      {
+        "title": "This Week in Obsidian #46",
+        "url": "https://thisweekinobsidian.substack.com/p/this-week-in-obsidian-46",
+        "publishedAt": "2026-11-03"
+      },
+      {
+        "title": "This Week in Obsidian #45",
+        "url": "https://thisweekinobsidian.substack.com/p/this-week-in-obsidian-45",
+        "publishedAt": "2026-10-27"
+      },
+      {
+        "title": "This Week in Obsidian #44",
+        "url": "https://thisweekinobsidian.substack.com/p/this-week-in-obsidian-44",
+        "publishedAt": "2026-10-20"
+      }
+    ],
+    "archiveUrl": "https://thisweekinobsidian.substack.com/archive"
+  },
+  "this-week-in-rust": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://this-week-in-rust.org/rss.xml",
+    "issues": [
+      {
+        "title": "This Week in Rust 675",
+        "url": "https://this-week-in-rust.org/blog/2026/10/28/this-week-in-rust-675/",
+        "publishedAt": "2026-10-28"
+      },
+      {
+        "title": "This Week in Rust 674",
+        "url": "https://this-week-in-rust.org/blog/2026/10/21/this-week-in-rust-674/",
+        "publishedAt": "2026-10-21"
+      },
+      {
+        "title": "This Week in Rust 673",
+        "url": "https://this-week-in-rust.org/blog/2026/10/14/this-week-in-rust-673/",
+        "publishedAt": "2026-10-14"
+      }
+    ]
+  },
+  "this-week-in-skills": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://thisweekinskills.substack.com/feed",
+    "issues": [
+      {
+        "title": "This Week in Skills #01",
+        "url": "https://thisweekinskills.substack.com/p/this-week-in-skills-01",
+        "publishedAt": "2026-11-04"
+      }
+    ],
+    "archiveUrl": "https://thisweekinskills.substack.com/archive"
+  },
+  "three-two-one": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://jamesclear.com/3-2-1",
+    "issues": [
+      {
+        "title": "3-2-1: On building a reserve of…",
+        "url": "https://jamesclear.com/3-2-1/october-29-2026",
+        "publishedAt": "2026-10-29"
+      },
+      {
+        "title": "3-2-1: On being proactive, learning to…",
+        "url": "https://jamesclear.com/3-2-1/october-22-2026",
+        "publishedAt": "2026-10-22"
+      },
+      {
+        "title": "3-2-1: On refusing to give up,…",
+        "url": "https://jamesclear.com/3-2-1/october-15-2026",
+        "publishedAt": "2026-10-15"
+      }
+    ],
+    "archiveUrl": "https://jamesclear.com/3-2-1"
+  },
+  "tw93-weekly": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://weekly.tw93.fun/rss.xml",
+    "issues": [
+      {
+        "title": "第288期 - 偶遇小猫",
+        "url": "https://weekly.tw93.fun/posts/288",
+        "publishedAt": "2026-11-02"
+      },
+      {
+        "title": "第287期 - 杭州金桂",
+        "url": "https://weekly.tw93.fun/posts/287",
+        "publishedAt": "2026-10-26"
+      },
+      {
+        "title": "第286期 - 径山双溪",
+        "url": "https://weekly.tw93.fun/posts/286",
+        "publishedAt": "2026-10-19"
+      }
+    ]
+  },
+  "weekly-thing": {
+    "checkedAt": "2026-11-05",
+    "sourceUrl": "https://weekly.thingelstad.com/feed.xml",
+    "issues": [
+      {
+        "title": "WT354 — A museum for nnxyz…",
+        "url": "https://weekly.thingelstad.com/archive/354/",
+        "publishedAt": "2026-10-24"
+      },
+      {
+        "title": "WT353 — Release Notes for Every…",
+        "url": "https://weekly.thingelstad.com/archive/353/",
+        "publishedAt": "2026-10-10"
+      },
+      {
+        "title": "WT352 — Interviewing Otto for the…",
+        "url": "https://weekly.thingelstad.com/archive/352/",
+        "publishedAt": "2026-10-03"
+      }
+    ],
+    "archiveUrl": "https://weekly.thingelstad.com/archive/"
+  }
+}

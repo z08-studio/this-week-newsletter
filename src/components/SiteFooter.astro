@@ -7,10 +7,8 @@ import ArrowIcon from './ArrowIcon.astro';
   <a class="studio-signature" href={site.studio.url} target="_blank" rel="noopener noreferrer" aria-label="Visit z08 Studio">
     <span>z08</span> Studio
   </a>
-  <p class="footer-slogan">{site.tagline.split(/(weekly)/).map((part) => part === 'weekly' ? <span>{part}</span> : part)}</p>
   <nav class="studio-links" aria-label="z08 Studio links">
     <a href={site.studio.url} target="_blank" rel="noopener noreferrer">Website<ArrowIcon /></a>
     <a href={site.studio.github} target="_blank" rel="noopener noreferrer">GitHub<ArrowIcon /></a>
-    <a href={site.studio.x} target="_blank" rel="noopener noreferrer">X<ArrowIcon /></a>
   </nav>
 </footer>

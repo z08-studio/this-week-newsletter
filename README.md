@@ -2,7 +2,7 @@
 
 Make good weekly reading easier to find. A handpicked newsletter calendar by **z08 Studio**, built for [thisweeknewsletter.com](https://thisweeknewsletter.com).
 
-Browse 33 newsletters from Monday through Sunday. Select a weekday to see its full reading list, or hover a mint calendar card for an introduction. Reading links open the original publication. Busy days scroll independently; on phones, a compact weekday picker sits above the complete daily list.
+Browse 33 newsletters from Monday through Sunday. Select a weekday for its reading list, then click a mint card or a list entry for publication details and verified past issues. The full calendar grows with its content and uses normal page scrolling. On phones and smaller tablets, a weekday picker sits above the daily list.
 
 [Suggest a newsletter](https://docs.google.com/forms/d/e/1FAIpQLScNKI_gcJOtPcRBZZ4xB-IUREZraY1j6dz1tQyKn3MOBTl4Ag/viewform). Every submission is reviewed manually before inclusion.
 

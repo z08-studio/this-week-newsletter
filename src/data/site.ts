@@ -10,6 +10,5 @@ export const site = {
     name: 'z08 Studio',
     url: 'https://z08studio.com',
     github: 'https://github.com/z08-studio',
-    x: 'https://x.com/z08studio',
   },
 };

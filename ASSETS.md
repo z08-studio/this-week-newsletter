@@ -22,7 +22,7 @@ WebP files are resized and compressed copies of the generated originals. No UI t
 
 ## Icons and existing identities
 
-`public/icons/arrow-up-right.svg` is the unmodified regular [Phosphor](https://github.com/phosphor-icons/core) arrow-up-right icon. Its MIT license is bundled at `public/icons/Phosphor-LICENSE.txt`. CSS masks apply the surrounding text color to this real library asset.
+`public/icons/arrow-up-right.svg` and `public/icons/arrow-left.svg` are unmodified regular [Phosphor](https://github.com/phosphor-icons/core) arrow icons. Its MIT license is bundled at `public/icons/Phosphor-LICENSE.txt`. CSS masks apply the surrounding text color to this real library asset.
 
 `public/z08-mark.svg` is the existing studio wordmark from [z08 Studio](https://z08studio.com), retained from the earlier study. The current reference uses a serif z08 Studio text signature. `public/brand-mark.svg` and `public/favicon.svg` retain the portfolio's existing W identity. Avatars under `public/newsletters/` belong to their respective publications and remain available to earlier studies.
 

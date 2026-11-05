@@ -23,11 +23,13 @@ AI publishes Monday, Obsidian Tuesday, Skills Wednesday, Crypto Thursday, and HN
 
 ## Reading interactions
 
-`WeeklyCalendar.astro` renders the title-only weekly overview and all seven daily reading panels in HTML. `weeklyCalendar.ts` progressively enhances weekday selection, local-day initialization, `?day=wednesday` links, keyboard navigation, and mouse/focus previews. The URL records explicit day selection. A hover preview does not add browser-history entries.
+`WeeklyCalendar.astro` renders the complete weekly overview, all seven day lists, and the individual publication panels in HTML. `weeklyCalendar.ts` enhances the two reading states: a day overview by default, and a single publication after explicit selection. A publication panel contains its description, usual weekday, language, topics, original website, and up to three reviewed past issue links.
 
-Click a weekday heading to switch the right panel. Arrow keys move between weekday buttons; Home and End select Monday and Sunday. Hover or focus a publication card to reveal that day and bring its matching introduction into view. The code adjusts the detail container's scroll position instead of scrolling the document. Each title and reading link opens the original publication in a new tab with `noopener noreferrer`. There is no intermediate detail route and no Open full day button.
+Click a weekday heading to switch to its full list. Arrow keys move between weekday buttons; Home and End select Monday and Sunday. Click a calendar card, list title, or View details action to inspect a publication. Hover and focus do not switch views. Back to the weekday returns to the list. Keyboard activation moves focus to the resulting heading. Normal browser Back and Forward restore the previous view, and a URL such as `?day=thursday&newsletter=console` opens the same details after a reload. External website, archive, and issue links open in a new tab with `noopener noreferrer`.
 
-At desktop widths, weekday headings remain fixed above independently scrolling lists, and the detail heading stays above its own scrollable list. The real Friday collection currently has seven entries, providing an overflow example. Tablet places the detail panel below the full weekly overview. At widths up to 680px, the overview becomes a seven-button weekday picker and the full list appears below. The no-JavaScript mobile fallback exposes all newsletter links as weekday lists. Keep heading selection visible, focus outlines clear, and original publication names untruncated.
+The page has a 2400px maximum width, a flexible calendar, and a constrained reading column. Card labels use natural wrapping, with no truncation or forced single-line ellipses. At the reviewed 3004px viewport all 33 labels fit on one line. Calendar columns and reading panels have no fixed height, max-height, or internal scrolling. The whole document scrolls naturally. Below 1270px, the reading panel moves below the calendar; at 1000px and below, a seven-button weekday picker replaces the small-card overview. The no-JavaScript fallback exposes direct publication links grouped by day.
+
+`src/data/recentIssues.json` is a manually reviewed snapshot of 85 real issue links for 33 publications. It is typed through `newsletterArchives.ts` and read at build time, so the page and production build make no live publisher API requests. See [issue-link maintenance](issue-links.md) for the sources, exceptions, and refresh procedure. New directory records can omit this optional metadata and still show their details and public website. Never reconstruct issue URLs from issue numbers or copy sponsored tool links from a mixed RSS feed.
 
 ## Suggestion form
 
@@ -43,13 +45,13 @@ The form includes newsletter name, public URL, one-sentence description, publica
 
 The current homepage follows the selected [illustrated reference](design/selected-reference.png): white background, red accents, mint title slips, dark teal rules, editorial serif headings, and a reading illustration. `global.css` owns the tokens and responsive layout. Newsreader and Manrope are served locally with bundled licenses. Source PNGs and their generation prompts live under `assets/illustrations/`; optimized WebP files are served from `public/illustrations/`. See [asset credits](../ASSETS.md).
 
-Studio links live in `src/data/site.ts`. The footer carries the exact slogan, make good weekly reading easier to find. Review routes under `/designs/` remain noindex and are excluded from the sitemap. The historical `/designs/soft/` route now previews the selected illustrated calendar; the other four early studies retain their own styles and preview code. See [design directions](design-directions.md).
+Studio links live in `src/data/site.ts`. The footer contains the studio signature, Website, and GitHub only. The slogan and X link were removed at the editor’s request. Review routes under `/designs/` remain noindex and are excluded from the sitemap. The historical `/designs/soft/` route now previews the selected illustrated calendar; the other four early studies retain their own styles and preview code. See [design directions](design-directions.md).
 
 The homepage retains its canonical URL, metadata, sitemap, robots policy, and an ItemList schema containing the actual 33 publications. Keep structured data in sync with the source array; never add made-up readership metrics.
 
 ## Verification and delivery
 
-Run `npm run check`, `npm run build`, and `git diff --check`. Check weekday selection, keyboard navigation, original reading links, the suggestion link, overflow in both list areas, and phone widths in the in-app browser. The Product Design comparison and evidence are recorded in `design-qa.md`; working captures belong in ignored `output/design-qa/`.
+Run `npm run check`, `npm run build`, and `git diff --check`. Check weekday and publication selection, returning to a day, keyboard focus, browser history, original reading and past-issue links, the suggestion link, natural page growth, and phone widths in the in-app browser. The Product Design comparison and evidence are recorded in `design-qa.md`; working captures belong in ignored `output/design-qa/`.
 
 Commit directly to `main`. Create a PR only when explicitly requested. Keep GitHub source, comments, documentation, and commit metadata in English; retain original Chinese newsletter names and reader data.
 
