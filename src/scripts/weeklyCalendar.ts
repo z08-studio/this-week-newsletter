@@ -91,6 +91,26 @@ if (calendar) {
   for (const control of calendar.querySelectorAll<HTMLButtonElement>('[data-back-to-day]')) {
     control.addEventListener('click', (event) => show(control.dataset.backToDay!, null, { announce: true, remember: true, reveal: true, focus: event.detail === 0 }));
   }
+  for (const toggle of calendar.querySelectorAll<HTMLButtonElement>('[data-reading-list-toggle]')) {
+    const list = document.getElementById(toggle.getAttribute('aria-controls') ?? '');
+    if (!list) continue;
+    const extraEntries = [...list.querySelectorAll<HTMLElement>('[data-reading-overflow]')];
+    const firstExtra = extraEntries[0];
+    if (!firstExtra) continue;
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'false';
+      toggle.setAttribute('aria-expanded', String(expanded));
+      for (const entry of extraEntries) entry.hidden = !expanded;
+
+      // Reveal the first extra title by scrolling only the list.
+      if (expanded) {
+        const overflow = firstExtra.getBoundingClientRect().bottom - list.getBoundingClientRect().bottom;
+        list.scrollTop += Math.max(0, overflow);
+      } else {
+        list.scrollTop = 0;
+      }
+    });
+  }
 
   function restoreFromUrl() {
     const params = new URLSearchParams(window.location.search);
