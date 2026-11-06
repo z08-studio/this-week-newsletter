@@ -1,12 +1,12 @@
 # Reviewed publication issue links
 
-Snapshot date: 2026-11-05. The 33-publication directory contains 85 verified past-issue destinations: 27 publications have three, and four have one. Two have an archive entry without individually verified issue links. This snapshot is editorial data, not a runtime feed integration.
+The initial snapshot was reviewed on 2026-11-05. After the HN update on 2026-11-06, the 33-publication directory contains 86 verified past-issue destinations. Twenty-seven publications have three links, HN has two, three have one, and two have an archive entry. The site reads this editorial data at build time.
 
 ## Sources and verification
 
 `src/data/recentIssues.json` records the source URL, checked date, optional archive URL and label, and at most three issues per publication. Every issue has its real HTTPS URL and a short original-source title or factual issue-number label. Dates are included when the publisher provides an unambiguous issue date. Titles are shortened for scanning. Do not describe these selections as necessarily the three latest issues.
 
-Primary sources include the publishers' own RSS/Atom feeds, HTML archives, and the Mailchimp or Buttondown archive directly associated with the publication. All 85 destinations returned HTTP 200 during verification: 79 accepted HEAD requests, and the other six were checked with GET. Tw93's feed supplied trailing-slash URLs; the snapshot stores the working canonical URLs without the final slash. The three Ruan Yifeng links were verified with GET because that site rejected HEAD requests.
+Primary sources include the publishers' own RSS/Atom feeds, HTML archives, and the Mailchimp or Buttondown archive directly associated with the publication. All 85 destinations in the initial snapshot returned HTTP 200. Seventy-nine accepted HEAD requests, and six were checked with GET. This Week in HN #02 was confirmed in the public feed and checked with GET. Tw93's feed supplied trailing-slash URLs, and the snapshot stores the working canonical URLs without the final slash. The three Ruan Yifeng links were verified with GET because that site rejected HEAD requests.
 
 Special cases handled during review:
 
@@ -23,7 +23,7 @@ Special cases handled during review:
 | Publication | Individual links | Treatment |
 | --- | ---: | --- |
 | This Week in AI | 1 | The one issue verified in the public feed, plus the archive |
-| This Week in HN | 1 | The one issue verified in the public feed, plus the archive |
+| This Week in HN | 2 | Both numbered issues verified in the public feed, plus the archive |
 | This Week in Skills | 1 | The first published issue, plus the archive |
 | Benedict's Newsletter | 1 | The public sample linked from the subscription page; the full archive is explicitly labeled Subscriber archive |
 | This Week in Crypto | 0 | No individual link verified in the public feed during this pass; provide the publication and archive |
