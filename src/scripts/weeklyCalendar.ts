@@ -1,4 +1,4 @@
-import { initHorizontalRails } from './horizontalRails';
+import { initHorizontalRails, revealCardInRail } from './horizontalRails';
 
 const calendar = document.querySelector<HTMLElement>('[data-newsletter-calendar]');
 
@@ -28,6 +28,13 @@ if (calendar) {
 
     for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.selectDay === selectedDay));
     for (const card of cards) card.setAttribute('aria-pressed', String(card.dataset.openNewsletter === detail?.dataset.newsletterPanel));
+    // A selected publication must be visible on its shelf, otherwise the only
+    // feedback for the choice sits outside the visible run of cards.
+    const selectedCard = detail ? cards.find((card) => card.dataset.openNewsletter === detail.dataset.newsletterPanel) : null;
+    if (selectedCard) {
+      const smooth = options.reveal && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      revealCardInRail(selectedCard, smooth ? 'smooth' : 'instant');
+    }
     for (const panel of dayPanels) panel.hidden = !!detail || panel !== dayPanel;
     for (const panel of newsletterPanels) panel.hidden = panel !== detail;
     updateStickyReader();
@@ -94,4 +101,12 @@ if (calendar) {
   window.addEventListener('resize', updateStickyReader);
   if (reader) new ResizeObserver(updateStickyReader).observe(reader);
   restoreFromUrl();
+
+  // Card widths shift when the web font swaps in, so a deep link is re-fitted
+  // once type settles — unless the visitor has already started browsing.
+  let interacted = false;
+  const markInteraction = () => { interacted = true; };
+  calendar.addEventListener('pointerdown', markInteraction, { once: true });
+  calendar.addEventListener('keydown', markInteraction, { once: true });
+  document.fonts.ready.then(() => { if (!interacted) restoreFromUrl(); });
 }

@@ -13,8 +13,8 @@ const days = calendarOrder.map(index => ({
   <ReadingHero />
   <section class="directory" aria-label="Newsletters by publication day" data-newsletter-calendar>
     <div class="calendar-grid" aria-label="Weekly calendar">
-      {days.map(day => (
-        <section class="calendar-day" aria-labelledby={`heading-${day.slug}`}>
+      {days.map((day, index) => (
+        <section class="calendar-day" style={`--i:${index}`} aria-labelledby={`heading-${day.slug}`}>
           <h2 id={`heading-${day.slug}`} class="day-heading">
             <button type="button" data-select-day={day.slug} aria-pressed="false" aria-controls={`reading-${day.slug}`} aria-label={`${day.name} newsletters`}>
               <span>{day.name}</span>

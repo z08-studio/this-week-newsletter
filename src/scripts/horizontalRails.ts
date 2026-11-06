@@ -1,3 +1,18 @@
+// Keep a card fully visible inside its shelf. Used both by keyboard navigation
+// and whenever the reader points at a card that sits outside the visible run.
+export function revealCardInRail(card: HTMLElement, behavior: ScrollBehavior = 'smooth'): void {
+  const rail = card.closest<HTMLElement>('[data-newsletter-rail]');
+  if (!rail || rail.scrollWidth <= rail.clientWidth + 2) return;
+  const railBox = rail.getBoundingClientRect();
+  const cardBox = card.getBoundingClientRect();
+  const inset = 8;
+  if (cardBox.left < railBox.left + inset) {
+    rail.scrollBy({ left: cardBox.left - railBox.left - inset, behavior });
+  } else if (cardBox.right > railBox.right - inset) {
+    rail.scrollBy({ left: cardBox.right - railBox.right + inset, behavior });
+  }
+}
+
 export function initHorizontalRails(calendar: HTMLElement) {
   const rails = [...calendar.querySelectorAll<HTMLElement>('[data-newsletter-rail]')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -87,14 +102,7 @@ export function initHorizontalRails(calendar: HTMLElement) {
         event.preventDefault();
         const target = cards[destination];
         target.focus({ preventScroll: true });
-        const railBox = rail.getBoundingClientRect();
-        const cardBox = target.getBoundingClientRect();
-        if (cardBox.left < railBox.left + 8 || cardBox.right > railBox.right - 8) {
-          rail.scrollBy({
-            left: cardBox.left < railBox.left + 8 ? cardBox.left - railBox.left - 8 : cardBox.right - railBox.right + 8,
-            behavior: reducedMotion.matches ? 'instant' : 'smooth',
-          });
-        }
+        revealCardInRail(target, reducedMotion.matches ? 'instant' : 'smooth');
       });
     }
     refresh();

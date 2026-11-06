@@ -54,8 +54,8 @@ const shareImage = new URL('/illustrations/reading-shelf.webp', Astro.site);
         <SubmissionLink />
       </header>
       <slot />
-      <SiteFooter />
     </div>
+    <SiteFooter />
     <Analytics />
     {!site.submissionFormUrl && (
       <dialog id="submission-dialog" class="submission-dialog" aria-labelledby="submission-title">

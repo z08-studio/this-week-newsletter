@@ -1,4 +1,16 @@
+---
+import { newsletters } from '../data/newsletters';
+const total = newsletters.length;
+---
 <section class="reading-hero" aria-labelledby="hero-title">
-  <h1 id="hero-title">Find a good read,<br class="hero-break" /> <em>one day</em> at a time.</h1>
+  <div class="hero-copy">
+    <h1 id="hero-title">Find a good read,<br class="hero-break" /> <em>one day</em> at a time.</h1>
+    <p class="hero-standfirst">Newsletters worth reading, sorted by the day they land. Pick a weekday to browse, or open any title for its latest issues.</p>
+    <p class="hero-meta">
+      <span>{total} newsletters</span>
+      <i aria-hidden="true"></i>
+      <span>Monday — Sunday</span>
+    </p>
+  </div>
   <img src="/illustrations/reading-shelf.webp" class="reading-illustration" width="1740" height="580" alt="" aria-hidden="true" fetchpriority="high" />
 </section>
