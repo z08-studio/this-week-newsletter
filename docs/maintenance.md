@@ -37,7 +37,7 @@ The right pane is 300–380px wide with a thin green divider. A resize observer 
 
 `weeklyCalendar.ts` preserves shared day/publication URLs, browser Back/Forward, accessible selection announcements, and keyboard focus. External links retain `noopener noreferrer`. The existing consent-gated selection and outbound analytics identifiers remain unchanged; dragging does not select a publication or emit a selection event. All descriptions and reviewed issue links remain rendered in HTML.
 
-`src/data/recentIssues.json` is a manually reviewed snapshot of 86 real issue links for 33 publications. It is typed through `newsletterArchives.ts` and read at build time, so the page and production build make no live publisher API requests. See [issue-link maintenance](issue-links.md) for the sources, exceptions, and refresh procedure. New directory records can omit this optional metadata and still show their details and public website. Never reconstruct issue URLs from issue numbers or copy sponsored tool links from a mixed RSS feed.
+`src/data/recentIssues.json` is a manually reviewed snapshot of 87 real issue links for 33 publications. It is typed through `newsletterArchives.ts` and read at build time, so the page and production build make no live publisher API requests. See [issue-link maintenance](issue-links.md) for the sources, exceptions, and refresh procedure. New directory records can omit this optional metadata and still show their details and public website. Never reconstruct issue URLs from issue numbers or copy sponsored tool links from a mixed RSS feed.
 
 ## Suggestion form
 

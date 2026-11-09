@@ -486,9 +486,14 @@
     ]
   },
   "this-week-in-ai": {
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-09",
     "sourceUrl": "https://thatweekinai.substack.com/feed",
     "issues": [
+      {
+        "title": "This Week in AI #02",
+        "url": "https://thatweekinai.substack.com/p/this-week-in-ai-02",
+        "publishedAt": "2026-11-09"
+      },
       {
         "title": "This Week in AI #01",
         "url": "https://thatweekinai.substack.com/p/this-week-in-ai-01",
