@@ -1,12 +1,12 @@
 # Reviewed publication issue links
 
-The initial snapshot was reviewed on 2026-11-05. After the AI update on 2026-11-09, the 33-publication directory contains 87 verified past-issue destinations. Twenty-seven publications have three links, AI and HN each have two, two have one, and two have an archive entry. The site reads this editorial data at build time.
+The initial snapshot was reviewed on 2026-11-05. After the HN update on 2026-11-13, the 33-publication directory contains 88 verified past-issue destinations. Twenty-eight publications have three links, AI has two, two have one, and two have an archive entry. The site reads this editorial data at build time.
 
 ## Sources and verification
 
 `src/data/recentIssues.json` records the source URL, checked date, optional archive URL and label, and at most three issues per publication. Every issue has its real HTTPS URL and a short original-source title or factual issue-number label. Dates are included when the publisher provides an unambiguous issue date. Titles are shortened for scanning. Do not describe these selections as necessarily the three latest issues.
 
-Primary sources include the publishers' own RSS/Atom feeds, HTML archives, and the Mailchimp or Buttondown archive directly associated with the publication. All 85 destinations in the initial snapshot returned HTTP 200. Seventy-nine accepted HEAD requests, and six were checked with GET. The second issues of This Week in AI and This Week in HN were confirmed in their public feeds and checked with GET. Tw93's feed supplied trailing-slash URLs, and the snapshot stores the working canonical URLs without the final slash. The three Ruan Yifeng links were verified with GET because that site rejected HEAD requests.
+Primary sources include the publishers' own RSS/Atom feeds, HTML archives, and the Mailchimp or Buttondown archive directly associated with the publication. All 85 destinations in the initial snapshot returned HTTP 200. Seventy-nine accepted HEAD requests, and six were checked with GET. The second issues of This Week in AI and This Week in HN, plus This Week in HN #03, were confirmed in their public feeds and checked with GET. Tw93's feed supplied trailing-slash URLs, and the snapshot stores the working canonical URLs without the final slash. The three Ruan Yifeng links were verified with GET because that site rejected HEAD requests.
 
 Special cases handled during review:
 
@@ -23,7 +23,6 @@ Special cases handled during review:
 | Publication | Individual links | Treatment |
 | --- | ---: | --- |
 | This Week in AI | 2 | Both numbered issues verified in the public feed, plus the archive |
-| This Week in HN | 2 | Both numbered issues verified in the public feed, plus the archive |
 | This Week in Skills | 1 | The first published issue, plus the archive |
 | Benedict's Newsletter | 1 | The public sample linked from the subscription page; the full archive is explicitly labeled Subscriber archive |
 | This Week in Crypto | 0 | No individual link verified in the public feed during this pass; provide the publication and archive |
