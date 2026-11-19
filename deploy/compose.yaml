@@ -25,6 +25,11 @@ services:
         target: /etc/caddy/Caddyfile
         read_only: true
         bind: { create_host_path: false }
+      - type: bind
+        source: ${NEWSLETTER_DEPLOY_ROOT}/data
+        target: /srv/data
+        read_only: true
+        bind: { create_host_path: false }
     networks:
       gateway:
         aliases: [this-week-newsletter]
@@ -34,6 +39,39 @@ services:
       timeout: 3s
       retries: 3
       start_period: 5s
+    logging:
+      driver: json-file
+      options: { max-size: "5m", max-file: "2" }
+
+  refresher:
+    image: node:24-alpine
+    user: "65534:65534"
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 32
+    mem_limit: 64m
+    command: ["node", "/app/refresh-issues.mjs", "--daemon"]
+    environment:
+      ISSUES_SEED_PATH: /app/recentIssues.json
+      ISSUES_OUTPUT_PATH: /data/recent-issues.json
+      ISSUES_INTERVAL_MS: "7200000"
+    volumes:
+      - type: bind
+        source: ${NEWSLETTER_DEPLOY_ROOT:?Set NEWSLETTER_DEPLOY_ROOT}/data
+        target: /data
+        bind: { create_host_path: false }
+      - type: bind
+        source: ${NEWSLETTER_DEPLOY_ROOT}/config/refresh-issues.mjs
+        target: /app/refresh-issues.mjs
+        read_only: true
+        bind: { create_host_path: false }
+      - type: bind
+        source: ${NEWSLETTER_DEPLOY_ROOT}/config/recentIssues.json
+        target: /app/recentIssues.json
+        read_only: true
+        bind: { create_host_path: false }
     logging:
       driver: json-file
       options: { max-size: "5m", max-file: "2" }

@@ -1,0 +1,32 @@
+name: Refresh newsletter issues
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run refresh-issues
+      - name: Commit updated issue snapshot
+        run: |
+          if git diff --quiet src/data/recentIssues.json; then
+            echo "No issue updates found."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/recentIssues.json
+          git commit -m "chore: refresh recent newsletter issues"
+          git push

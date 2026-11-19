@@ -14,27 +14,22 @@ const days = calendarOrder.map(index => ({
   <section class="directory" aria-label="Newsletters by publication day" data-newsletter-calendar>
     <div class="calendar-grid" aria-label="Weekly calendar">
       {days.map((day, index) => (
-        <section class="calendar-day" style={`--i:${index}`} aria-labelledby={`heading-${day.slug}`}>
+        <section class="calendar-day" data-day-row={day.slug} style={`--i:${index}`} aria-labelledby={`heading-${day.slug}`}>
           <h2 id={`heading-${day.slug}`} class="day-heading">
             <button type="button" data-select-day={day.slug} aria-pressed="false" aria-controls={`reading-${day.slug}`} aria-label={`${day.name} newsletters`}>
               <span>{day.name}</span>
+              <span class="today-pill" data-today-pill={day.slug} hidden>Today</span>
             </button>
           </h2>
           <div class="day-track">
-            <div class="rail-viewport">
-              <ul class="calendar-titles" id={`rail-${day.slug}`} aria-label={`${day.name} newsletters`} data-newsletter-rail>
-                {day.entries.map(entry => (
-                  <li>
-                    <button class="calendar-card" type="button" data-open-newsletter={entry.id} data-newsletter-day={day.slug} aria-controls={`newsletter-${entry.id}`} aria-pressed="false" lang={entry.language === '中文' ? 'zh-CN' : 'en'}>{entry.name}</button>
-                  </li>
-                ))}
-                {!day.entries.length && <li class="calendar-empty">A little room for a good read.</li>}
-              </ul>
-            </div>
-            <nav class="rail-controls" aria-label={`${day.name} newsletter navigation`} hidden>
-              <button type="button" data-scroll-rail="previous" aria-controls={`rail-${day.slug}`} aria-label={`Previous ${day.name} newsletters`} disabled><span class="rail-arrow" aria-hidden="true"></span></button>
-              <button type="button" data-scroll-rail="next" aria-controls={`rail-${day.slug}`} aria-label={`More ${day.name} newsletters`}><span class="rail-arrow rail-arrow-next" aria-hidden="true"></span></button>
-            </nav>
+            <ul class="calendar-titles" id={`rail-${day.slug}`} aria-label={`${day.name} newsletters`}>
+              {day.entries.map(entry => (
+                <li>
+                  <button class="calendar-card" type="button" data-open-newsletter={entry.id} data-newsletter-day={day.slug} aria-controls={`newsletter-${entry.id}`} aria-pressed="false" lang={entry.language === '中文' ? 'zh-CN' : 'en'}>{entry.name}</button>
+                </li>
+              ))}
+              {!day.entries.length && <li class="calendar-empty">A little room for a good read.</li>}
+            </ul>
           </div>
         </section>
       ))}

@@ -21,7 +21,7 @@ package_dir="$(mktemp -d "${TMPDIR:-/tmp}/newsletter-deploy.XXXXXX")"
 trap 'rm -rf "$package_dir"' EXIT
 mkdir "$package_dir/site" "$package_dir/config"
 cp -R dist/. "$package_dir/site/"
-cp deploy/Caddyfile deploy/compose.yaml "$package_dir/config/"
+cp deploy/Caddyfile deploy/compose.yaml scripts/refresh-issues.mjs src/data/recentIssues.json "$package_dir/config/"
 printf '%s\n' "$revision" > "$package_dir/revision"
 if [[ "$(uname -s)" == Darwin ]]; then
   COPYFILE_DISABLE=1 tar --no-xattrs --disable-copyfile -czf "$package_dir/release.tar.gz" -C "$package_dir" site config revision
@@ -46,7 +46,9 @@ if [[ ! -f "$root/.this-week-newsletter" ]]; then
   [[ ! -e "$root/config" && ! -e "$root/compose.yaml" && ! -e "$root/releases" ]] || { printf '%s\n' 'Refusing to replace an unmanaged deployment directory.' >&2; exit 1; }
   touch "$root/.this-week-newsletter"
 fi
-mkdir -p "$root/releases" "$root/config" "$root/receipts"
+mkdir -p "$root/releases" "$root/config" "$root/receipts" "$root/data"
+chown 65534:65534 "$root/data"
+chmod 755 "$root/data"
 upload="$root/incoming/$release_id.tar.gz"
 printf '%s  %s\n' "$archive_sha" "$upload" | sha256sum --check --status
 release="$root/releases/$release_id"
@@ -93,6 +95,8 @@ trap rollback ERR
 # Preserve the Caddyfile inode because the running container bind-mounts this file.
 cat "$release/config/Caddyfile" > "$root/config/Caddyfile"
 cp "$release/config/compose.yaml" "$root/compose.yaml"
+cp "$release/config/refresh-issues.mjs" "$root/config/refresh-issues.mjs"
+cp "$release/config/recentIssues.json" "$root/config/recentIssues.json"
 printf 'NEWSLETTER_DEPLOY_ROOT=%s\nNEWSLETTER_DOCKER_NETWORK=%s\n' "$root" "$network" > "$root/runtime.env"
 chmod 600 "$root/runtime.env"
 compose config --quiet
@@ -100,6 +104,7 @@ compose run --rm --no-deps site caddy validate --config /etc/caddy/Caddyfile --a
 ln -s "$release_id/site" "$root/releases/.current-$release_id"
 mv -Tf "$root/releases/.current-$release_id" "$root/releases/current"
 compose up -d --wait --wait-timeout 60 site
+compose up -d refresher
 compose exec -T site caddy reload --config /etc/caddy/Caddyfile --adapter caddyfile
 for path in / /privacy/ /robots.txt /sitemap.xml /llms.txt; do
   compose exec -T site wget -q -O /dev/null "http://127.0.0.1:8080$path"
