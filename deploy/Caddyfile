@@ -18,7 +18,7 @@
 	encode zstd gzip
 	import security_headers
 	@liveIssues {
-		path /data/recent-issues.json
+		path /data/recent-issues.json /data/issues/*
 		file {
 			root /srv
 		}

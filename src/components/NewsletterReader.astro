@@ -107,3 +107,25 @@ const issueLabel = (title: string, publication: string) => title.toLowerCase().s
         );
       })}
     </aside>
+
+    <div class="issue-drawer-backdrop" data-issue-backdrop hidden></div>
+    <aside class="issue-drawer" id="issue-reader-drawer" aria-label="Issue reader" data-issue-drawer hidden tabindex="-1">
+      <header class="issue-drawer-header">
+        <div class="issue-drawer-bar">
+          <button type="button" class="issue-drawer-close" data-close-issue-drawer aria-label="Close issue reader">
+            <span class="back-arrow" aria-hidden="true"></span>
+            <span>Close reader</span>
+          </button>
+          <a class="issue-drawer-external" href="#" target="_blank" rel="noopener noreferrer" data-issue-external>
+            <span>Read on original site</span>
+            <ArrowIcon />
+          </a>
+        </div>
+        <div class="issue-drawer-meta">
+          <p class="issue-drawer-pub" data-issue-pub></p>
+          <h2 class="issue-drawer-title" data-issue-title tabindex="-1"></h2>
+          <p class="issue-drawer-date" data-issue-date hidden></p>
+        </div>
+      </header>
+      <div class="issue-drawer-body" data-issue-body></div>
+    </aside>

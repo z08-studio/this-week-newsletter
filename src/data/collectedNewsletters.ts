@@ -39,6 +39,13 @@ export const collectedNewsletters: Newsletter[] = [
     scheduleNote: 'Issues dated 2026-11-02, 2026-10-26, and 2026-10-19 are Mondays.',
   },
   {
+    ...reviewed, id: 'architecture-weekly', name: 'Architecture Weekly', monogram: 'AW',
+    description: 'Practical software architecture, distributed systems, and engineering trade-offs by Oskar Dudycz.',
+    url: 'https://www.architecture-weekly.com/', topics: ['Architecture', 'Distributed systems', 'Engineering'], publicationDay: 1,
+    scheduleCheckedAt: '2026-11-19', scheduleBasis: 'recent-archive', scheduleSource: 'https://www.architecture-weekly.com/feed',
+    scheduleNote: 'Regular issues dated 2026-11-16, 2026-11-09, 2026-10-19, and 2026-10-12 are Mondays.',
+  },
+  {
     ...reviewed, id: 'javascript-weekly', name: 'JavaScript Weekly', monogram: 'JS',
     description: 'JavaScript news, libraries, projects, and practical articles selected by Cooperpress.',
     url: 'https://javascriptweekly.com/', topics: ['JavaScript', 'Development'], publicationDay: 2,
@@ -79,6 +86,13 @@ export const collectedNewsletters: Newsletter[] = [
     url: 'https://frontendfoc.us/', topics: ['Frontend', 'CSS', 'Accessibility'], publicationDay: 3,
     scheduleBasis: 'recent-archive', scheduleSource: 'https://frontendfoc.us/issues',
     scheduleNote: 'Issues 764, 763, and 762 are dated Wednesday 2026-10-28, 2026-10-21, and 2026-10-14.',
+  },
+  {
+    ...reviewed, id: 'postgres-weekly', name: 'Postgres Weekly', monogram: 'PG',
+    description: 'PostgreSQL news, performance tuning, internals, and ecosystem tools selected by Cooperpress.',
+    url: 'https://postgresweekly.com/', topics: ['PostgreSQL', 'Databases', 'Development'], publicationDay: 3,
+    scheduleCheckedAt: '2026-11-19', scheduleBasis: 'recent-archive', scheduleSource: 'https://postgresweekly.com/rss/',
+    scheduleNote: 'Issues dated 2026-11-11, 2026-11-04, 2026-10-28, and 2026-10-21 are Wednesdays.',
   },
   {
     ...reviewed, id: 'node-weekly', name: 'Node Weekly', monogram: 'N',
@@ -144,6 +158,20 @@ export const collectedNewsletters: Newsletter[] = [
     scheduleNote: 'Issues 727, 726, and 725 are dated Friday 2026-10-30, 2026-10-23, and 2026-10-16.',
   },
   {
+    ...reviewed, id: 'django-news', name: 'Django News', monogram: 'DJ',
+    description: 'Weekly Django and Python releases, articles, packages, and community updates.',
+    url: 'https://django-news.com/', topics: ['Django', 'Python', 'Development'], publicationDay: 5,
+    scheduleCheckedAt: '2026-11-19', scheduleBasis: 'recent-archive', scheduleSource: 'https://django-news.com/issues.rss',
+    scheduleNote: 'Issues 363, 362, 361, and 360 are dated Friday 2026-11-13, 2026-11-06, 2026-10-30, and 2026-10-23.',
+  },
+  {
+    ...reviewed, id: 'this-week-in-matrix', name: 'This Week in Matrix', monogram: 'MX',
+    description: 'Decentralized communication, Matrix protocol updates, clients, bridges, and open-source ecosystem news.',
+    url: 'https://matrix.org/blog/category/this-week-in-matrix/', topics: ['Matrix', 'Open source', 'Protocols'], publicationDay: 5,
+    scheduleCheckedAt: '2026-11-19', scheduleBasis: 'recent-archive', scheduleSource: 'https://matrix.org/atom.xml',
+    scheduleNote: 'Regular TWIM editions dated 2026-11-13, 2026-11-06, and 2026-10-30 are Fridays.',
+  },
+  {
     ...reviewed, id: 'ramis-data-newsletter', name: 'Rami’s Data Newsletter', monogram: 'RD',
     description: 'AI, data science, engineering projects, learning resources, and a weekly book pick.',
     url: 'https://ramikrispin.substack.com/', topics: ['AI', 'Data science', 'Engineering'], publicationDay: 6,
@@ -156,6 +184,13 @@ export const collectedNewsletters: Newsletter[] = [
     url: 'https://weekly.thingelstad.com/', topics: ['Technology', 'Culture', 'Life'], publicationDay: 6,
     scheduleBasis: 'publisher-stated', scheduleSource: 'https://weekly.thingelstad.com/faq/',
     scheduleNote: 'The FAQ says most weekends, typically Saturday at 7 a.m. Central, with summer and winter breaks. Recent issues on 2026-10-24, 2026-10-10, and 2026-10-03 are Saturdays.',
+  },
+  {
+    ...reviewed, id: 'this-week-in-plasma', name: 'This Week in Plasma', monogram: 'KD',
+    description: 'Weekly progress across KDE Plasma, Linux desktop engineering, UI improvements, and bug fixes.',
+    url: 'https://blogs.kde.org/categories/this-week-in-plasma/', topics: ['KDE', 'Linux', 'Open source'], publicationDay: 6,
+    scheduleCheckedAt: '2026-11-19', scheduleBasis: 'recent-archive', scheduleSource: 'https://blogs.kde.org/categories/this-week-in-plasma/index.xml',
+    scheduleNote: 'Editions dated 2026-11-14, 2026-11-07, 2026-10-31, and 2026-10-24 are Saturdays.',
   },
   {
     ...reviewed, id: 'android-weekly', name: 'Android Weekly', monogram: 'AN',
@@ -184,5 +219,19 @@ export const collectedNewsletters: Newsletter[] = [
     url: 'https://fs.blog/newsletter/', topics: ['Ideas', 'Learning', 'Life'], publicationDay: 0,
     scheduleBasis: 'publisher-stated', scheduleSource: 'https://fs.blog/newsletter/',
     scheduleNote: 'Farnam Street explicitly states every Sunday on its newsletter page.',
+  },
+  {
+    ...reviewed, id: 'recomendo', name: 'Recomendo', monogram: 'RC',
+    description: 'Six brief personal recommendations of useful tools, books, and everyday discoveries by Kevin Kelly, Mark Frauenfelder, and Claudia Dawson.',
+    url: 'https://www.recomendo.com/', topics: ['Tools', 'Ideas', 'Culture'], publicationDay: 0,
+    scheduleCheckedAt: '2026-11-19', scheduleBasis: 'recent-archive', scheduleSource: 'https://www.recomendo.com/feed',
+    scheduleNote: 'Issues dated 2026-11-15, 2026-11-08, 2026-11-01, and 2026-10-25 are Sundays.',
+  },
+  {
+    ...reviewed, id: 'register-spill', name: 'Register Spill', monogram: 'RS',
+    description: 'Software engineering, AI agents, curiosity, and weekly reading notes by Thorsten Ball.',
+    url: 'https://registerspill.thorstenball.com/', topics: ['Engineering', 'AI', 'Ideas'], publicationDay: 0,
+    scheduleCheckedAt: '2026-11-19', scheduleBasis: 'recent-archive', scheduleSource: 'https://registerspill.thorstenball.com/feed',
+    scheduleNote: 'Joy & Curiosity editions #106, #105, #104, and #103 are dated Sunday 2026-11-15, 2026-11-08, 2026-11-01, and 2026-10-25.',
   },
 ];

@@ -3,6 +3,7 @@ const taglineLines = ['make good weekly reading', 'easier to find.'] as const;
 export const site = {
   name: 'This Week In Newsletters',
   url: 'https://thisweeknewsletter.com',
+  repositoryUrl: 'https://github.com/z08-studio/this-week-newsletter',
   tagline: taglineLines.join(' '),
   taglineLines,
   description: 'Discover weekly newsletters by publication day. Browse handpicked reads on AI, programming, technology, design, and knowledge, with publication details and past issues.',

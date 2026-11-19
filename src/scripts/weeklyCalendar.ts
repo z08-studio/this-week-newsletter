@@ -216,4 +216,255 @@ if (calendar) {
   }
 
   hydrateRecentIssues();
+
+  // ------------------------------------------------------------------
+  // Slide-over Issue Reader Drawer
+  // ------------------------------------------------------------------
+  const issueDrawer = calendar.querySelector<HTMLElement>('[data-issue-drawer]');
+  const issueBackdrop = calendar.querySelector<HTMLElement>('[data-issue-backdrop]');
+  const closeDrawerBtn = calendar.querySelector<HTMLButtonElement>('[data-close-issue-drawer]');
+  const drawerPub = calendar.querySelector<HTMLElement>('[data-issue-pub]');
+  const drawerTitle = calendar.querySelector<HTMLElement>('[data-issue-title]');
+  const drawerDate = calendar.querySelector<HTMLElement>('[data-issue-date]');
+  const drawerExternal = calendar.querySelector<HTMLAnchorElement>('[data-issue-external]');
+  const drawerBody = calendar.querySelector<HTMLElement>('[data-issue-body]');
+
+  type IssueContentItem = { title: string; url: string; publishedAt?: string; html?: string };
+  type IssueContentPayload = { id: string; issues: IssueContentItem[] };
+  const issueContentCache = new Map<string, Promise<IssueContentPayload | null>>();
+  let lastIssueTrigger: HTMLElement | null = null;
+  let activeFetchToken = 0;
+
+  const ALLOWED_READER_TAGS = new Set([
+    'H1', 'H2', 'H3', 'H4', 'P', 'UL', 'OL', 'LI',
+    'BLOCKQUOTE', 'PRE', 'CODE', 'STRONG', 'B', 'EM', 'I',
+    'A', 'IMG', 'HR', 'BR', 'FIGURE', 'FIGCAPTION',
+  ]);
+
+  function createYouTubePreviewCard(videoId: string): HTMLElement {
+    const figure = document.createElement('figure');
+    figure.className = 'yt-preview';
+
+    const stage = document.createElement('div');
+    stage.className = 'yt-stage';
+
+    const thumb = document.createElement('img');
+    thumb.className = 'yt-thumb';
+    thumb.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+    thumb.alt = 'YouTube video preview';
+    thumb.loading = 'lazy';
+    thumb.decoding = 'async';
+    thumb.setAttribute('referrerpolicy', 'no-referrer');
+
+    const playBtn = document.createElement('button');
+    playBtn.type = 'button';
+    playBtn.className = 'yt-play-btn';
+    playBtn.setAttribute('aria-label', 'Play YouTube video');
+
+    const playIcon = document.createElement('span');
+    playIcon.className = 'yt-play-badge';
+    playIcon.setAttribute('aria-hidden', 'true');
+    playBtn.appendChild(playIcon);
+
+    playBtn.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.className = 'yt-iframe';
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.title = 'YouTube video player';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+      iframe.allowFullscreen = true;
+      stage.replaceChildren(iframe);
+    });
+
+    stage.append(thumb, playBtn);
+
+    const bar = document.createElement('figcaption');
+    bar.className = 'yt-caption';
+    const tag = document.createElement('span');
+    tag.className = 'yt-tag';
+    tag.textContent = 'YouTube Video';
+    const watchLink = document.createElement('a');
+    watchLink.className = 'yt-watch-link';
+    watchLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+    watchLink.target = '_blank';
+    watchLink.rel = 'noopener noreferrer';
+    watchLink.textContent = 'Watch on YouTube ↗';
+    bar.append(tag, watchLink);
+
+    figure.append(stage, bar);
+    return figure;
+  }
+
+  function appendSafeNodes(sourceParent: Node, targetParent: Node) {
+    for (const child of [...sourceParent.childNodes]) {
+      if (child.nodeType === Node.TEXT_NODE) {
+        targetParent.appendChild(document.createTextNode(child.textContent ?? ''));
+        continue;
+      }
+      if (child.nodeType !== Node.ELEMENT_NODE) continue;
+      const el = child as HTMLElement;
+      const tag = el.tagName.toUpperCase();
+
+      if (!ALLOWED_READER_TAGS.has(tag)) {
+        appendSafeNodes(el, targetParent);
+        continue;
+      }
+
+      if (tag === 'FIGURE') {
+        const ytId = el.getAttribute('data-youtube-id') ?? '';
+        if (/^[A-Za-z0-9_-]{11}$/.test(ytId)) {
+          targetParent.appendChild(createYouTubePreviewCard(ytId));
+          continue;
+        }
+      }
+
+      const safeEl = document.createElement(tag.toLowerCase());
+      if (tag === 'A') {
+        const href = el.getAttribute('href') ?? '';
+        if (!href.startsWith('https://') && !href.startsWith('http://')) {
+          appendSafeNodes(el, targetParent);
+          continue;
+        }
+        safeEl.setAttribute('href', href);
+        safeEl.setAttribute('target', '_blank');
+        safeEl.setAttribute('rel', 'noopener noreferrer');
+      } else if (tag === 'IMG') {
+        const src = el.getAttribute('src') ?? '';
+        if (!src.startsWith('https://')) continue;
+        safeEl.setAttribute('src', src);
+        safeEl.setAttribute('alt', el.getAttribute('alt') ?? '');
+        safeEl.setAttribute('loading', 'lazy');
+        safeEl.setAttribute('decoding', 'async');
+        safeEl.setAttribute('referrerpolicy', 'no-referrer');
+        safeEl.addEventListener('error', () => safeEl.remove(), { once: true });
+      }
+
+      appendSafeNodes(el, safeEl);
+      targetParent.appendChild(safeEl);
+    }
+  }
+
+  function renderFallbackCard(description: string, url: string) {
+    if (!drawerBody) return;
+    const box = document.createElement('div');
+    box.className = 'issue-reader-fallback';
+    const note = document.createElement('p');
+    note.className = 'fallback-desc';
+    note.textContent = description || 'This publication hosts its full issue directly on its website.';
+    const hint = document.createElement('p');
+    hint.className = 'fallback-hint';
+    hint.textContent = 'Full inline text is not provided in this publication’s public feed. You can read the complete issue on the publisher’s site.';
+    const cta = document.createElement('a');
+    cta.className = 'publication-link';
+    cta.href = url;
+    cta.target = '_blank';
+    cta.rel = 'noopener noreferrer';
+    const label = document.createElement('span');
+    label.textContent = 'Open full issue on publisher site';
+    const arrow = document.createElement('span');
+    arrow.className = 'arrow-icon';
+    arrow.setAttribute('aria-hidden', 'true');
+    cta.append(label, arrow);
+    box.append(note, hint, cta);
+    drawerBody.replaceChildren(box);
+  }
+
+  function fetchIssueContent(newsletterId: string): Promise<IssueContentPayload | null> {
+    if (!issueContentCache.has(newsletterId)) {
+      const promise = fetch(`/data/issues/${encodeURIComponent(newsletterId)}.json`)
+        .then((res) => (res.ok ? (res.json() as Promise<IssueContentPayload>) : null))
+        .catch(() => null);
+      issueContentCache.set(newsletterId, promise);
+    }
+    return issueContentCache.get(newsletterId)!;
+  }
+
+  async function openIssueDrawer(link: HTMLAnchorElement) {
+    if (!issueDrawer || !drawerBody) return;
+    const newsletterId = link.dataset.newsletterId ?? '';
+    const issueUrl = link.href;
+    const panel = link.closest<HTMLElement>('[data-newsletter-panel]');
+    const pubName = panel?.querySelector('h2')?.textContent?.trim() ?? '';
+    const pubDesc = panel?.querySelector('.detail-description')?.textContent?.trim() ?? '';
+    const issueTitleText = link.querySelector('.issue-title')?.textContent?.trim() || link.title || pubName;
+    const issueDateText = link.querySelector('time')?.textContent?.trim() ?? '';
+
+    lastIssueTrigger = link;
+    if (drawerPub) drawerPub.textContent = pubName;
+    if (drawerTitle) drawerTitle.textContent = issueTitleText;
+    if (drawerDate) {
+      drawerDate.textContent = issueDateText;
+      drawerDate.hidden = !issueDateText;
+    }
+    if (drawerExternal) {
+      drawerExternal.href = issueUrl;
+      drawerExternal.dataset.newsletterId = newsletterId;
+      drawerExternal.dataset.newsletterLink = 'issue';
+    }
+
+    const loading = document.createElement('div');
+    loading.className = 'issue-reader-loading';
+    loading.textContent = 'Loading issue content…';
+    drawerBody.replaceChildren(loading);
+
+    if (issueBackdrop) issueBackdrop.hidden = false;
+    issueDrawer.hidden = false;
+    issueDrawer.scrollTop = 0;
+    drawerBody.scrollTop = 0;
+    document.body.classList.add('issue-drawer-open');
+    drawerTitle?.focus({ preventScroll: true });
+
+    const token = ++activeFetchToken;
+    const payload = await fetchIssueContent(newsletterId);
+    if (token !== activeFetchToken) return;
+
+    const cleanUrl = (u: string) => u.replace(/\/+$/, '');
+    const matched = payload?.issues?.find((item) => cleanUrl(item.url) === cleanUrl(issueUrl))
+      ?? payload?.issues?.find((item) => item.title === link.title);
+
+    const rawHtml = matched?.html?.trim() ?? '';
+    if (rawHtml.length >= 100) {
+      const parsed = new DOMParser().parseFromString(`<div>${rawHtml}</div>`, 'text/html');
+      const prose = document.createElement('article');
+      prose.className = 'issue-reader-prose';
+      appendSafeNodes(parsed.body.firstChild ?? parsed.body, prose);
+      if ((prose.textContent?.trim().length ?? 0) >= 60) {
+        drawerBody.replaceChildren(prose);
+        return;
+      }
+    }
+    renderFallbackCard(pubDesc, issueUrl);
+  }
+
+  function closeIssueDrawer() {
+    if (!issueDrawer || issueDrawer.hidden) return;
+    activeFetchToken += 1;
+    issueDrawer.hidden = true;
+    if (issueBackdrop) issueBackdrop.hidden = true;
+    document.body.classList.remove('issue-drawer-open');
+    if (lastIssueTrigger) {
+      lastIssueTrigger.focus({ preventScroll: true });
+      lastIssueTrigger = null;
+    }
+  }
+
+  calendar.addEventListener('click', (event) => {
+    const mouse = event as MouseEvent;
+    if (mouse.defaultPrevented || mouse.button !== 0 || mouse.metaKey || mouse.ctrlKey || mouse.shiftKey || mouse.altKey) {
+      return;
+    }
+    const issueLink = (event.target as Element | null)?.closest<HTMLAnchorElement>('.recent-issues a[data-newsletter-link="issue"]');
+    if (!issueLink) return;
+    event.preventDefault();
+    openIssueDrawer(issueLink);
+  });
+
+  closeDrawerBtn?.addEventListener('click', closeIssueDrawer);
+  issueBackdrop?.addEventListener('click', closeIssueDrawer);
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && issueDrawer && !issueDrawer.hidden) {
+      event.preventDefault();
+      closeIssueDrawer();
+    }
+  });
 }

@@ -1,0 +1,24 @@
+{
+  "id": "console",
+  "checkedAt": "2026-11-05",
+  "issues": [
+    {
+      "title": "Atuin Threads, Namespace Devbox",
+      "url": "https://console.dev/newsletter/2026-10-29",
+      "publishedAt": "2026-10-29",
+      "html": "<h1>Console newsletter for October 29, 2026</h1><br><h2>Developer tools</h2><img src=\"https://console.dev/tool-icons/3e7efbcb665e550aa05e7cc33d800fc71af6d67bdf313401c7393fea9e301fec\" alt=\"\" loading=\"lazy\" decoding=\"async\"><h3><a href=\"https://console.dev/tools/atuin-threads#review_3c8bee7832616987de8ee3d9fb912d7c13a5047e30c83b8a1e1e233b88bfd824\" target=\"_blank\" rel=\"noopener noreferrer\">Atuin Threads</a></h3><br><p>Searchable agent session history.</p><p><a href=\"https://console.dev/tools/atuin-threads#review_3c8bee7832616987de8ee3d9fb912d7c13a5047e30c83b8a1e1e233b88bfd824\" target=\"_blank\" rel=\"noopener noreferrer\">Read the review</a><a href=\"https://blog.atuin.sh/threads-agent-sessions/?ref=console.dev\" target=\"_blank\" rel=\"noopener noreferrer\">Visit website</a></p>"
+    },
+    {
+      "title": "Pele, KiviDB",
+      "url": "https://console.dev/newsletter/2026-10-22",
+      "publishedAt": "2026-10-22",
+      "html": "<h1>Console newsletter for October 22, 2026</h1><br><h2>Developer tools</h2><h3><a href=\"https://console.dev/tools/pele#review_ac28cd3421658b7a58da32c1e80211bd9963fdf0aff5e5f6a12c110d1a99fb38\" target=\"_blank\" rel=\"noopener noreferrer\">Pele</a></h3><br><p>Mermaid diagram render.</p><p><a href=\"https://console.dev/tools/pele#review_ac28cd3421658b7a58da32c1e80211bd9963fdf0aff5e5f6a12c110d1a99fb38\" target=\"_blank\" rel=\"noopener noreferrer\">Read the review</a><a href=\"https://pele.run/?ref=console.dev\" target=\"_blank\" rel=\"noopener noreferrer\">Visit website</a></p>"
+    },
+    {
+      "title": "WorkOS, GoNIX",
+      "url": "https://console.dev/newsletter/2026-10-15",
+      "publishedAt": "2026-10-15",
+      "html": "<h1>Console newsletter for October 15, 2026</h1><br><h2>Developer tools</h2><img src=\"https://console.dev/tool-icons/71f6cd541bb9ff393cc675e8433284107de1ab87e9ce3b8ffbd9d42a96c6b1bc\" alt=\"\" loading=\"lazy\" decoding=\"async\"><h3><a href=\"https://console.dev/tools/workos#review_ec3c0336580944e5633387db455e2d515d884ccf0db308dd8fbbe8c9af62d827\" target=\"_blank\" rel=\"noopener noreferrer\">WorkOS</a></h3><br><p>Auth and access control.</p><p><a href=\"https://console.dev/tools/workos#review_ec3c0336580944e5633387db455e2d515d884ccf0db308dd8fbbe8c9af62d827\" target=\"_blank\" rel=\"noopener noreferrer\">Read the review</a><a href=\"https://workos.com/?ref=console.dev\" target=\"_blank\" rel=\"noopener noreferrer\">Visit website</a></p>"
+    }
+  ]
+}

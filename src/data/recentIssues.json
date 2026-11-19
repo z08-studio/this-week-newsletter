@@ -21,6 +21,28 @@
     ],
     "archiveUrl": "https://androidweekly.net/archive"
   },
+  "architecture-weekly": {
+    "checkedAt": "2026-11-19",
+    "sourceUrl": "https://www.architecture-weekly.com/feed",
+    "archiveUrl": "https://www.architecture-weekly.com/archive",
+    "issues": [
+      {
+        "title": "Make the change easy, then make the easy change",
+        "url": "https://www.architecture-weekly.com/p/make-the-change-easy-then-make-the",
+        "publishedAt": "2026-11-16"
+      },
+      {
+        "title": "On EventStorming, collaboration, LLMs and how to glue that",
+        "url": "https://www.architecture-weekly.com/p/on-eventstorming-collaboration-llms",
+        "publishedAt": "2026-11-09"
+      },
+      {
+        "title": "Thoughts on Dynamic Consistency Boundary",
+        "url": "https://www.architecture-weekly.com/p/thoughts-on-dynamic-consistency-boundary",
+        "publishedAt": "2026-10-19"
+      }
+    ]
+  },
   "benedict-evans": {
     "checkedAt": "2026-11-05",
     "sourceUrl": "https://www.ben-evans.com/newsletter",
@@ -127,24 +149,46 @@
     "issues": [],
     "archiveUrl": "https://www.densediscovery.com/issues/"
   },
+  "django-news": {
+    "checkedAt": "2026-11-19",
+    "sourceUrl": "https://django-news.com/issues.rss",
+    "archiveUrl": "https://django-news.com/issues",
+    "issues": [
+      {
+        "title": "Issue 363: Wagtail's new API",
+        "url": "https://django-news.com/archive/issue-363-wagtails-new-api/",
+        "publishedAt": "2026-11-13"
+      },
+      {
+        "title": "Issue 362: Django 6.1.3, 6.0.10, and 5.2.19 Security Releases",
+        "url": "https://django-news.com/archive/issue-362-django-613-6010-and-5219-security/",
+        "publishedAt": "2026-11-06"
+      },
+      {
+        "title": "Issue 361: DjangoCon Europe and DjangoCon US 2026 Videos Are Out",
+        "url": "https://django-news.com/archive/issue-361-djangocon-europe-and-djangocon-us-2026/",
+        "publishedAt": "2026-10-30"
+      }
+    ]
+  },
   "frontend-focus": {
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-19",
     "sourceUrl": "https://frontendfoc.us/rss/",
     "issues": [
       {
-        "title": "Safari will 'dark mode' your site…",
+        "title": "What developers think of HTML right now",
+        "url": "https://frontendfoc.us/issues/767",
+        "publishedAt": "2026-11-18"
+      },
+      {
+        "title": "Responsive design is more than resizing a window",
+        "url": "https://frontendfoc.us/issues/766",
+        "publishedAt": "2026-11-11"
+      },
+      {
+        "title": "Safari will 'dark mode' your site for you",
         "url": "https://frontendfoc.us/issues/765",
         "publishedAt": "2026-11-04"
-      },
-      {
-        "title": "The spyware hiding in old script…",
-        "url": "https://frontendfoc.us/issues/764",
-        "publishedAt": "2026-10-28"
-      },
-      {
-        "title": "Ten CSS features worth voting for",
-        "url": "https://frontendfoc.us/issues/763",
-        "publishedAt": "2026-10-21"
       }
     ],
     "archiveUrl": "https://frontendfoc.us/issues"
@@ -318,6 +362,28 @@
     ],
     "archiveUrl": "https://nodeweekly.com/issues"
   },
+  "postgres-weekly": {
+    "checkedAt": "2026-11-19",
+    "sourceUrl": "https://postgresweekly.com/rss/",
+    "archiveUrl": "https://postgresweekly.com/issues",
+    "issues": [
+      {
+        "title": "What a random primary key costs in Postgres",
+        "url": "https://postgresweekly.com/issues/673",
+        "publishedAt": "2026-11-11"
+      },
+      {
+        "title": "Postgres 19's built-in bloat cleanup",
+        "url": "https://postgresweekly.com/issues/672",
+        "publishedAt": "2026-11-04"
+      },
+      {
+        "title": "Why a DBA said no to one column",
+        "url": "https://postgresweekly.com/issues/671",
+        "publishedAt": "2026-10-28"
+      }
+    ]
+  },
   "pycoders-weekly": {
     "checkedAt": "2026-11-05",
     "sourceUrl": "https://pycoders.com/feed/xOKKGViv",
@@ -340,23 +406,23 @@
     ]
   },
   "r-weekly": {
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-19",
     "sourceUrl": "https://rweekly.org/atom.xml",
     "issues": [
       {
-        "title": "R Weekly 2026-W45 safeconduct and r2parquet,…",
+        "title": "R Weekly 2026-W47 Friction Worth Keeping, Balloon Accidents, Semantic Segmentation",
+        "url": "https://rweekly.org/2026-W47.html",
+        "publishedAt": "2026-11-16"
+      },
+      {
+        "title": "R Weekly 2026-W46 Mizu, MCP, Modelling",
+        "url": "https://rweekly.org/2026-W46.html",
+        "publishedAt": "2026-11-09"
+      },
+      {
+        "title": "R Weekly 2026-W45 safeconduct and r2parquet, interactive charts, on message and on brand",
         "url": "https://rweekly.org/2026-W45.html",
         "publishedAt": "2026-11-02"
-      },
-      {
-        "title": "R Weekly 2026-W44 15 yrs of…",
-        "url": "https://rweekly.org/2026-W44.html",
-        "publishedAt": "2026-10-26"
-      },
-      {
-        "title": "R Weekly 2026-W43 R Core Contribution,…",
-        "url": "https://rweekly.org/2026-W43.html",
-        "publishedAt": "2026-10-19"
       }
     ],
     "archiveUrl": "https://rweekly.org/archive"
@@ -404,6 +470,50 @@
       }
     ],
     "archiveUrl": "https://react.statuscode.com/issues"
+  },
+  "recomendo": {
+    "checkedAt": "2026-11-19",
+    "sourceUrl": "https://www.recomendo.com/feed",
+    "archiveUrl": "https://www.recomendo.com/archive",
+    "issues": [
+      {
+        "title": "Roads / Cardboard Construction Toys / Quick fix for leaks",
+        "url": "https://www.recomendo.com/p/roads-cardboard-construction-toys",
+        "publishedAt": "2026-11-15"
+      },
+      {
+        "title": "Design Prompts / RetroCodex / Sunshine Atlas",
+        "url": "https://www.recomendo.com/p/design-prompts-retrocodex-sunshine",
+        "publishedAt": "2026-11-08"
+      },
+      {
+        "title": "Retro Recomendo: Destinations Vol. 2",
+        "url": "https://www.recomendo.com/p/retro-recomendo-destinations-vol",
+        "publishedAt": "2026-11-01"
+      }
+    ]
+  },
+  "register-spill": {
+    "checkedAt": "2026-11-19",
+    "sourceUrl": "https://registerspill.thorstenball.com/feed",
+    "archiveUrl": "https://registerspill.thorstenball.com/archive",
+    "issues": [
+      {
+        "title": "Joy & Curiosity #106",
+        "url": "https://registerspill.thorstenball.com/p/joy-and-curiosity-106",
+        "publishedAt": "2026-11-15"
+      },
+      {
+        "title": "Joy & Curiosity #105",
+        "url": "https://registerspill.thorstenball.com/p/joy-and-curiosity-105",
+        "publishedAt": "2026-11-08"
+      },
+      {
+        "title": "Joy & Curiosity #104",
+        "url": "https://registerspill.thorstenball.com/p/joy-and-curiosity-104",
+        "publishedAt": "2026-11-01"
+      }
+    ]
   },
   "ruanyifeng-weekly": {
     "checkedAt": "2026-11-05",
@@ -546,6 +656,28 @@
     ],
     "archiveUrl": "https://thisweekinhn.substack.com/archive"
   },
+  "this-week-in-matrix": {
+    "checkedAt": "2026-11-19",
+    "sourceUrl": "https://matrix.org/atom.xml",
+    "archiveUrl": "https://matrix.org/blog/category/this-week-in-matrix/",
+    "issues": [
+      {
+        "title": "This Week in Matrix 2026-11-13",
+        "url": "https://matrix.org/blog/2026/11/13/this-week-in-matrix-2026-11-13/",
+        "publishedAt": "2026-11-13"
+      },
+      {
+        "title": "This Week in Matrix 2026-11-06",
+        "url": "https://matrix.org/blog/2026/11/06/this-week-in-matrix-2026-11-06/",
+        "publishedAt": "2026-11-06"
+      },
+      {
+        "title": "This Week in Matrix 2026-10-30",
+        "url": "https://matrix.org/blog/2026/10/30/this-week-in-matrix-2026-10-30/",
+        "publishedAt": "2026-10-30"
+      }
+    ]
+  },
   "this-week-in-obsidian": {
     "checkedAt": "2026-11-19",
     "sourceUrl": "https://thisweekinobsidian.substack.com/feed",
@@ -567,6 +699,28 @@
       }
     ],
     "archiveUrl": "https://thisweekinobsidian.substack.com/archive"
+  },
+  "this-week-in-plasma": {
+    "checkedAt": "2026-11-19",
+    "sourceUrl": "https://blogs.kde.org/categories/this-week-in-plasma/index.xml",
+    "archiveUrl": "https://blogs.kde.org/categories/this-week-in-plasma/",
+    "issues": [
+      {
+        "title": "This Week in Plasma: XWayland On Demand",
+        "url": "https://blogs.kde.org/2026/11/14/this-week-in-plasma-xwayland-on-demand/",
+        "publishedAt": "2026-11-14"
+      },
+      {
+        "title": "This Week in Plasma: Widgets Widgets Widgets",
+        "url": "https://blogs.kde.org/2026/11/07/this-week-in-plasma-widgets-widgets-widgets/",
+        "publishedAt": "2026-11-07"
+      },
+      {
+        "title": "This Week in Plasma: An Avalanche of Performance Improvements and Bug Fixes",
+        "url": "https://blogs.kde.org/2026/10/31/this-week-in-plasma-an-avalanche-of-performance-improvements-and-bug-fixes/",
+        "publishedAt": "2026-10-31"
+      }
+    ]
   },
   "this-week-in-rust": {
     "checkedAt": "2026-11-19",
@@ -634,23 +788,23 @@
     "archiveUrl": "https://jamesclear.com/3-2-1"
   },
   "tw93-weekly": {
-    "checkedAt": "2026-11-05",
+    "checkedAt": "2026-11-19",
     "sourceUrl": "https://weekly.tw93.fun/rss.xml",
     "issues": [
+      {
+        "title": "第290期 - 见到李志",
+        "url": "https://weekly.tw93.fun/posts/290",
+        "publishedAt": "2026-11-16"
+      },
+      {
+        "title": "第289期 - 南京李志",
+        "url": "https://weekly.tw93.fun/posts/289",
+        "publishedAt": "2026-11-09"
+      },
       {
         "title": "第288期 - 偶遇小猫",
         "url": "https://weekly.tw93.fun/posts/288",
         "publishedAt": "2026-11-02"
-      },
-      {
-        "title": "第287期 - 杭州金桂",
-        "url": "https://weekly.tw93.fun/posts/287",
-        "publishedAt": "2026-10-26"
-      },
-      {
-        "title": "第286期 - 径山双溪",
-        "url": "https://weekly.tw93.fun/posts/286",
-        "publishedAt": "2026-10-19"
       }
     ]
   },
