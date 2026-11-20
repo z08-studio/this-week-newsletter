@@ -8,6 +8,8 @@ The initial snapshot was reviewed on 2026-11-05. After the HN update on 2026-11-
 
 Primary sources include the publishers' own RSS/Atom feeds, HTML archives, and the Mailchimp or Buttondown archive directly associated with the publication. All 85 destinations in the initial snapshot returned HTTP 200. Seventy-nine accepted HEAD requests, and six were checked with GET. The second issues of This Week in AI and This Week in HN, plus This Week in HN #03, were confirmed in their public feeds and checked with GET. Tw93's feed supplied trailing-slash URLs, and the snapshot stores the working canonical URLs without the final slash. The three Ruan Yifeng links were verified with GET because that site rejected HEAD requests.
 
+The HN #04 refresh on 2026-11-20 was verified in a public browser session. Its publication date, all 60 discussion links, and cover matched the local edition. Direct article and feed HTTP requests returned 403; the issue list and reader content use the verified published article.
+
 Special cases handled during review:
 
 - Console's main RSS includes sponsored tool destinations. The snapshot instead uses its real [newsletter archive](https://console.dev/newsletter) and dated issue pages.

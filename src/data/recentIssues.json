@@ -635,9 +635,14 @@
     "archiveUrl": "https://thatweekincrypto.substack.com/archive"
   },
   "this-week-in-hn": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://thisweekinhn.substack.com/feed",
     "issues": [
+      {
+        "title": "This Week in HN #04",
+        "url": "https://thisweekinhn.substack.com/p/this-week-in-hn-04",
+        "publishedAt": "2026-11-20"
+      },
       {
         "title": "This Week in HN #03",
         "url": "https://thisweekinhn.substack.com/p/this-week-in-hn-03",
@@ -647,11 +652,6 @@
         "title": "This Week in HN #02",
         "url": "https://thisweekinhn.substack.com/p/this-week-in-hn-02",
         "publishedAt": "2026-11-06"
-      },
-      {
-        "title": "This Week in HN #01",
-        "url": "https://thisweekinhn.substack.com/p/this-week-in-hn-01",
-        "publishedAt": "2026-10-30"
       }
     ],
     "archiveUrl": "https://thisweekinhn.substack.com/archive"
