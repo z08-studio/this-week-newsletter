@@ -22,7 +22,7 @@
     "archiveUrl": "https://androidweekly.net/archive"
   },
   "architecture-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://www.architecture-weekly.com/feed",
     "archiveUrl": "https://www.architecture-weekly.com/archive",
     "issues": [
@@ -78,7 +78,7 @@
     "archiveUrl": "https://fs.blog/brain-food/"
   },
   "changelog-news": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://changelog.com/news/feed",
     "issues": [
       {
@@ -172,7 +172,7 @@
     ]
   },
   "frontend-focus": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://frontendfoc.us/rss/",
     "issues": [
       {
@@ -194,7 +194,7 @@
     "archiveUrl": "https://frontendfoc.us/issues"
   },
   "go-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://golangweekly.com/rss/",
     "issues": [
       {
@@ -279,7 +279,7 @@
     "archiveUrl": "https://iosdevweekly.com/issues"
   },
   "javascript-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://javascriptweekly.com/rss/",
     "issues": [
       {
@@ -320,7 +320,7 @@
     "archiveUrl": "https://kotlinweekly.net/"
   },
   "llvm-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://llvmweekly.org/rss.xml",
     "issues": [
       {
@@ -341,9 +341,14 @@
     ]
   },
   "node-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://nodeweekly.com/rss/",
     "issues": [
+      {
+        "title": "Time-travel debugging for Node",
+        "url": "https://nodeweekly.com/issues/648",
+        "publishedAt": "2026-11-19"
+      },
       {
         "title": "22 Node, Bun and Deno stacks benchmarked",
         "url": "https://nodeweekly.com/issues/647",
@@ -353,20 +358,20 @@
         "title": "Node 27's first alpha brings breaking changes",
         "url": "https://nodeweekly.com/issues/646",
         "publishedAt": "2026-11-05"
-      },
-      {
-        "title": "Node security releases to fix a Brotli flaw",
-        "url": "https://nodeweekly.com/issues/645",
-        "publishedAt": "2026-10-29"
       }
     ],
     "archiveUrl": "https://nodeweekly.com/issues"
   },
   "postgres-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://postgresweekly.com/rss/",
     "archiveUrl": "https://postgresweekly.com/issues",
     "issues": [
+      {
+        "title": "Postgres 19 is here (GTA VI can wait)",
+        "url": "https://postgresweekly.com/issues/674",
+        "publishedAt": "2026-11-19"
+      },
       {
         "title": "What a random primary key costs in Postgres",
         "url": "https://postgresweekly.com/issues/673",
@@ -376,11 +381,6 @@
         "title": "Postgres 19's built-in bloat cleanup",
         "url": "https://postgresweekly.com/issues/672",
         "publishedAt": "2026-11-04"
-      },
-      {
-        "title": "Why a DBA said no to one column",
-        "url": "https://postgresweekly.com/issues/671",
-        "publishedAt": "2026-10-28"
       }
     ]
   },
@@ -406,7 +406,7 @@
     ]
   },
   "r-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://rweekly.org/atom.xml",
     "issues": [
       {
@@ -450,7 +450,7 @@
     "archiveUrl": "https://ramikrispin.substack.com/archive"
   },
   "react-status": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://react.statuscode.com/rss/",
     "issues": [
       {
@@ -472,7 +472,7 @@
     "archiveUrl": "https://react.statuscode.com/issues"
   },
   "recomendo": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://www.recomendo.com/feed",
     "archiveUrl": "https://www.recomendo.com/archive",
     "issues": [
@@ -494,7 +494,7 @@
     ]
   },
   "register-spill": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://registerspill.thorstenball.com/feed",
     "archiveUrl": "https://registerspill.thorstenball.com/archive",
     "issues": [
@@ -537,9 +537,14 @@
     ]
   },
   "ruby-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://rubyweekly.com/rss/",
     "issues": [
+      {
+        "title": "Ruby patches seven memory safety bugs",
+        "url": "https://rubyweekly.com/issues/827",
+        "publishedAt": "2026-11-19"
+      },
       {
         "title": "What's new in RubyGems and Bundler 4.1",
         "url": "https://rubyweekly.com/issues/826",
@@ -549,11 +554,6 @@
         "title": "Patch Rails now: 21 security fixes in one release",
         "url": "https://rubyweekly.com/issues/825",
         "publishedAt": "2026-11-05"
-      },
-      {
-        "title": "How fast can you actually patch Ruby?",
-        "url": "https://rubyweekly.com/issues/824",
-        "publishedAt": "2026-10-29"
       }
     ],
     "archiveUrl": "https://rubyweekly.com/issues"
@@ -578,7 +578,7 @@
     "archiveUrl": "https://softwareleadweekly.com/issues/"
   },
   "sre-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://sreweekly.com/feed/",
     "issues": [
       {
@@ -657,7 +657,7 @@
     "archiveUrl": "https://thisweekinhn.substack.com/archive"
   },
   "this-week-in-matrix": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://matrix.org/atom.xml",
     "archiveUrl": "https://matrix.org/blog/category/this-week-in-matrix/",
     "issues": [
@@ -701,7 +701,7 @@
     "archiveUrl": "https://thisweekinobsidian.substack.com/archive"
   },
   "this-week-in-plasma": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://blogs.kde.org/categories/this-week-in-plasma/index.xml",
     "archiveUrl": "https://blogs.kde.org/categories/this-week-in-plasma/",
     "issues": [
@@ -723,7 +723,7 @@
     ]
   },
   "this-week-in-rust": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://this-week-in-rust.org/rss.xml",
     "issues": [
       {
@@ -788,7 +788,7 @@
     "archiveUrl": "https://jamesclear.com/3-2-1"
   },
   "tw93-weekly": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://weekly.tw93.fun/rss.xml",
     "issues": [
       {
@@ -809,7 +809,7 @@
     ]
   },
   "weekly-thing": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-20",
     "sourceUrl": "https://weekly.thingelstad.com/feed.xml",
     "issues": [
       {
