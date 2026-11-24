@@ -22,7 +22,7 @@
     "archiveUrl": "https://androidweekly.net/archive"
   },
   "architecture-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://www.architecture-weekly.com/feed",
     "archiveUrl": "https://www.architecture-weekly.com/archive",
     "issues": [
@@ -78,7 +78,7 @@
     "archiveUrl": "https://fs.blog/brain-food/"
   },
   "changelog-news": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://changelog.com/news/feed",
     "issues": [
       {
@@ -172,7 +172,7 @@
     ]
   },
   "frontend-focus": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://frontendfoc.us/rss/",
     "issues": [
       {
@@ -194,7 +194,7 @@
     "archiveUrl": "https://frontendfoc.us/issues"
   },
   "go-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://golangweekly.com/rss/",
     "issues": [
       {
@@ -279,7 +279,7 @@
     "archiveUrl": "https://iosdevweekly.com/issues"
   },
   "javascript-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://javascriptweekly.com/rss/",
     "issues": [
       {
@@ -320,9 +320,14 @@
     "archiveUrl": "https://kotlinweekly.net/"
   },
   "llvm-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://llvmweekly.org/rss.xml",
     "issues": [
+      {
+        "title": "LLVM Weekly - #673, November 23rd 2026",
+        "url": "https://llvmweekly.org/issue/673",
+        "publishedAt": "2026-11-23"
+      },
       {
         "title": "LLVM Weekly - #672, November 16th 2026",
         "url": "https://llvmweekly.org/issue/672",
@@ -332,16 +337,11 @@
         "title": "LLVM Weekly - #671, November 9th 2026",
         "url": "https://llvmweekly.org/issue/671",
         "publishedAt": "2026-11-09"
-      },
-      {
-        "title": "LLVM Weekly - #670, November 2nd 2026",
-        "url": "https://llvmweekly.org/issue/670",
-        "publishedAt": "2026-11-02"
       }
     ]
   },
   "node-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://nodeweekly.com/rss/",
     "issues": [
       {
@@ -363,7 +363,7 @@
     "archiveUrl": "https://nodeweekly.com/issues"
   },
   "postgres-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://postgresweekly.com/rss/",
     "archiveUrl": "https://postgresweekly.com/issues",
     "issues": [
@@ -406,7 +406,7 @@
     ]
   },
   "r-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://rweekly.org/atom.xml",
     "issues": [
       {
@@ -450,7 +450,7 @@
     "archiveUrl": "https://ramikrispin.substack.com/archive"
   },
   "react-status": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://react.statuscode.com/rss/",
     "issues": [
       {
@@ -472,7 +472,7 @@
     "archiveUrl": "https://react.statuscode.com/issues"
   },
   "recomendo": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://www.recomendo.com/feed",
     "archiveUrl": "https://www.recomendo.com/archive",
     "issues": [
@@ -494,7 +494,7 @@
     ]
   },
   "register-spill": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://registerspill.thorstenball.com/feed",
     "archiveUrl": "https://registerspill.thorstenball.com/archive",
     "issues": [
@@ -537,7 +537,7 @@
     ]
   },
   "ruby-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://rubyweekly.com/rss/",
     "issues": [
       {
@@ -578,7 +578,7 @@
     "archiveUrl": "https://softwareleadweekly.com/issues/"
   },
   "sre-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://sreweekly.com/feed/",
     "issues": [
       {
@@ -657,7 +657,7 @@
     "archiveUrl": "https://thisweekinhn.substack.com/archive"
   },
   "this-week-in-matrix": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://matrix.org/atom.xml",
     "archiveUrl": "https://matrix.org/blog/category/this-week-in-matrix/",
     "issues": [
@@ -701,7 +701,7 @@
     "archiveUrl": "https://thisweekinobsidian.substack.com/archive"
   },
   "this-week-in-plasma": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://blogs.kde.org/categories/this-week-in-plasma/index.xml",
     "archiveUrl": "https://blogs.kde.org/categories/this-week-in-plasma/",
     "issues": [
@@ -723,7 +723,7 @@
     ]
   },
   "this-week-in-rust": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://this-week-in-rust.org/rss.xml",
     "issues": [
       {
@@ -788,7 +788,7 @@
     "archiveUrl": "https://jamesclear.com/3-2-1"
   },
   "tw93-weekly": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://weekly.tw93.fun/rss.xml",
     "issues": [
       {
@@ -809,7 +809,7 @@
     ]
   },
   "weekly-thing": {
-    "checkedAt": "2026-11-23",
+    "checkedAt": "2026-11-24",
     "sourceUrl": "https://weekly.thingelstad.com/feed.xml",
     "issues": [
       {
