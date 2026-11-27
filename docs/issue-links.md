@@ -10,6 +10,8 @@ Primary sources include the publishers' own RSS/Atom feeds, HTML archives, and t
 
 The HN #04 refresh on 2026-11-20 was verified in a public browser session. Its publication date, all 60 discussion links, and cover matched the local edition. Direct article and feed HTTP requests returned 403; the issue list and reader content use the verified published article.
 
+The HN #05 refresh on 2026-11-27 uses the public article read in Chrome. Its publication timestamp, 60 discussion links, and cover were matched to the local edition. The archive and reader preserve the published text, including its typography.
+
 Special cases handled during review:
 
 - Console's main RSS includes sponsored tool destinations. The snapshot instead uses its real [newsletter archive](https://console.dev/newsletter) and dated issue pages.
