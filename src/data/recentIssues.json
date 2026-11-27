@@ -22,7 +22,7 @@
     "archiveUrl": "https://androidweekly.net/archive"
   },
   "architecture-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://www.architecture-weekly.com/feed",
     "archiveUrl": "https://www.architecture-weekly.com/archive",
     "issues": [
@@ -78,7 +78,7 @@
     "archiveUrl": "https://fs.blog/brain-food/"
   },
   "changelog-news": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://changelog.com/news/feed",
     "issues": [
       {
@@ -172,7 +172,7 @@
     ]
   },
   "frontend-focus": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://frontendfoc.us/rss/",
     "issues": [
       {
@@ -194,7 +194,7 @@
     "archiveUrl": "https://frontendfoc.us/issues"
   },
   "go-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://golangweekly.com/rss/",
     "issues": [
       {
@@ -235,9 +235,14 @@
     "archiveUrl": "https://buttondown.com/hacker-newsletter/archive/"
   },
   "import-ai": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://importai.substack.com/feed",
     "issues": [
+      {
+        "title": "Import AI 482: Huawei kernel benchmarks; airborne drone detection; and a national lab's AI science benchmark",
+        "url": "https://importai.substack.com/p/import-ai-482-huawei-kernel-benchmarks",
+        "publishedAt": "2026-11-23"
+      },
       {
         "title": "Import AI 481: AI sub-contractors; a wet lab for AI; and subterfuge during development",
         "url": "https://importai.substack.com/p/import-ai-481-ai-sub-contractors",
@@ -247,11 +252,6 @@
         "title": "Import AI 480: Self-sustaining space economies; AI for science progress, and Meta builds perfect hands for a superintelligence",
         "url": "https://importai.substack.com/p/import-ai-480-self-sustaining-space",
         "publishedAt": "2026-11-09"
-      },
-      {
-        "title": "Import AI 479: Spacewar; low-latency tasks versus LLMs; Genie 4",
-        "url": "https://importai.substack.com/p/import-ai-479-spacewar-low-latency",
-        "publishedAt": "2026-11-02"
       }
     ],
     "archiveUrl": "https://importai.substack.com/archive"
@@ -279,7 +279,7 @@
     "archiveUrl": "https://iosdevweekly.com/issues"
   },
   "javascript-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://javascriptweekly.com/rss/",
     "issues": [
       {
@@ -320,7 +320,7 @@
     "archiveUrl": "https://kotlinweekly.net/"
   },
   "llvm-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://llvmweekly.org/rss.xml",
     "issues": [
       {
@@ -341,9 +341,14 @@
     ]
   },
   "node-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://nodeweekly.com/rss/",
     "issues": [
+      {
+        "title": "node:sqlite marked stable",
+        "url": "https://nodeweekly.com/issues/649",
+        "publishedAt": "2026-11-26"
+      },
       {
         "title": "Time-travel debugging for Node",
         "url": "https://nodeweekly.com/issues/648",
@@ -353,17 +358,12 @@
         "title": "22 Node, Bun and Deno stacks benchmarked",
         "url": "https://nodeweekly.com/issues/647",
         "publishedAt": "2026-11-12"
-      },
-      {
-        "title": "Node 27's first alpha brings breaking changes",
-        "url": "https://nodeweekly.com/issues/646",
-        "publishedAt": "2026-11-05"
       }
     ],
     "archiveUrl": "https://nodeweekly.com/issues"
   },
   "postgres-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://postgresweekly.com/rss/",
     "archiveUrl": "https://postgresweekly.com/issues",
     "issues": [
@@ -406,7 +406,7 @@
     ]
   },
   "r-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://rweekly.org/atom.xml",
     "issues": [
       {
@@ -450,7 +450,7 @@
     "archiveUrl": "https://ramikrispin.substack.com/archive"
   },
   "react-status": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://react.statuscode.com/rss/",
     "issues": [
       {
@@ -472,7 +472,7 @@
     "archiveUrl": "https://react.statuscode.com/issues"
   },
   "recomendo": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://www.recomendo.com/feed",
     "archiveUrl": "https://www.recomendo.com/archive",
     "issues": [
@@ -494,7 +494,7 @@
     ]
   },
   "register-spill": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://registerspill.thorstenball.com/feed",
     "archiveUrl": "https://registerspill.thorstenball.com/archive",
     "issues": [
@@ -537,9 +537,14 @@
     ]
   },
   "ruby-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://rubyweekly.com/rss/",
     "issues": [
+      {
+        "title": "Do static types help coding agents with Ruby?",
+        "url": "https://rubyweekly.com/issues/828",
+        "publishedAt": "2026-11-26"
+      },
       {
         "title": "Ruby patches seven memory safety bugs",
         "url": "https://rubyweekly.com/issues/827",
@@ -549,11 +554,6 @@
         "title": "What's new in RubyGems and Bundler 4.1",
         "url": "https://rubyweekly.com/issues/826",
         "publishedAt": "2026-11-12"
-      },
-      {
-        "title": "Patch Rails now: 21 security fixes in one release",
-        "url": "https://rubyweekly.com/issues/825",
-        "publishedAt": "2026-11-05"
       }
     ],
     "archiveUrl": "https://rubyweekly.com/issues"
@@ -578,7 +578,7 @@
     "archiveUrl": "https://softwareleadweekly.com/issues/"
   },
   "sre-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://sreweekly.com/feed/",
     "issues": [
       {
@@ -596,9 +596,14 @@
     ]
   },
   "this-week-in-ai": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://thatweekinai.substack.com/feed",
     "issues": [
+      {
+        "title": "This Week in AI #04",
+        "url": "https://thatweekinai.substack.com/p/this-week-in-ai-04",
+        "publishedAt": "2026-11-23"
+      },
       {
         "title": "This Week in AI #03",
         "url": "https://thatweekinai.substack.com/p/this-week-in-ai-03",
@@ -608,19 +613,19 @@
         "title": "This Week in AI #02",
         "url": "https://thatweekinai.substack.com/p/this-week-in-ai-02",
         "publishedAt": "2026-11-09"
-      },
-      {
-        "title": "This Week in AI #01",
-        "url": "https://thatweekinai.substack.com/p/this-week-in-ai-01",
-        "publishedAt": "2026-11-02"
       }
     ],
     "archiveUrl": "https://thatweekinai.substack.com/archive"
   },
   "this-week-in-crypto": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://thatweekincrypto.substack.com/feed",
     "issues": [
+      {
+        "title": "This Week in Crypto #04",
+        "url": "https://thatweekincrypto.substack.com/p/this-week-in-crypto-04",
+        "publishedAt": "2026-11-26"
+      },
       {
         "title": "This Week in Crypto #02",
         "url": "https://thatweekincrypto.substack.com/p/this-week-in-crypto-02",
@@ -649,15 +654,15 @@
         "publishedAt": "2026-11-20"
       },
       {
-        "title": "This Week in HN #03",
-        "url": "https://thisweekinhn.substack.com/p/this-week-in-hn-03",
-        "publishedAt": "2026-11-13"
+        "title": "This Week in Crypto #03",
+        "url": "https://thisweekinhn.substack.com/p/this-week-in-crypto-03",
+        "publishedAt": "2026-11-19"
       }
     ],
     "archiveUrl": "https://thisweekinhn.substack.com/archive"
   },
   "this-week-in-matrix": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://matrix.org/atom.xml",
     "archiveUrl": "https://matrix.org/blog/category/this-week-in-matrix/",
     "issues": [
@@ -679,9 +684,14 @@
     ]
   },
   "this-week-in-obsidian": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://thisweekinobsidian.substack.com/feed",
     "issues": [
+      {
+        "title": "This Week in Obsidian #49",
+        "url": "https://thisweekinobsidian.substack.com/p/this-week-in-obsidian-49",
+        "publishedAt": "2026-11-24"
+      },
       {
         "title": "This Week in Obsidian #48",
         "url": "https://thisweekinobsidian.substack.com/p/this-week-in-obsidian-48",
@@ -691,17 +701,12 @@
         "title": "This Week in Obsidian #47",
         "url": "https://thisweekinobsidian.substack.com/p/this-week-in-obsidian-47",
         "publishedAt": "2026-11-10"
-      },
-      {
-        "title": "This Week in Obsidian #46",
-        "url": "https://thisweekinobsidian.substack.com/p/this-week-in-obsidian-46",
-        "publishedAt": "2026-11-03"
       }
     ],
     "archiveUrl": "https://thisweekinobsidian.substack.com/archive"
   },
   "this-week-in-plasma": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://blogs.kde.org/categories/this-week-in-plasma/index.xml",
     "archiveUrl": "https://blogs.kde.org/categories/this-week-in-plasma/",
     "issues": [
@@ -723,9 +728,14 @@
     ]
   },
   "this-week-in-rust": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://this-week-in-rust.org/rss.xml",
     "issues": [
+      {
+        "title": "This Week in Rust 679",
+        "url": "https://this-week-in-rust.org/blog/2026/11/25/this-week-in-rust-679/",
+        "publishedAt": "2026-11-25"
+      },
       {
         "title": "This Week in Rust 678",
         "url": "https://this-week-in-rust.org/blog/2026/11/18/this-week-in-rust-678/",
@@ -735,18 +745,18 @@
         "title": "This Week in Rust 677",
         "url": "https://this-week-in-rust.org/blog/2026/11/11/this-week-in-rust-677/",
         "publishedAt": "2026-11-11"
-      },
-      {
-        "title": "This Week in Rust 676",
-        "url": "https://this-week-in-rust.org/blog/2026/11/04/this-week-in-rust-676/",
-        "publishedAt": "2026-11-04"
       }
     ]
   },
   "this-week-in-skills": {
-    "checkedAt": "2026-11-19",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://thisweekinskills.substack.com/feed",
     "issues": [
+      {
+        "title": "This Week in Skills #04",
+        "url": "https://thisweekinskills.substack.com/p/this-week-in-skills-04",
+        "publishedAt": "2026-11-25"
+      },
       {
         "title": "This Week in Skills #03",
         "url": "https://thisweekinskills.substack.com/p/this-week-in-skills-03",
@@ -756,11 +766,6 @@
         "title": "This Week in Skills #02",
         "url": "https://thisweekinskills.substack.com/p/this-week-in-skills-02",
         "publishedAt": "2026-11-11"
-      },
-      {
-        "title": "This Week in Skills #01",
-        "url": "https://thisweekinskills.substack.com/p/this-week-in-skills-01",
-        "publishedAt": "2026-11-04"
       }
     ],
     "archiveUrl": "https://thisweekinskills.substack.com/archive"
@@ -788,7 +793,7 @@
     "archiveUrl": "https://jamesclear.com/3-2-1"
   },
   "tw93-weekly": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://weekly.tw93.fun/rss.xml",
     "issues": [
       {
@@ -809,7 +814,7 @@
     ]
   },
   "weekly-thing": {
-    "checkedAt": "2026-11-26",
+    "checkedAt": "2026-11-27",
     "sourceUrl": "https://weekly.thingelstad.com/feed.xml",
     "issues": [
       {
