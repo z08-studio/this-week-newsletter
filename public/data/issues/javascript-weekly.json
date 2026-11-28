@@ -1,6 +1,6 @@
 {
   "id": "javascript-weekly",
-  "checkedAt": "2026-11-27",
+  "checkedAt": "2026-11-28",
   "issues": [
     {
       "title": "Bundler-free npm imports in the browser",

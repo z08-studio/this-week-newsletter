@@ -1,6 +1,6 @@
 {
   "id": "postgres-weekly",
-  "checkedAt": "2026-11-27",
+  "checkedAt": "2026-11-28",
   "issues": [
     {
       "title": "Postgres 19 lands on your Mac (and in WASM)",

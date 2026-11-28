@@ -22,7 +22,7 @@
     "archiveUrl": "https://androidweekly.net/archive"
   },
   "architecture-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://www.architecture-weekly.com/feed",
     "archiveUrl": "https://www.architecture-weekly.com/archive",
     "issues": [
@@ -78,7 +78,7 @@
     "archiveUrl": "https://fs.blog/brain-food/"
   },
   "changelog-news": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://changelog.com/news/feed",
     "issues": [
       {
@@ -172,7 +172,7 @@
     ]
   },
   "frontend-focus": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://frontendfoc.us/rss/",
     "issues": [
       {
@@ -194,9 +194,14 @@
     "archiveUrl": "https://frontendfoc.us/issues"
   },
   "go-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://golangweekly.com/rss/",
     "issues": [
+      {
+        "title": "A mammoth tour of Go's tooling for 2026",
+        "url": "https://golangweekly.com/issues/626",
+        "publishedAt": "2026-11-27"
+      },
       {
         "title": "One Go GUI app, built five ways",
         "url": "https://golangweekly.com/issues/625",
@@ -206,11 +211,6 @@
         "title": "'Go aims to be a steady hand on the tiller.'",
         "url": "https://golangweekly.com/issues/624",
         "publishedAt": "2026-11-13"
-      },
-      {
-        "title": "The Go team explains Go's new JSON API",
-        "url": "https://golangweekly.com/issues/623",
-        "publishedAt": "2026-11-06"
       }
     ],
     "archiveUrl": "https://golangweekly.com/issues"
@@ -279,7 +279,7 @@
     "archiveUrl": "https://iosdevweekly.com/issues"
   },
   "javascript-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://javascriptweekly.com/rss/",
     "issues": [
       {
@@ -320,7 +320,7 @@
     "archiveUrl": "https://kotlinweekly.net/"
   },
   "llvm-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://llvmweekly.org/rss.xml",
     "issues": [
       {
@@ -341,7 +341,7 @@
     ]
   },
   "node-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://nodeweekly.com/rss/",
     "issues": [
       {
@@ -363,7 +363,7 @@
     "archiveUrl": "https://nodeweekly.com/issues"
   },
   "postgres-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://postgresweekly.com/rss/",
     "archiveUrl": "https://postgresweekly.com/issues",
     "issues": [
@@ -406,7 +406,7 @@
     ]
   },
   "r-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://rweekly.org/atom.xml",
     "issues": [
       {
@@ -450,9 +450,14 @@
     "archiveUrl": "https://ramikrispin.substack.com/archive"
   },
   "react-status": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://react.statuscode.com/rss/",
     "issues": [
+      {
+        "title": "Ricky Hanlon leaves Meta (but not React)",
+        "url": "https://react.statuscode.com/issues/499",
+        "publishedAt": "2026-11-27"
+      },
       {
         "title": "Why Next.js has had so many security advisories",
         "url": "https://react.statuscode.com/issues/498",
@@ -462,17 +467,12 @@
         "title": "shadcn's next thing: UI SDK",
         "url": "https://react.statuscode.com/issues/497",
         "publishedAt": "2026-11-13"
-      },
-      {
-        "title": "Redux Toolkit's road to 3.0",
-        "url": "https://react.statuscode.com/issues/496",
-        "publishedAt": "2026-11-06"
       }
     ],
     "archiveUrl": "https://react.statuscode.com/issues"
   },
   "recomendo": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://www.recomendo.com/feed",
     "archiveUrl": "https://www.recomendo.com/archive",
     "issues": [
@@ -494,7 +494,7 @@
     ]
   },
   "register-spill": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://registerspill.thorstenball.com/feed",
     "archiveUrl": "https://registerspill.thorstenball.com/archive",
     "issues": [
@@ -537,7 +537,7 @@
     ]
   },
   "ruby-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://rubyweekly.com/rss/",
     "issues": [
       {
@@ -578,7 +578,7 @@
     "archiveUrl": "https://softwareleadweekly.com/issues/"
   },
   "sre-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://sreweekly.com/feed/",
     "issues": [
       {
@@ -662,10 +662,15 @@
     "archiveUrl": "https://thisweekinhn.substack.com/archive"
   },
   "this-week-in-matrix": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://matrix.org/atom.xml",
     "archiveUrl": "https://matrix.org/blog/category/this-week-in-matrix/",
     "issues": [
+      {
+        "title": "This Week in Matrix 2026-11-27",
+        "url": "https://matrix.org/blog/2026/11/27/this-week-in-matrix-2026-11-27/",
+        "publishedAt": "2026-11-27"
+      },
       {
         "title": "This Week in Matrix 2026-11-20",
         "url": "https://matrix.org/blog/2026/11/20/this-week-in-matrix-2026-11-20/",
@@ -675,11 +680,6 @@
         "title": "This Week in Matrix 2026-11-13",
         "url": "https://matrix.org/blog/2026/11/13/this-week-in-matrix-2026-11-13/",
         "publishedAt": "2026-11-13"
-      },
-      {
-        "title": "This Week in Matrix 2026-11-06",
-        "url": "https://matrix.org/blog/2026/11/06/this-week-in-matrix-2026-11-06/",
-        "publishedAt": "2026-11-06"
       }
     ]
   },
@@ -706,10 +706,15 @@
     "archiveUrl": "https://thisweekinobsidian.substack.com/archive"
   },
   "this-week-in-plasma": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://blogs.kde.org/categories/this-week-in-plasma/index.xml",
     "archiveUrl": "https://blogs.kde.org/categories/this-week-in-plasma/",
     "issues": [
+      {
+        "title": "This Week in Plasma: Emoji On-Screen Keyboard",
+        "url": "https://blogs.kde.org/2026/11/28/this-week-in-plasma-emoji-on-screen-keyboard/",
+        "publishedAt": "2026-11-28"
+      },
       {
         "title": "This Week in Plasma: CJK Text Input and Performance",
         "url": "https://blogs.kde.org/2026/11/21/this-week-in-plasma-cjk-text-input-and-performance/",
@@ -719,16 +724,11 @@
         "title": "This Week in Plasma: XWayland On Demand",
         "url": "https://blogs.kde.org/2026/11/14/this-week-in-plasma-xwayland-on-demand/",
         "publishedAt": "2026-11-14"
-      },
-      {
-        "title": "This Week in Plasma: Widgets Widgets Widgets",
-        "url": "https://blogs.kde.org/2026/11/07/this-week-in-plasma-widgets-widgets-widgets/",
-        "publishedAt": "2026-11-07"
       }
     ]
   },
   "this-week-in-rust": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://this-week-in-rust.org/rss.xml",
     "issues": [
       {
@@ -793,7 +793,7 @@
     "archiveUrl": "https://jamesclear.com/3-2-1"
   },
   "tw93-weekly": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://weekly.tw93.fun/rss.xml",
     "issues": [
       {
@@ -814,7 +814,7 @@
     ]
   },
   "weekly-thing": {
-    "checkedAt": "2026-11-27",
+    "checkedAt": "2026-11-28",
     "sourceUrl": "https://weekly.thingelstad.com/feed.xml",
     "issues": [
       {
